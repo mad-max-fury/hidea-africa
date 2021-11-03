@@ -21,6 +21,7 @@
     font-weight: bold;
     border: none;
     padding: 1em 4em;
+    margin-top: .5em;
     border-radius: 6px;
     cursor: pointer;
     transition: 0.3s;
