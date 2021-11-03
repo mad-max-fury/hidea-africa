@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import "./fonts/airbnb-cereal-app-cufonfonts-webfont/style.css";
+import { Header } from './components/Header';
+import { Main } from './components/Main';
+import { Footer } from './components/Footer';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <span className="left-eclipse"></span>
+      <span className="right-eclipse"></span>
+      <Header />
+      <Main />
+      <Footer />
     </div>
   );
 }

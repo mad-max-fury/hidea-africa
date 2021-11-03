@@ -1,0 +1,44 @@
+.btn {
+    background-color: #030309;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 1em 2em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover,
+.btn:focus {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.btn-primary {
+    background-color: #030309;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 1em 4em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 600px) {
+    .btn {
+        font-size: .8em;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .btn-primary {
+        font-size: .8rem;
+    }
+}

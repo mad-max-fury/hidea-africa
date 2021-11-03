@@ -1,0 +1,31 @@
+.mail-form {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.form-group input {
+    width: 100%;
+    padding: 1em;
+    margin: .3em 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin-bottom: 1em;
+}
+
+@media screen and (max-width: 320px) {
+    .form-group input {
+        font-size: .8rem;
+        margin: .7em 0;
+    }
+}
