@@ -14,8 +14,9 @@
 
 .text-muted {
     display: flex;
+    font-weight: 500;
     align-items: center;
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.8);
 }
 
 .footer-right {
