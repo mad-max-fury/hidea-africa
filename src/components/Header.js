@@ -16,8 +16,8 @@ export const Header = () => {
                 <div className="menu">
                     <ul>
                         <li>
-                            <Mailto email="contact@hidea.africa" subject="Hello & Welcome" body="Hello world!">
-                                <Button className="btn" text="Contact" type="button" />
+                            <Mailto email="contact@hidea.africa" subject="Hello & Welcome" body="Hello...">
+                                <Button className="btn" text="Contact Us" type="button" />
                             </Mailto>
                         </li>
                     </ul>

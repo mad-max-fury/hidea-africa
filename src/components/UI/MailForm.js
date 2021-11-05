@@ -1,12 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import "./MailForm.css"
 import { Button } from './Button'
 import axios from 'axios'
+import { Modal } from './Modal'
 
 export const MailForm = () => {
     const [email, setEmail] = useState('')
     const [error, setError] = useState('')
     const [success, setSuccess] = useState("Notify me")
+    const [modal, setModal] = useState(false)
+
+    const handleShowModal = useCallback(() => {
+        setModal(true)
+    }, [])
+
+    const handleHideModal = useCallback(() => {
+        setModal(false)
+    }, [])
 
     const handleChange = (e) => {
         setEmail(e.target.value)
@@ -25,7 +35,7 @@ export const MailForm = () => {
                 .then(res => {
                     setEmail('')
                     setError('')
-                    setSuccess(res.data.message)
+                    handleShowModal()
                 })
                 .catch(err => {
                     setError('Something went wrong')
@@ -44,6 +54,7 @@ export const MailForm = () => {
                 {error && <div className="error">{error}</div>}
             </div>
             <Button className="btn-primary" text={success} type="submit" />
+            {modal && <Modal handleHideModal={handleHideModal} />}
         </form>
     )
 }
