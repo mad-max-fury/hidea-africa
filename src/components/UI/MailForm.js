@@ -1,13 +1,17 @@
 import React, { useState } from 'react'
 import "./MailForm.css"
 import { Button } from './Button'
+import axios from 'axios'
 
 export const MailForm = () => {
     const [email, setEmail] = useState('')
     const [error, setError] = useState('')
+    const [success, setSuccess] = useState("Notify me")
 
     const handleChange = (e) => {
         setEmail(e.target.value)
+        setSuccess("Notify me")
+        setError("")
     }
 
     const handleSubmit = (e) => {
@@ -17,10 +21,18 @@ export const MailForm = () => {
         } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
             setError('Please enter a valid email')
         } else {
-            setError('')
+            axios.post('https://hidea-backend-dev.herokuapp.com/api/waitlist', { email })
+                .then(res => {
+                    setEmail('')
+                    setError('')
+                    setSuccess(res.data.message)
+                })
+                .catch(err => {
+                    setError('Something went wrong')
+                })
         }
-        setEmail('')
     }
+
 
     return (
         <form className="mail-form" onSubmit={handleSubmit} >
@@ -31,7 +43,7 @@ export const MailForm = () => {
                     onChange={handleChange} />
                 {error && <div className="error">{error}</div>}
             </div>
-            <Button className="btn-primary" text="Notify me" type="submit" />
+            <Button className="btn-primary" text={success} type="submit" />
         </form>
     )
 }
