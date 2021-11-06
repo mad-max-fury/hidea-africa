@@ -26,7 +26,7 @@ export const Modal = ({ handleHideModal }) => {
                         <div className="mt-4 text-center md:text-center">
                             <p className="font-bold text-center">Success</p>
                             <p className="text-sm text-gray-700 mt-1">
-                                Email submited successfully. You'll get a mail from us when we lunch.
+                                Email submited successfully. You'll get a mail from us when we launch.
                             </p>
                         </div>
                     </div>
