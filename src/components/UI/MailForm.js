@@ -38,7 +38,7 @@ export const MailForm = () => {
                     handleShowModal()
                 })
                 .catch(err => {
-                    setError('Something went wrong')
+                    setError('Something went wrong, You can not submit the same email twice!')
                 })
         }
     }

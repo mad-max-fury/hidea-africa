@@ -13,7 +13,7 @@ export const Main = () => {
                     </div>
                     <div className="main-content__title">
                         <h1 className="title">If you can think it, <br /> you can sell it!</h1>
-                        <p className="subtitle">Get notified when <br /> we launch.</p>
+                        <p className="subtitle">Get notified when we launch.</p>
                     </div>
                     <MailForm />
                 </div>

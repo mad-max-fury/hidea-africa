@@ -53,12 +53,21 @@
 
     .footer-right {
         flex-direction: column;
+        order: 1;
     }
 
+    .text-muted {
+        order: 2;
+    }
 
 
     .footer-icons {
         align-items: center;
+        order: 2;
+    }
+
+    .footer-text {
+        order: 1;
     }
 
     .footer-icons a {
