@@ -27,9 +27,17 @@
     transition: 0.3s;
 }
 
+
+.btn-primary:disabled {
+    background-color: #5c5c5c;
+    color: #666666;
+    pointer-events: none;
+}
+
 .btn-primary:hover {
     cursor: pointer;
     transform: scale(1.03);
+    outline: none;
 }
 
 @media screen and (max-width: 600px) {

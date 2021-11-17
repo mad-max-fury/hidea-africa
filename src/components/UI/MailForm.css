@@ -3,9 +3,8 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+
 }
-
-
 
 .form-group input {
     width: 100%;
@@ -15,13 +14,43 @@
     border-radius: 4px;
     box-sizing: border-box;
     font-size: 1rem;
+    outline: none;
 }
+
 
 .error {
     color: red;
     font-size: 0.9rem;
     margin-bottom: 1em;
 }
+
+.loader {
+    border-top-color: #3498db;
+    -webkit-animation: spinner 1.5s linear infinite;
+    animation: spinner 1.5s linear infinite;
+    margin: auto;
+}
+
+@-webkit-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 
 @media screen and (max-width: 320px) {
     .form-group input {

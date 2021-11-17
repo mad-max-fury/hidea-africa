@@ -11,10 +11,10 @@ export const Modal = ({ handleHideModal }) => {
     }, []);
     return (
         <Fragment>
-            <div onClick={handleHideModal} className="fixed inset-0 bg-black opacity-50" />
+            <div onClick={handleHideModal} className="fixed inset-0 bg-black opacity-50 z-10" />
             <Portal>
 
-                <div className="bg-black opacity-25 w-full h-full absolute z-10 inset-0" />
+                <div className="bg-black opacity-25 w-full h-full absolute z-30 inset-0" onClick={handleHideModal} />
                 <div className="modal bg-white rounded-lg md:max-w-md md:mx-auto p-4 fixed inset-x-0 bottom-0 z-50 mb-4 mx-4 ">
                     <div className="flex-col items-center text-center justify-center">
                         <div className="rounded-full border border-green-500 flex items-center justify-center w-16 h-16 flex-shrink-0 mx-auto">
@@ -33,6 +33,8 @@ export const Modal = ({ handleHideModal }) => {
                     <div className="text-center md:text-center mt-4 md:flex md:justify-center">
                         <button
                             onClick={handleHideModal}
+                            type="button"
+                            onFocus={handleHideModal}
                             className="text-white block w-full md:inline-block px-4 py-3 bg-black rounded-md font-semibold text-sm mt-4 md:mt-0 md:order-1"
                         >Ok</button>
 
