@@ -1,21 +1,31 @@
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import "./fonts/airbnb-cereal-app-cufonfonts-webfont/style.css";
-import { Header } from './components/Header';
-import { Main } from './components/Main';
-import { Footer } from './components/Footer';
+import "./assets/fonts/airbnb-cereal-app-cufonfonts-webfont/style.css";
+
+import { Home } from './pages/home/Home';
+import { ComingSoon } from './pages/comingsoon/ComingSoon';
+import { SignUp } from './pages/signup/Signup';
+import { Login } from './pages/login/Login';
+import { ForgotPassword } from './pages/forgotPassword/ForgotPassword';
+import { NotFound } from './pages/404page/NotFound';
+import { ConfirmationPage } from './pages/confirmation/ConfirmationPage';
 
 
 function App() {
 
   return (
-    <div className="App">
-      <span className="left-eclipse"></span>
-      <span className="right-eclipse"></span>
-      <Header />
-      <Main />
-      <Footer />
-      
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/coming-soon" element={<ComingSoon />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/confirmation" element={<ConfirmationPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
