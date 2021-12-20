@@ -1,11 +1,13 @@
 import React from 'react'
+import './Welcome.css'
+
 import { Heading, Box, Container, Image, Grid, VStack, Button } from '@chakra-ui/react'
 
 import { Link as Rlink } from 'react-router-dom';
 
 
-import crypto from "../../assets/images/icons/crypto.svg"
-import mouse from "../../assets/images/icons/mouse.svg"
+import crypto from '../../assets/images/icons/crypto.svg'
+import mouse from '../../assets/images/icons/mouse.svg'
 
 
 
@@ -13,13 +15,13 @@ const Welcome = ()=> {
     return (
         <Box display={{md: "flex", sm: "block"}} width="full" height="100vh">
             {/* Left Box */}
-            <Box width={{md: "40%", sm: "100%"}} h="full"  bg="primary.100">
+            <Box className="aside-left" width={{md: "40%", sm: "100%"}} h="full"  bg="primary.100">
 
             </Box>
 
 
             {/* Right Box */}
-            <Box mt={{md: "0", sm: "78px"}} display="flex" justifyContent="center" alignItems="center" width={{md: "60%", sm: "100%"}} h="full" bg="#fff">
+            <Box mt={{md: "0", sm: "78px"}} mb={{md: "0", sm: "78px"}} display="flex" justifyContent="center" alignItems="center" width={{md: "60%", sm: "100%"}} h="full" bg="#fff">
 
                 <Container>
 
@@ -32,7 +34,7 @@ const Welcome = ()=> {
                         linkTxt="Learn more"
                         icon={crypto}
                         bg="#EAF9F0"
-                        btnBg="#2DC86D"
+                        btnBg="secondary.100"
                      />
                      <LearnMore
                         title="Pay per click"
@@ -51,9 +53,13 @@ const Welcome = ()=> {
                         btnBg="#C6A84D"
                      />
 
+                     {/* CTA BTN */}
+                    <Button mt="32px" w="full" bg="secondary.100" color="white">Get started</Button>
+
                 </Container>
 
             </Box>
+
             
             
         </Box>
@@ -75,7 +81,7 @@ const LearnMore = ({ title, caption, icon, linkTxt, linkTo, bg, btnBg }) => {
                 </VStack>
 
                 <VStack width="full" alignItems="flex-end" justifyContent="center">
-                    <Box width="60%">
+                    <Box width={{md: "60%", sm: "80%"}}>
                     <Rlink to="/" className='w-full' >
                         <Button
                             w="100%"
