@@ -19,14 +19,37 @@ const Welcome = ()=> {
 
 
             {/* Right Box */}
-            <Box display="flex" justifyContent="center" alignItems="center" width={{md: "60%", sm: "100%"}} h="full" bg="#fff">
+            <Box mt={{md: "0", sm: "78px"}} display="flex" justifyContent="center" alignItems="center" width={{md: "60%", sm: "100%"}} h="full" bg="#fff">
 
                 <Container>
 
                     <Heading>Welcome Allison,</Heading>
                     <p>Thank you for signing up to Hidea Africa</p>
 
-                    <LearnMore />
+                    <LearnMore
+                        title="How Singa coin works"
+                        caption="Digital currency for your transactions on Hidea."
+                        linkTxt="Learn more"
+                        icon={crypto}
+                        bg="#EAF9F0"
+                        btnBg="#2DC86D"
+                     />
+                     <LearnMore
+                        title="Pay per click"
+                        caption="Pay enterpreneurs singa coins to view ideas and idea pitch."
+                        linkTxt="View disclaimer"
+                        icon={mouse}
+                        bg="#E5F2F3"
+                        btnBg="#007C8A"
+                     />
+                     <LearnMore
+                        title="Pay per click"
+                        caption="Pay enterpreneurs singa coins to view ideas and idea pitch."
+                        linkTxt="View disclaimer"
+                        icon={mouse}
+                        bg="#F6F1E1"
+                        btnBg="#C6A84D"
+                     />
 
                 </Container>
 
@@ -39,30 +62,32 @@ const Welcome = ()=> {
 
 
 
-const LearnMore = ({}) => {
+const LearnMore = ({ title, caption, icon, linkTxt, linkTo, bg, btnBg }) => {
     return (
-        <Box display="flex" borderRadius="8px" py="16px" px="24px"  width="full" height="fit-content" bg="green.300">
+        <Box mt="24px" display="flex" borderRadius="8px" py="16px" px="24px"  width="full" height="fit-content" bg={ bg }>
 
             <Grid templateColumns="repeat(2, 1fr)">
 
                 <VStack alignItems="flex-start" width="full">
-                    <Image src={crypto} alt=""/>
-                    <Heading size="sm">How Singa coin works</Heading>
-                    <p>Digital currency for your transactions on Hidea.</p>
+                    <Image src={ icon } alt=""/>
+                    <Heading size="sm">{ title }</Heading>
+                    <p>{ caption }</p>
                 </VStack>
 
-                <VStack>
-                    <Rlink to="/signup" className='w-full' >
-                        <Button className="btn" type="button"
+                <VStack width="full" alignItems="flex-end" justifyContent="center">
+                    <Box width="60%">
+                    <Rlink to="/" className='w-full' >
+                        <Button
+                            w="100%"
+                            h="60px"
+                            fontWeight="400"
                             variant="filled"
-                            width={{ base: '100%', lg: '45%' }}
-                            mx={{ base: 0, lg: '.5rem' }}
-                            my={{ base: '.5rem', lg: '0' }}
-                            bg="#007AB9" size="xl" mw="full">
-                            <Icon name="arrow-right" mr={2} />
-                            Continue with linkedin
+                            color="white"
+                            bg={ btnBg }>
+                            { linkTxt }
                         </Button>
                     </Rlink>
+                    </Box>
                 </VStack>
 
             </Grid>
