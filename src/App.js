@@ -10,7 +10,7 @@ import { Login } from './pages/login/Login';
 import { ForgotPassword } from './pages/forgotPassword/ForgotPassword';
 import { NotFound } from './pages/404page/NotFound';
 import { ConfirmationPage } from './pages/confirmation/ConfirmationPage';
-
+import { Welcome } from "./pages"
 
 function App() {
 
@@ -23,6 +23,7 @@ function App() {
         <Route path="/confirmation" element={<ConfirmationPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/welcome" element={<Welcome />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
