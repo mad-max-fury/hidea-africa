@@ -71,6 +71,7 @@ const Welcome = ()=> {
 
 
 
+//LearnMore component
 const LearnMore = ({ title, caption, icon, linkTxt, linkTo, bg, btnBg }) => {
     return (
         <Box mt="24px" display="flex" borderRadius="8px" py="16px" px="24px"  width="full" height="fit-content" bg={ bg }>
