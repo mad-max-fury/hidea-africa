@@ -1,10 +1,11 @@
+import { Box, Heading, Text } from '@chakra-ui/react'
 import React from 'react'
 
 const Home = ()=> {
     return (
-        <div>
-            
-        </div>
+        <Box>
+            <Text>Welcome Allison,</Text>
+        </Box>
     )
 }
 
