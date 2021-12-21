@@ -9,13 +9,14 @@ import SettingIcon from '../../../assets/images/icons/icons-set/linear/setting-2
 import WalletIcon from '../../../assets/images/icons/icons-set/linear/wallet.svg'
 import IdeaPooolIcon from '../../../assets/images/icons/icons-set/linear/box.svg'
 import SupportIcon from '../../../assets/images/icons/icons-set/linear/device-message.svg'
+import MyIdeasIcon from '../../../assets/images/icons/icons-set/linear/lock.svg'
 
 
 const SideNav = ()=> {
 
     const [tabItems, setTabItems] = useState([
         {text: "Dashboard", TabIcon: DashboardIcon, active: true},
-        {text: "My ideas", TabIcon: IdeaPooolIcon, active: false},
+        {text: "My ideas", TabIcon: MyIdeasIcon, active: false},
         {text: "Ideas pool", TabIcon: IdeaPooolIcon, active: false},
         {text: "Wallet", TabIcon: AddIcon, active: false},
         {text: "Settings", TabIcon: AddIcon, active: false},
