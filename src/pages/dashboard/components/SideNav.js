@@ -4,19 +4,19 @@ import React, { useState } from 'react'
 
 import hideaLogo from "../../../assets/images/logo/Hidea-logo.svg"
 
-import CategoryIcon from '../../../assets/images/icons/icons-set/linear/category.svg'
+import DashboardIcon from '../../../assets/images/icons/icons-set/linear/category.svg'
 import SettingIcon from '../../../assets/images/icons/icons-set/linear/setting-2.svg'
 import WalletIcon from '../../../assets/images/icons/icons-set/linear/wallet.svg'
-import BoxIcon from '../../../assets/images/icons/icons-set/linear/box.svg'
-
+import IdeaPooolIcon from '../../../assets/images/icons/icons-set/linear/box.svg'
+import SupportIcon from '../../../assets/images/icons/icons-set/linear/device-message.svg'
 
 
 const SideNav = ()=> {
 
     const [tabItems, setTabItems] = useState([
-        {text: "Dashboard", TabIcon: AddIcon, active: true},
-        {text: "My ideas", TabIcon: AddIcon, active: false},
-        {text: "Ideas pool", TabIcon: AddIcon, active: false},
+        {text: "Dashboard", TabIcon: DashboardIcon, active: true},
+        {text: "My ideas", TabIcon: IdeaPooolIcon, active: false},
+        {text: "Ideas pool", TabIcon: IdeaPooolIcon, active: false},
         {text: "Wallet", TabIcon: AddIcon, active: false},
         {text: "Settings", TabIcon: AddIcon, active: false},
         {text: "Support", TabIcon: AddIcon, active: false}
