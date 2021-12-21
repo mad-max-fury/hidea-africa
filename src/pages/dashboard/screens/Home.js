@@ -1,11 +1,12 @@
 import { Avatar, Box, Button, Flex, Grid, Heading, Text, VStack, Spacer, Select, HStack, Image } from '@chakra-ui/react'
 import React from 'react'
 import SirTAvatar from '../../../assets/images/users/Tochukwu.jpg'
+import SingaCoin from '../../../assets/images/singa.png'
 
 const Home = ()=> {
 
     return (
-        <Flex>
+        <Flex width="full" justifyContent="space-between" alignItems="flex-start">
 
             <Box display="flex" flexDirection="column" alignItems="flex-start">
 
@@ -51,7 +52,7 @@ const Home = ()=> {
                 <VStack w="full" mt="40px">
                     <HStack w="full" justifyContent="space-between">
                         <Text fontWeight="700">Active ideas</Text>
-                        <Text fontWeight="700" color="secondary.100">View all</Text>
+                        <Text fontWeight="700" color="secondary.100">View All</Text>
                     </HStack>
                     <Spacer />
 
@@ -70,10 +71,45 @@ const Home = ()=> {
 
             </Box>
 
+
+
+            {/* Right section */}
+            <Box mt="57px">
+                <VStack width="350px" height="239px" bg="white" alignItems="center" justifyContent="center" borderRadius="16px">
+
+                    <Image src={ SingaCoin } alt="SingaCoin" width="222px" />
+                    <Text fontWeight="700">1 Singa coin = 1 Naira</Text>
+
+                </VStack>
+
+                <Text fontWeight="700" mt="40px" mb="8px">Wallet</Text>
+
+                {/* Transaction section */}
+                <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" borderRadius="16px" className="px-5 py-3" bg="white
+                ">
+                    <Text>Balance</Text>
+                    <Heading fontSize="25px" mb="8">SC 200,000,000</Heading>
+                    <Button variant="outline" borderColor="secondary.100" w="70%" h="48px" color="secondary.100">Fund wallet</Button>
+                    <HStack width="full" justifyContent="space-between" mt="8">
+                        <Text>Transaction history</Text>
+                        <Text color="secondary.100">View All</Text>
+                    </HStack>
+                </Box>
+                
+
+            </Box>
+
         </Flex>
     )
 }
 
+
+//Transaction component
+const Transaction = ()=> {
+    return (
+        
+    )
+}
 
 const IdeaCard = ({ image, title, caption, invState, percentage })=> {
     return (
