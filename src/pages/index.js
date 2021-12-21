@@ -1,4 +1,5 @@
 import Welcome from "./welcome";
+import Dashboard from "./dashboard";
 // import SignUp from "./signup";
 // import Login from "./login";
 // import Home from "./home";
@@ -6,4 +7,4 @@ import Welcome from "./welcome";
 
 // export {  Welcome, SignUp, Login, Home, ComingSoon}
 
-export {  Welcome }
+export {  Dashboard, Welcome }
