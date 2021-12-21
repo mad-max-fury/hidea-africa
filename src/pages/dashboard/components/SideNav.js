@@ -2,9 +2,9 @@ import React from 'react'
 
 const SideNav = ()=> {
     return (
-        <div>
-            
-        </div>
+        <aside className="aside_nav">
+
+        </aside>
     )
 }
 
