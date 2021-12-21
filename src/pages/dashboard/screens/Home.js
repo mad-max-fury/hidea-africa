@@ -1,5 +1,6 @@
-import { Box, Button, Flex, Heading, Text, VStack, Spacer, Select, HStack } from '@chakra-ui/react'
+import { Avatar, Box, Button, Flex, Grid, Heading, Text, VStack, Spacer, Select, HStack, Image } from '@chakra-ui/react'
 import React from 'react'
+import SirTAvatar from '../../../assets/images/users/Tochukwu.jpg'
 
 const Home = ()=> {
 
@@ -52,6 +53,18 @@ const Home = ()=> {
                         <Text fontWeight="700">Active ideas</Text>
                         <Text fontWeight="700" color="secondary.100">View all</Text>
                     </HStack>
+
+                    <Grid templateColumns="repeat(2, 1fr)" gap="4">
+
+                        <IdeaCard image={SirTAvatar} title="JEJI" caption="Fintech, Agriculture" invState="Equity" percentage="5%" />
+                        <IdeaCard image={SirTAvatar} title="JEJI" caption="Fintech, Agriculture" invState="Equity" percentage="5%" />
+                        <IdeaCard image={SirTAvatar} title="JEJI" caption="Fintech, Agriculture" invState="Equity" percentage="5%" />
+                        <IdeaCard image={SirTAvatar} title="JEJI" caption="Fintech, Agriculture" invState="Equity" percentage="5%" />
+                        <IdeaCard image={SirTAvatar} title="JEJI" caption="Fintech, Agriculture" invState="Equity" percentage="5%" />
+                        <IdeaCard image={SirTAvatar} title="JEJI" caption="Fintech, Agriculture" invState="Equity" percentage="5%" />
+
+
+                    </Grid>
                 </VStack>
 
             </Box>
@@ -61,9 +74,22 @@ const Home = ()=> {
 }
 
 
-const IdeaCard = ({})=> {
+const IdeaCard = ({ image, title, caption, invState, percentage })=> {
     return (
-        
+        <Box display="flex" alignItems="center" justifyContent="flex-start" padding="4" w="344px" h="82px" bg="white">
+            <Avatar src={ image } borderRadius="2" w="50px" h="50px" mr="4" />
+            <VStack mr="50px" alignItems="flex-start">
+                <Text color="#57575b" fontWeight="700">{ title }</Text>
+                <Text color="#5F5E73" fontSize="14px">{ caption }</Text>
+            </VStack>
+
+            <VStack alignItems="flex-start">
+                <Text color="#5F5E73" fontSize="14px">{ invState }</Text>
+                <Text color="secondary.100">{ percentage }</Text>
+            </VStack>
+
+
+        </Box>
     )
 }
 
