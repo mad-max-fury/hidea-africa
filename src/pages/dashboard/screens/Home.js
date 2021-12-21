@@ -60,4 +60,11 @@ const Home = ()=> {
     )
 }
 
+
+const IdeaCard = ({})=> {
+    return (
+        
+    )
+}
+
 export default Home
