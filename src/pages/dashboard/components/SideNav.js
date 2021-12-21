@@ -4,6 +4,8 @@ import React, { useState } from 'react'
 
 import hideaLogo from "../../../assets/images/logo/Hidea-logo.svg"
 
+import CategoryIcon from '../../../assets/images/icons/icons-set/linear/category.svg'
+
 const SideNav = ()=> {
 
     const [tabItems, setTabItems] = useState([
@@ -18,6 +20,7 @@ const SideNav = ()=> {
 
 
     const changeActiveTab = (idx) => {
+        console.log(idx);
         const tabs = tabItems.forEach(tab => tab.active = false);
         tabs[idx].active = true;
         setTabItems(tabs);
@@ -25,7 +28,7 @@ const SideNav = ()=> {
 
 
     return (
-        <aside className="aside_nav fixed left-0 top-0 h-full bg-white">
+        <aside className="aside_nav h-full z-10 bg-white">
 
                 <Box ml="8" mb="16">
                     <Image src={ hideaLogo } alt="hidea logo"/>
@@ -37,7 +40,7 @@ const SideNav = ()=> {
 
                 {
                     tabItems.map(({ TabIcon, text, active }, idx) => (
-                        <ListItem onClick={()=> changeActiveTab(idx)} padding="4" pl="8" cursor="pointer" display="flex" borderRadius="8px" borderTopLeftRadius="0" borderBottomLeftRadius="0" alignItems="center" bg={active ? "#73DA9E" : null} color={active ? "#fff" : null}>
+                        <ListItem key={idx} onClick={()=> changeActiveTab(idx)} padding="4" pl="8" cursor="pointer" display="flex" borderRadius="8px" borderTopLeftRadius="0" borderBottomLeftRadius="0" alignItems="center" bg={active ? "#73DA9E" : null} color={active ? "#fff" : null}>
                             { <ListIcon as={TabIcon} mr="18px" /> }
                             { text }
                         </ListItem>
