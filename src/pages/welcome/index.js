@@ -8,6 +8,7 @@ import { Link as Rlink } from 'react-router-dom';
 
 import crypto from '../../assets/images/icons/crypto.svg'
 import mouse from '../../assets/images/icons/mouse.svg'
+import HideaLogoWhite from '../../assets/images/logo/Hidea-logo-white.svg'
 
 
 
@@ -15,8 +16,10 @@ const Welcome = ()=> {
     return (
         <Box display={{md: "flex", sm: "block"}} width="full" height="100vh">
             {/* Left Box */}
-            <Box className="aside-left" width={{md: "40%", sm: "100%"}} h="full"  bg="primary.100">
-
+            <Box className="aside-left pt-8 px-16" width={{md: "40%", sm: "100%"}} h="full"  bg="primary.100">
+                    <Rlink to="/">
+                        <Image width="100px" src={HideaLogoWhite} alt="logo" />
+                    </Rlink>
             </Box>
 
 
@@ -81,7 +84,7 @@ const LearnMore = ({ title, caption, icon, linkTxt, linkTo, bg, btnBg }) => {
                 </VStack>
 
                 <VStack width="full" alignItems="flex-end" justifyContent="center">
-                    <Box width={{md: "60%", sm: "80%"}}>
+                    <Box width="80%">
                     <Rlink to="/" className='w-full' >
                         <Button
                             w="100%"
