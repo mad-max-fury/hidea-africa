@@ -13,7 +13,7 @@ const Header = ()=> {
 
             { /* Search section */ }
             <Box width="container.sm" display="flex" alignItems="center" justifyContent="flex-start">
-                <InputGroup width="437px">
+                <InputGroup width="437px" variant="filled">
                     <InputLeftElement
                     pointerEvents='none'
                     children={<Image src={ SearchIcon } alt="Search Icon" color='gray.300' />}
