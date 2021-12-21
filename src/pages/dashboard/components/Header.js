@@ -1,6 +1,8 @@
 import { Avatar, AvatarBadge, FormControl, Box, HStack, Icon, Image, Input, InputGroup, InputLeftElement, Spacer, Switch, Text, VStack } from '@chakra-ui/react'
 import React from 'react'
-import { Search2Icon, BellIcon } from "@chakra-ui/icons"
+
+import NotificationBold from '../../../assets/images/icons/icons-set/bold/notification.svg'
+import SearchIcon from '../../../assets/images/icons/icons-set/linear/search-normal.svg'
 
 
 import user from '../../../assets/images/users/mead.jpg'
@@ -14,7 +16,7 @@ const Header = ()=> {
                 <InputGroup width="437px">
                     <InputLeftElement
                     pointerEvents='none'
-                    children={<Search2Icon color='gray.300' />}
+                    children={<Image src={ SearchIcon } alt="Search Icon" color='gray.300' />}
                     />
                     <Input type='text' placeholder='Search' />
                 </InputGroup>
@@ -25,7 +27,7 @@ const Header = ()=> {
                 <Switch id='email-alerts' />
                 <Text fontWeight="700">NGN</Text>
                 <Spacer /><Spacer />
-                <BellIcon />
+                <Image src={NotificationBold} alt="Notification Bold Icon" />
                 <Spacer />
 
                 <UserAvatar avatar={ user } name="Magaret Mead" />
