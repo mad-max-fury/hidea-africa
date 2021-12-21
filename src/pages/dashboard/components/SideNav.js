@@ -1,5 +1,4 @@
 import { Box, Image, List, ListItem, ListIcon } from '@chakra-ui/react'
-import { AddIcon, ArrowLeftIcon } from "@chakra-ui/icons"
 import React, { useState } from 'react'
 
 import hideaLogo from "../../../assets/images/logo/Hidea-logo.svg"
@@ -58,7 +57,7 @@ const SideNav = ()=> {
 
                 {
                     tabItems.map(({ TabIcon, TabIconActive, text, active }, idx) => (
-                        <ListItem key={idx} onClick={()=> changeActiveTab(idx)} padding="4" pl="8" cursor="pointer" display="flex" borderRadius="8px" borderTopLeftRadius="0" borderBottomLeftRadius="0" alignItems="center" bg={active ? "#73DA9E" : null} color={active ? "#fff" : null}>
+                        <ListItem key={idx} onClick={()=> changeActiveTab(idx)} padding="4" pl="8" cursor="pointer" display="flex" borderRadius="8px" borderTopLeftRadius="0" borderBottomLeftRadius="0" alignItems="center" bg={active ? "#73DA9E" : null} color={active ? "#fff" : "#57575b"}>
                             { <Image color="#fff" src={ active ? TabIconActive : TabIcon } alt={ text } mr="18px"/> }
                             { text }
                         </ListItem>
@@ -67,7 +66,7 @@ const SideNav = ()=> {
 
                 {/* Logout Button */}
                 <ListItem color="error.100" padding="4" pl="8" cursor="pointer" display="flex" borderRadius="8px" borderTopLeftRadius="0" borderBottomLeftRadius="0" alignItems="center" mt="204px">
-                    <ListIcon as={ArrowLeftIcon} mr="18px" />
+                    <Image color="danger.100" src={ LogoutIcon } alt="Logout" mr="18px"/>
                     Logout
                 </ListItem>
 
