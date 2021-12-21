@@ -1,0 +1,48 @@
+.form_row {
+    position: relative;
+    margin-top: 30px;
+}
+
+.form_label {
+    position: absolute;
+    top: 14px;
+    left: 20px;
+    color: #999;
+    cursor: text;
+    transition: all .15s ease-in-out 0s;
+}
+
+.form_textbox {
+    width: 100%;
+    padding: 1.5em;
+}
+
+
+label {
+    display: block;
+}
+
+select,
+textarea,
+Input {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+
+.form_textbox:focus~.active {
+    top: -0.8em;
+    left: 1em;
+    font-size: .8em;
+    color: inherit;
+    z-index: 9;
+    background-color: white;
+    padding: .1em .5em;
+    border-radius: 10px;
+    cursor: pointer;
+}

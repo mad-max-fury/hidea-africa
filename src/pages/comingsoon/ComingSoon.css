@@ -1,0 +1,65 @@
+.coming-soon {
+    height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow-x: hidden;
+}
+
+
+.left-eclipse {
+    z-index: -1;
+    position: absolute;
+}
+
+.left-eclipse::before {
+    content: "";
+    width: 89px;
+    height: 82px;
+    border-radius: 50%;
+    background-color: #2dc86d;
+    position: absolute;
+    float: left;
+    left: -49.16px;
+    top: 522.01px;
+    z-index: -1;
+    transform: rotate(91.4deg);
+}
+
+.right-eclipse {
+    z-index: -1;
+    position: absolute;
+    width: 200.71px;
+    height: 109.11px;
+    border-radius: 50% 50% 0;
+    right: 0;
+    top: 20%;
+    /* transform: rotate(270deg); */
+
+}
+
+.right-eclipse::before {
+    content: "";
+    width: 200.71px;
+    height: 119.11px;
+    transform: translate(50%, -50%) rotate(270deg);
+    border-radius: 50% 50% 0 0;
+    background-color: #2dc86d;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 20%;
+    z-index: -1;
+}
+
+@media screen and (max-width: 768px) {
+    .right-eclipse::before {
+        width: 150.71px;
+        height: 109.11px;
+        transform: translate(60%, -50%) rotate(270deg);
+    }
+
+}
