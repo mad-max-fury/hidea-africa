@@ -3,7 +3,7 @@ import React from 'react'
 import { Search2Icon, BellIcon } from "@chakra-ui/icons"
 
 
-import user from '../../../assets/images/users/mira.jpg'
+import user from '../../../assets/images/users/mead.jpg'
 
 const Header = ()=> {
     return (
@@ -28,7 +28,7 @@ const Header = ()=> {
                 <BellIcon />
                 <Spacer />
 
-                <UserAvatar avatar={ user } name="Mirabel Watson" />
+                <UserAvatar avatar={ user } name="Magaret Mead" />
             </HStack>
         </header>
     )
