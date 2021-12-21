@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Text, VStack, Spacer, Select } from '@chakra-ui/react'
+import { Box, Button, Flex, Heading, Text, VStack, Spacer, Select, HStack } from '@chakra-ui/react'
 import React from 'react'
 
 const Home = ()=> {
@@ -6,7 +6,7 @@ const Home = ()=> {
     return (
         <Flex>
 
-            <VStack alignItems="flex-start">
+            <Box display="flex" flexDirection="column" alignItems="flex-start">
 
                 <Text fontWeight="700" fontSize="24px">Welcome Allison,</Text>
                 <Box display="flex" flexDirection="row" mt="8" mb="8" padding="16px" pb="6" h="fit-content" width="fit-content" bg="white" borderRadius="16px" w="704px">
@@ -47,8 +47,14 @@ const Home = ()=> {
 
 
                 {/* Active ideas section */}
+                <VStack w="full" mt="16">
+                    <HStack w="full" justifyContent="space-between">
+                        <Text fontWeight="700">Active ideas</Text>
+                        <Text fontWeight="700" color="secondary.100">View all</Text>
+                    </HStack>
+                </VStack>
 
-            </VStack>
+            </Box>
 
         </Flex>
     )
