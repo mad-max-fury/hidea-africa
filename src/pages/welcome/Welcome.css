@@ -1,5 +1,5 @@
 .aside-left {
-    background-image: url('../../assets/images/icons/tri-disc.png');
+    background-image: url('../../assets/images/icons/tri-disc.png') !important;
     background-position: center top;
     background-size: cover;
     background-repeat: no-repeat;
