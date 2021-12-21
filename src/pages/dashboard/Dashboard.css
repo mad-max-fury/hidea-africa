@@ -1,6 +1,37 @@
+body {
+    overflow: hidden;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #2DC86D;
+    border-radius: 20px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
 .aside_nav {
     box-shadow: 0px 8px 20px 0px #0A091E17;
     width: 272px;
     padding-top: 32px;
     padding-right: 5px;
+}
+
+.main-container {
+    padding-left: 24px;
+    overflow-y: auto !important;
+    width: 100%;
 }
