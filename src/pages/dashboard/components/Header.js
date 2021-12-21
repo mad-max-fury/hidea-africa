@@ -7,7 +7,7 @@ import user from '../../../assets/images/users/mead.jpg'
 
 const Header = ()=> {
     return (
-        <header className="fixed flex flex-row place-content-end align-middle shadow-md w-full h-20 px-16 bg-white">
+        <header className="flex flex-row place-content-end align-middle shadow-md w-full h-20 px-16 bg-white">
 
             { /* Search section */ }
             <Box width="container.sm" display="flex" alignItems="center" justifyContent="flex-start">
