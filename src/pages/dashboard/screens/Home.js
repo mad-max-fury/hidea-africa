@@ -4,7 +4,7 @@ import React from 'react'
 const Home = ()=> {
     return (
         <Box>
-            <Text>Welcome Allison,</Text>
+            <Text fontSize="25px" fontWeight="700">Welcome Allison,</Text>
         </Box>
     )
 }
