@@ -7,7 +7,7 @@ import hideaLogo from "../../../assets/images/logo/Hidea-logo.svg"
 import CategoryIcon from '../../../assets/images/icons/icons-set/linear/category.svg'
 import SettingIcon from '../../../assets/images/icons/icons-set/linear/setting-2.svg'
 import WalletIcon from '../../../assets/images/icons/icons-set/linear/wallet.svg'
-
+import BoxIcon from '../../../assets/images/icons/icons-set/linear/box.svg'
 
 
 
