@@ -48,11 +48,12 @@ const Home = ()=> {
 
 
                 {/* Active ideas section */}
-                <VStack w="full" mt="16">
+                <VStack w="full" mt="40px">
                     <HStack w="full" justifyContent="space-between">
                         <Text fontWeight="700">Active ideas</Text>
                         <Text fontWeight="700" color="secondary.100">View all</Text>
                     </HStack>
+                    <Spacer />
 
                     <Grid templateColumns="repeat(2, 1fr)" gap="4">
 
@@ -77,7 +78,7 @@ const Home = ()=> {
 const IdeaCard = ({ image, title, caption, invState, percentage })=> {
     return (
         <Box display="flex" alignItems="center" justifyContent="flex-start" padding="4" w="344px" h="82px" bg="white">
-            <Avatar src={ image } borderRadius="2" w="50px" h="50px" mr="4" />
+            <Avatar src={ image } borderRadius="8px" w="50px" h="50px" mr="4" />
             <VStack mr="50px" alignItems="flex-start">
                 <Text color="#57575b" fontWeight="700">{ title }</Text>
                 <Text color="#5F5E73" fontSize="14px">{ caption }</Text>
