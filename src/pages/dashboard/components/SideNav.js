@@ -12,6 +12,7 @@ import WalletIcon from '../../../assets/images/icons/icons-set/linear/wallet.svg
 import IdeaPooolIcon from '../../../assets/images/icons/icons-set/linear/box.svg'
 import SupportIcon from '../../../assets/images/icons/icons-set/linear/device-message.svg'
 import MyIdeasIcon from '../../../assets/images/icons/icons-set/linear/lock.svg'
+import LogoutIcon from '../../../assets/images/icons/icons-set/linear/logout.svg'
 
 
 //BoldIcons
@@ -56,9 +57,9 @@ const SideNav = ()=> {
             <List>
 
                 {
-                    tabItems.map(({ TabIcon, text, active }, idx) => (
+                    tabItems.map(({ TabIcon, TabIconActive, text, active }, idx) => (
                         <ListItem key={idx} onClick={()=> changeActiveTab(idx)} padding="4" pl="8" cursor="pointer" display="flex" borderRadius="8px" borderTopLeftRadius="0" borderBottomLeftRadius="0" alignItems="center" bg={active ? "#73DA9E" : null} color={active ? "#fff" : null}>
-                            { <Image src={ TabIcon } alt={ text } mr="18px"/> }
+                            { <Image color="#fff" src={ active ? TabIconActive : TabIcon } alt={ text } mr="18px"/> }
                             { text }
                         </ListItem>
                     ))
