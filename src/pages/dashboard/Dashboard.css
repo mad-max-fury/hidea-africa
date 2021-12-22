@@ -32,6 +32,7 @@ body {
 
 .main-container {
     padding-left: 24px;
+    padding-right: 34px;
     overflow-y: auto !important;
     width: 100%;
 }
