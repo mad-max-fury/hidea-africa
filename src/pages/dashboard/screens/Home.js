@@ -14,8 +14,8 @@ import EmptyUser from '../../../assets/images/empty-user.png'
 
 const Home = ()=> {
 
-    const [ideas, setIdeas] = useState(0);
-    const [transactions, setTransactions] = useState(0);
+    const [ideas, setIdeas] = useState(1);
+    const [transactions, setTransactions] = useState(1);
     const [showModal, setShowModal] = useState(null);
 
 
