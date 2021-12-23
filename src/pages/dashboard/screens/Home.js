@@ -235,6 +235,13 @@ const InvestmentReportModal = ()=> {
                         </HStack>
 
                     </HStack>
+
+
+                    <Grid templateColumns="1fr" gap={3}>
+
+
+
+                    </Grid>
                 </VStack>
 
             </Box>
