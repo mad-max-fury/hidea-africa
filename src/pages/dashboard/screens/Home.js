@@ -200,7 +200,9 @@ const IdeaCard = ({ image, title, caption, invState, percentage })=> {
 }
 
 
-
+const InvestmentReportModal = ()=> {
+    
+}
 
 
 export default Home
