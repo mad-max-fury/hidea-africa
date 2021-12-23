@@ -208,8 +208,19 @@ const InvestmentReportModal = ()=> {
         <Box position="fixed" top="0" left="0" w="100vw" h="100vh" bg="blackAlpha.500" zIndex="100" display="flex" alignItems="center" justifyContent="center">
 
             <Box bg="white" w="749px" position="relative" padding="10px" borderRadius="8px">
-                <HStack justifyContent="flex-end"><span>&times;</span></HStack>
+                <HStack justifyContent="flex-end"><Text cursor="pointer" fontSize="20px">&times;</Text></HStack>
                 <HStack><Text fontWeight="700">Investment Report</Text></HStack>
+
+                <VStack>
+                    <HStack justifyContent="space-between">
+
+                        <VStack>
+                            <span>Investment amount</span>
+                            
+                        </VStack>
+
+                    </HStack>
+                </VStack>
 
             </Box>
 
