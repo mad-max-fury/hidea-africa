@@ -149,6 +149,10 @@ const Home = ()=> {
                 </Box>
 
                 </Flex>
+
+
+                <InvestmentReportModal />
+
         </Box>
     )
 }
