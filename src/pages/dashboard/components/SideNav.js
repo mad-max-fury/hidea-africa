@@ -38,9 +38,15 @@ const SideNav = ()=> {
 
     const changeActiveTab = (idx) => {
         console.log(idx);
-        const tabs = tabItems.forEach(tab => tab.active = false);
-        tabs[idx].active = true;
-        setTabItems(tabs);
+        //Make all tabs inactive
+        tabItems.forEach(tab => tab.active = false);
+
+        //Make copy of tabItems
+        const tabsCopy = tabItems.filter(tab => tab.active === false);
+
+        //Make current tab active
+        tabsCopy[idx].active = true;
+        setTabItems(tabsCopy);
     }
 
 
