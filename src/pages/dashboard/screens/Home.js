@@ -244,4 +244,12 @@ const InvestmentReportModal = ()=> {
 }
 
 
+
+const InvestmentReport = ()=> {
+    return (
+        
+    )
+}
+
+
 export default Home
