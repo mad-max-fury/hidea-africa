@@ -221,6 +221,16 @@ const InvestmentReportModal = ()=> {
                             <span>NGN 42,000,000.00</span>
                         </VStack>
 
+
+                        <HStack>
+                            <VStack alignItems="flex-start">
+                                <span>Total equity</span>
+                                <Text fontWeight="700">10%</Text>
+                            </VStack>
+
+                            
+                        </HStack>
+
                     </HStack>
                 </VStack>
 
