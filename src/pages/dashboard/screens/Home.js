@@ -214,7 +214,7 @@ const InvestmentReportModal = ()=> {
                 <VStack>
                     <HStack justifyContent="space-between">
 
-                        <VStack>
+                        <VStack alignItems="flex-start">
                             <span>Investment amount</span>
                             <Heading color="secondary.100">SC 42, 000,000.00</Heading>
                             <Spacer />
