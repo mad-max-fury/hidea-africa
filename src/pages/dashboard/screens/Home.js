@@ -208,7 +208,7 @@ const InvestmentReportModal = ()=> {
         <Box position="fixed" top="0" left="0" w="100vw" h="100vh" bg="blackAlpha.500" zIndex="100" display="flex" alignItems="center" justifyContent="center">
 
             <Box bg="white" w="749px" position="relative" padding="30px" borderRadius="8px">
-                <HStack justifyContent="flex-end"><Text cursor="pointer" fontSize="20px">&times;</Text></HStack>
+                <HStack justifyContent="flex-end" alignItems="center"><Text cursor="pointer" fontSize="20px">&times;</Text></HStack>
                 <HStack><Text fontWeight="700">Investment Report</Text></HStack>
 
                 <VStack w="full" padding="32px">
@@ -237,9 +237,10 @@ const InvestmentReportModal = ()=> {
                     </HStack>
 
 
-                    <Grid templateColumns="1fr" gap={3}>
+                    <Grid w="full" templateColumns="1fr" gap={3}>
 
-
+                            <InvestmentReport />
+                            <InvestmentReport />
 
                     </Grid>
                 </VStack>
@@ -254,11 +255,26 @@ const InvestmentReportModal = ()=> {
 
 const InvestmentReport = ()=> {
     return (
-        <Box>
+        <Box w="full" paddingBottom="4">
 
-            <HStack>
-                
+            <HStack w="full" justifyContent="space-between">
+
+                <HStack justifyContent="flex-start">
+
+                    <Avatar src={ SirTAvatar } borderRadius="8px" w="50px" h="50px" mr="4" />
+                    <VStack alignItems="flex-start">
+                        <Text color="#57575b" fontWeight="700">JEJI</Text>
+                        <Text color="#5F5E73" fontSize="14px">Fintech, Agriculture</Text>
+                    </VStack>
+
+                </HStack>
+                <Box bg="#FEF8E6" color="#7A6003" className="px-4 py-2" borderRadius="16px">In progress</Box>
+
             </HStack>
+
+            <VStack>
+                <HStack></HStack>
+            </VStack>
 
         </Box>
     )
