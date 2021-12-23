@@ -20,8 +20,8 @@ const Home = ()=> {
 
 
 
+    //Handle show/hide modal
     const handleShowModal = ()=> setShowModal(<InvestmentReportModal />);
-
     const hideModal = ()=> setShowModal(null);
 
     return (
