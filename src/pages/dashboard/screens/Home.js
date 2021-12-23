@@ -21,7 +21,7 @@ const Home = ()=> {
 
 
     //Handle show/hide modal
-    const handleShowModal = ()=> setShowModal(<InvestmentReportModal />);
+    const handleShowModal = ()=> setShowModal(<InvestmentReportModal hideModal={ hideModal } />);
     const hideModal = ()=> setShowModal(null);
 
     return (
@@ -210,7 +210,7 @@ const IdeaCard = ({ image, title, caption, invState, percentage })=> {
 }
 
 
-const InvestmentReportModal = ()=> {
+const InvestmentReportModal = ({ hideModal })=> {
     return (
         <Box position="fixed" top="0" left="0" w="100vw" height="100vh" bg="blackAlpha.500" zIndex="100" display="flex" alignItems="center" justifyContent="center">
 
