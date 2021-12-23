@@ -207,18 +207,18 @@ const InvestmentReportModal = ()=> {
     return (
         <Box position="fixed" top="0" left="0" w="100vw" h="100vh" bg="blackAlpha.500" zIndex="100" display="flex" alignItems="center" justifyContent="center">
 
-            <Box bg="white" w="749px" position="relative" padding="10px" borderRadius="8px">
+            <Box bg="white" w="749px" position="relative" padding="30px" borderRadius="8px">
                 <HStack justifyContent="flex-end"><Text cursor="pointer" fontSize="20px">&times;</Text></HStack>
                 <HStack><Text fontWeight="700">Investment Report</Text></HStack>
 
-                <VStack>
-                    <HStack justifyContent="space-between">
+                <VStack w="full" padding="32px">
+                    <HStack w="full" justifyContent="space-between">
 
                         <VStack alignItems="flex-start">
-                            <span>Investment amount</span>
+                            <small color="#878696">Investment amount</small>
                             <Heading color="secondary.100">SC 42, 000,000.00</Heading>
                             <Spacer />
-                            <span>NGN 42,000,000.00</span>
+                            <p>NGN 42,000,000.00</p>
                         </VStack>
 
 
