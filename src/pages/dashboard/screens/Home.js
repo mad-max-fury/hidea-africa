@@ -1,5 +1,5 @@
 import { Avatar, Box, Button, Flex, Grid, Heading, Text, VStack, Spacer, Select, HStack, Image } from '@chakra-ui/react'
-import React from 'react'
+import React, { useState } from 'react'
 import SirTAvatar from '../../../assets/images/users/Tochukwu.jpg'
 import MiraAvatar from '../../../assets/images/users/mira.jpg'
 import MeadAvatar from '../../../assets/images/users/mead.jpg'
@@ -10,7 +10,12 @@ import SingaCoin from '../../../assets/images/singa.png'
 import ImportIcon from '../../../assets/images/icons/icons-set/linear/import.svg'
 import ExportIcon from '../../../assets/images/icons/icons-set/linear/export.svg'
 
+import EmptyUser from '../../../assets/images/empty-user.png'
+
 const Home = ()=> {
+
+    const [ideas, setIdeas] = useState(0);
+    const [transactions, setTransactions] = useState(0);
 
     return (
         <Box width="full">
@@ -36,7 +41,7 @@ const Home = ()=> {
                                 </VStack>
                             </Flex>
 
-                            <Button bg="secondary.100" color="white" w="80%" h="48px" mt="56px" mb="10px">View report</Button>
+                            <Button bg="secondary.100" color="white" w="75%" h="48px" mt="56px" mb="10px">View report</Button>
                         </Box>
 
 
@@ -56,24 +61,38 @@ const Home = ()=> {
 
 
                     {/* Active ideas section */}
-                    <VStack w="full" mt="40px">
+                    <VStack w="full" mt="40px" alignItems="center" justifyContent="flex-start">
                         <HStack w="full" justifyContent="space-between">
                             <Text fontWeight="700">Active ideas</Text>
-                            <Text fontWeight="700" color="secondary.100">View All</Text>
+                            { ideas > 0 ?  <Text fontWeight="700" color="secondary.100">View All</Text> : null }
                         </HStack>
                         <Spacer />
 
-                        <Grid templateColumns="repeat(2, 1fr)" gap="4">
+                        {
 
-                            <IdeaCard image={SirTAvatar} title="JEJI" caption="Fintech, Agriculture" invState="Equity" percentage="5%" />
-                            <IdeaCard image={MiraAvatar} title="Mira Ahmadeen" caption="Gaming Industry" invState="Equity" percentage="5%" />
-                            <IdeaCard image={MeadAvatar} title="Anita Edward" caption="Education" invState="Equity" percentage="5%" />
-                            <IdeaCard image={GregAvatar} title="Gregory Anthony" caption="Politics" invState="Equity" percentage="5%" />
-                            <IdeaCard image={AfenaAvatar} title="Afena Athai" caption="Fintech, Agriculture" invState="Equity" percentage="5%" />
-                            <IdeaCard image={SirTAvatar} title="JEJI" caption="Fintech, Agriculture" invState="Equity" percentage="5%" />
+                            ideas === 0 ? 
+                            <>
+                                <Spacer />
+                                <Spacer />
+                                <Image src={ EmptyUser } alt="Empty User" w="200px" />
+                                <Spacer />
+                                <p>You have no active investments</p>
+                            </>
+                            :
+
+                            <Grid w="full" templateColumns="repeat(2, 1fr)" gap="4">
+
+                                <IdeaCard image={SirTAvatar} title="JEJI" caption="Fintech, Agriculture" invState="Equity" percentage="5%" />
+                                <IdeaCard image={MiraAvatar} title="Mira Ahmadeen" caption="Gaming Industry" invState="Equity" percentage="5%" />
+                                <IdeaCard image={MeadAvatar} title="Anita Edward" caption="Education" invState="Equity" percentage="5%" />
+                                <IdeaCard image={GregAvatar} title="Gregory Anthony" caption="Politics" invState="Equity" percentage="5%" />
+                                <IdeaCard image={AfenaAvatar} title="Afena Athai" caption="Fintech, Agriculture" invState="Equity" percentage="5%" />
+                                <IdeaCard image={SirTAvatar} title="JEJI" caption="Fintech, Agriculture" invState="Equity" percentage="5%" />
 
 
-                        </Grid>
+                            </Grid>
+
+                        }
                     </VStack>
 
                 </Box>
@@ -106,16 +125,11 @@ const Home = ()=> {
                         <Box w="full">
                             <Text mt="8px">Sep 13, 2021</Text>
                             <Transaction source="Wallet" transactionState="Top up" amount="2,000,000" incoming={false} />
-                        </Box>
 
-                        <Box w="full">
+                            <Transaction source="Jeji" transactionState="Idea Investment" amount="12,000,000" incoming={true} />
+
                             <Transaction source="Jeji" transactionState="Idea Investment" amount="12,000,000" incoming={true} />
                         </Box>
-
-                        <Box w="full">
-                            <Transaction source="Jeji" transactionState="Idea Investment" amount="12,000,000" incoming={true} />
-                        </Box>
-
 
                     </Box>
                     
@@ -138,7 +152,7 @@ const Transaction = ({ incoming, source, transactionState, amount })=> {
                     <Image src={incoming ? ImportIcon : ExportIcon} alt="Import/Export Icon" />
                 </Box>
 
-                <VStack>
+                <VStack alignItems="flex-start">
                     <Text fontWeight="700">{ source }</Text>
                     <Text fontSize="14px">{ transactionState }</Text>
                 </VStack>
@@ -154,12 +168,14 @@ const Transaction = ({ incoming, source, transactionState, amount })=> {
 
 const IdeaCard = ({ image, title, caption, invState, percentage })=> {
     return (
-        <Box display="flex" alignItems="center" justifyContent="flex-start" padding="4" w="344px" h="82px" bg="white">
-            <Avatar src={ image } borderRadius="8px" w="50px" h="50px" mr="4" />
-            <VStack mr="50px" alignItems="flex-start">
-                <Text color="#57575b" fontWeight="700">{ title }</Text>
-                <Text color="#5F5E73" fontSize="14px">{ caption }</Text>
-            </VStack>
+        <Box display="flex" alignItems="center" justifyContent="space-between" padding="4" w="100%" h="82px" bg="white" borderRadius="16px">
+            <HStack>
+                <Avatar src={ image } borderRadius="8px" w="50px" h="50px" mr="4" />
+                <VStack mr="50px" alignItems="flex-start">
+                    <Text color="#57575b" fontWeight="700">{ title }</Text>
+                    <Text color="#5F5E73" fontSize="14px">{ caption }</Text>
+                </VStack>
+            </HStack>
 
             <VStack alignItems="flex-start">
                 <Text color="#5F5E73" fontSize="14px">{ invState }</Text>
