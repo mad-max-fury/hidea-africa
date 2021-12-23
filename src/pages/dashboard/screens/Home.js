@@ -216,7 +216,9 @@ const InvestmentReportModal = ()=> {
 
                         <VStack>
                             <span>Investment amount</span>
-                            <Heading>SC 42, 000,000.00</Heading>
+                            <Heading color="secondary.100">SC 42, 000,000.00</Heading>
+                            <Spacer />
+                            <span>NGN 42,000,000.00</span>
                         </VStack>
 
                     </HStack>
