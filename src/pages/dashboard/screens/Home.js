@@ -222,14 +222,14 @@ const InvestmentReportModal = ()=> {
                         </VStack>
 
 
-                        <HStack>
+                        <HStack justifyContent="space-between">
                             <VStack alignItems="flex-start">
-                                <span>Total equity</span>
+                                <small>Total equity</small>
                                 <Text fontWeight="700">10%</Text>
                             </VStack>
 
                             <VStack alignItems="flex-start">
-                                <span>Total interest</span>
+                                <small>Total interest</small>
                                 <Text fontWeight="700">25%</Text>
                             </VStack>
                         </HStack>
@@ -254,7 +254,13 @@ const InvestmentReportModal = ()=> {
 
 const InvestmentReport = ()=> {
     return (
-        
+        <Box>
+
+            <HStack>
+                
+            </HStack>
+
+        </Box>
     )
 }
 
