@@ -228,7 +228,10 @@ const InvestmentReportModal = ()=> {
                                 <Text fontWeight="700">10%</Text>
                             </VStack>
 
-                            
+                            <VStack alignItems="flex-start">
+                                <span>Total interest</span>
+                                <Text fontWeight="700">25%</Text>
+                            </VStack>
                         </HStack>
 
                     </HStack>
