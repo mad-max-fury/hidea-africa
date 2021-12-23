@@ -118,18 +118,30 @@ const Home = ()=> {
                         <Button variant="outline" borderColor="secondary.100" w="70%" h="48px" color="secondary.100">Fund wallet</Button>
                         <HStack width="full" justifyContent="space-between" mt="8">
                             <Text fontWeight="700">Transaction history</Text>
-                            <Text color="secondary.100" fontWeight="700">View All</Text>
+                            { transactions > 0 ?  <Text fontWeight="700" color="secondary.100">View All</Text> : null }
                         </HStack>
 
                         {/* Transactions List */}
-                        <Box w="full">
-                            <Text mt="8px">Sep 13, 2021</Text>
-                            <Transaction source="Wallet" transactionState="Top up" amount="2,000,000" incoming={false} />
+                        {
 
-                            <Transaction source="Jeji" transactionState="Idea Investment" amount="12,000,000" incoming={true} />
+                            transactions > 0  
 
-                            <Transaction source="Jeji" transactionState="Idea Investment" amount="12,000,000" incoming={true} />
-                        </Box>
+                            ?
+                            <Box w="full">
+                                <Text mt="8px">Sep 13, 2021</Text>
+                                <Transaction source="Wallet" transactionState="Top up" amount="2,000,000" incoming={false} />
+
+                                <Transaction source="Jeji" transactionState="Idea Investment" amount="12,000,000" incoming={true} />
+
+                                <Transaction source="Jeji" transactionState="Idea Investment" amount="12,000,000" incoming={true} />
+                            </Box>
+                            :
+                            
+                            <>
+                                <Image src={ EmptyUser } alt="Empty user" w="145px" mt="20px" mb="20px" />
+                                <p>No transaction history available</p>
+                            </>
+                        }
 
                     </Box>
                     
@@ -186,5 +198,9 @@ const IdeaCard = ({ image, title, caption, invState, percentage })=> {
         </Box>
     )
 }
+
+
+
+
 
 export default Home
