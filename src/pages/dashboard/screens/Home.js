@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Flex, Grid, Heading, Text, VStack, Spacer, Select, HStack, Image } from '@chakra-ui/react'
+import { Avatar, Box, Button, Flex, Grid, Heading, Text, VStack, Spacer, Select, HStack, Image, CloseButton } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import SirTAvatar from '../../../assets/images/users/Tochukwu.jpg'
 import MiraAvatar from '../../../assets/images/users/mira.jpg'
@@ -205,13 +205,13 @@ const IdeaCard = ({ image, title, caption, invState, percentage })=> {
 
 const InvestmentReportModal = ()=> {
     return (
-        <Box position="fixed" top="0" left="0" w="100vw" h="100vh" bg="blackAlpha.500" zIndex="100" display="flex" alignItems="center" justifyContent="center">
+        <Box position="fixed" top="0" left="0" w="100vw" minHeight="100vh" bg="blackAlpha.500" zIndex="100" display="flex" alignItems="center" justifyContent="center">
 
-            <Box bg="white" w="749px" position="relative" padding="30px" borderRadius="8px">
-                <HStack justifyContent="flex-end" alignItems="center"><Text cursor="pointer" fontSize="20px">&times;</Text></HStack>
-                <HStack><Text fontWeight="700">Investment Report</Text></HStack>
+            <Box bg="white" w="749px" position="relative" borderRadius="8px" overflowY="auto">
+                <HStack justifyContent="flex-end" alignItems="center" padding="10px"><CloseButton cursor="pointer" /></HStack>
+                <HStack className="px-7"><Text fontWeight="700">Investment Report</Text></HStack>
 
-                <VStack w="full" padding="32px">
+                <VStack className="px-7 py-2" w="full" padding="32px">
                     <HStack w="full" justifyContent="space-between">
 
                         <VStack alignItems="flex-start">
@@ -237,10 +237,11 @@ const InvestmentReportModal = ()=> {
                     </HStack>
 
 
-                    <Grid w="full" templateColumns="1fr" gap={3}>
+                    <Spacer /><Spacer /><Spacer /><Spacer /><Spacer />
+                    <Grid w="full" templateColumns="1fr" gap={3}> 
 
                             <InvestmentReport />
-                            <InvestmentReport />
+                           
 
                     </Grid>
                 </VStack>
@@ -255,7 +256,7 @@ const InvestmentReportModal = ()=> {
 
 const InvestmentReport = ()=> {
     return (
-        <Box w="full" paddingBottom="4">
+        <Box w="full" paddingBottom="4" boxShadow="0px -2px 0px 0px #19000C0D inset" mt="24px">
 
             <HStack w="full" justifyContent="space-between">
 
@@ -272,8 +273,48 @@ const InvestmentReport = ()=> {
 
             </HStack>
 
-            <VStack>
-                <HStack></HStack>
+            <VStack mt="20px">
+                <HStack alignItems="flex-start" justifyContent="space-between" w="full" spacing="54px">
+                    <VStack w="full" flex="1" alignItems="flex-start">
+                        <HStack w="full" justifyContent="space-between" fontWeight="700">
+                            <Text>Projected timelines</Text>
+                        </HStack>
+
+                        <VStack w="full" alignItems="flex-start" padding="10px">
+                            <HStack w="full" justifyContent="space-between">
+                                <Text>Project start date</Text>
+                                <Text fontWeight="700">Sep 2, 2021</Text>
+                            </HStack>
+                            <HStack w="full" justifyContent="space-between">
+                                <Text>Project end date</Text>
+                                <Text fontWeight="700">Sep 2, 2022</Text>
+                            </HStack>
+                            <HStack w="full" justifyContent="space-between">
+                                <Text>Earnings start date</Text>
+                                <Text fontWeight="700">Sep 2, 2022</Text>
+                            </HStack>
+                        </VStack>
+                    </VStack>
+
+
+                    <VStack flex="1" alignItems="flex-start">
+                        <HStack w="full" justifyContent="space-between" fontWeight="700">
+                            <Text>Return on investment</Text>
+                        </HStack>
+                        <VStack w="full" padding="10px" alignItems="flex-start">
+                            <HStack w="full" justifyContent="space-between">
+                                <Text>Equity</Text>
+                                <Text fontWeight="700">5%</Text>
+                            </HStack>
+
+                            <HStack w="full" justifyContent="space-between">
+                                <Text>Interest on capital</Text>
+                                <Text fontWeight="700">0%</Text>
+                            </HStack>
+
+                        </VStack>
+                    </VStack>
+                </HStack>
             </VStack>
 
         </Box>
