@@ -19,7 +19,7 @@ const Home = ()=> {
 
     return (
         <Box width="full">
-            <Text fontWeight="700" fontSize="24px">Welcome Allison,</Text>
+            <Text fontWeight="700" fontSize="24px">Welcome Magaret,</Text>
             <Flex width="full" justifyContent="space-between" alignItems="flex-start" mt="8">
 
                 <Box display="flex" flexDirection="column" alignItems="flex-start" w="65%">
@@ -198,14 +198,23 @@ const IdeaCard = ({ image, title, caption, invState, percentage })=> {
                 <Text color="secondary.100">{ percentage }</Text>
             </VStack>
 
-
         </Box>
     )
 }
 
 
 const InvestmentReportModal = ()=> {
-    
+    return (
+        <Box position="fixed" top="0" left="0" w="100vw" h="100vh" bg="blackAlpha.500" zIndex="100" display="flex" alignItems="center" justifyContent="center">
+
+            <Box bg="white" w="749px" position="relative" padding="10px" borderRadius="8px">
+                <HStack justifyContent="flex-end"><span>&times;</span></HStack>
+                <HStack><Text fontWeight="700">Investment Report</Text></HStack>
+
+            </Box>
+
+        </Box>
+    );
 }
 
 
