@@ -16,6 +16,13 @@ const Home = ()=> {
 
     const [ideas, setIdeas] = useState(0);
     const [transactions, setTransactions] = useState(0);
+    const [showModal, setShowModal] = useState(null);
+
+
+
+    const handleShowModal = ()=> setShowModal(<InvestmentReportModal />);
+
+    const hideModal = ()=> setShowModal(null);
 
     return (
         <Box width="full">
@@ -41,7 +48,7 @@ const Home = ()=> {
                                 </VStack>
                             </Flex>
 
-                            <Button bg="secondary.100" color="white" w="75%" h="48px" mt="56px" mb="10px">View report</Button>
+                            <Button bg="secondary.100" color="white" w="75%" h="48px" mt="56px" mb="10px" onClick={ handleShowModal }>View report</Button>
                         </Box>
 
 
@@ -151,7 +158,7 @@ const Home = ()=> {
                 </Flex>
 
 
-                <InvestmentReportModal />
+                { showModal }
 
         </Box>
     )
@@ -205,20 +212,20 @@ const IdeaCard = ({ image, title, caption, invState, percentage })=> {
 
 const InvestmentReportModal = ()=> {
     return (
-        <Box position="fixed" top="0" left="0" w="100vw" minHeight="100vh" bg="blackAlpha.500" zIndex="100" display="flex" alignItems="center" justifyContent="center">
+        <Box position="fixed" top="0" left="0" w="100vw" height="100vh" bg="blackAlpha.500" zIndex="100" display="flex" alignItems="center" justifyContent="center">
 
-            <Box bg="white" w="749px" position="relative" borderRadius="8px" overflowY="auto">
-                <HStack justifyContent="flex-end" alignItems="center" padding="10px"><CloseButton cursor="pointer" /></HStack>
+            <Box bg="white" w="749px" maxHeight="95%" position="relative" borderRadius="8px" overflow="hidden">
+                <HStack justifyContent="flex-end" alignItems="center" padding="10px"><CloseButton cursor="pointer" onClick={ hideModal } /></HStack>
                 <HStack className="px-7"><Text fontWeight="700">Investment Report</Text></HStack>
 
-                <VStack className="px-7 py-2" w="full" padding="32px">
+                <VStack w="full" padding="45px">
                     <HStack w="full" justifyContent="space-between">
 
                         <VStack alignItems="flex-start">
                             <small color="#878696">Investment amount</small>
                             <Heading color="secondary.100">SC 42, 000,000.00</Heading>
                             <Spacer />
-                            <p>NGN 42,000,000.00</p>
+                            <small color="#878696">NGN 42,000,000.00</small>
                         </VStack>
 
 
@@ -238,12 +245,15 @@ const InvestmentReportModal = ()=> {
 
 
                     <Spacer /><Spacer /><Spacer /><Spacer /><Spacer />
-                    <Grid w="full" templateColumns="1fr" gap={3}> 
+                    <VStack w="full" overflowY="auto" maxHeight="48vh" paddingRight="20px">
+                        <Grid w="full" templateColumns="1fr" gap={3}> 
 
                             <InvestmentReport />
-                           
+                            <InvestmentReport />
+                            <InvestmentReport />
 
-                    </Grid>
+                        </Grid>
+                    </VStack>
                 </VStack>
 
             </Box>
@@ -256,7 +266,7 @@ const InvestmentReportModal = ()=> {
 
 const InvestmentReport = ()=> {
     return (
-        <Box w="full" paddingBottom="4" boxShadow="0px -2px 0px 0px #19000C0D inset" mt="24px">
+        <Box w="full" paddingBottom="4" boxShadow="0px -2px 0px 0px #19000C0D inset" mt="24px" bg="white">
 
             <HStack w="full" justifyContent="space-between">
 
