@@ -11,11 +11,11 @@ import { MainHeader } from '../../components/UI/MainHeader';
 export const SignUp = () => {
     const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
-    
+
     return (
         <Container maxW="container.xl" p={0}>
             <MainHeader />
-            {isFormSubmitted ?
+            {!isFormSubmitted ?
                 <Flex h={{ base: 'fit-content', md: "calc(100vh - 80px)" }} py={5} justifyContent="center" alignItems="center" >
                     <VStack
                         display={{ base: 'none', md: 'flex' }}
@@ -68,7 +68,7 @@ export const SignUp = () => {
                             Or
                         </Separator>
                         <Box w="full">
-                            <SignupForm 
+                            <SignupForm
                                 setIsFormSubmitted={setIsFormSubmitted}
                             />
                         </Box>
