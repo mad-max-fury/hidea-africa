@@ -33,7 +33,7 @@ const SocialInput = ({
             <InputLeftElement
                 pointerEvents="none"
                 height="100%"
-                children={<Icon name={logo} size="24px" />}
+                children={<Icon as={logo} size="24px" />}
             />
             <Input
                 my={2}

@@ -16,6 +16,7 @@ import {
 } from '@chakra-ui/react';
 import PhoneNumberInput from "../../components/UI/formInput/PhoneNumberInput";
 import SocialInput from "../../components/UI/formInput/SocialInput";
+import { Facebook, Instagram, Linkedin, Twitter } from "../../assets/images/icons/Icons";
 import { COUNTRIES } from "../../components/UI/formInput/countries";
 
 
@@ -65,34 +66,37 @@ export const Accreditation = () => {
                     </FormControl>
                     <FormControl mb="32px" >
                         <FormLabel>Social Media</FormLabel>
-                        <SocialInput 
+                        <SocialInput
                             name="linkedin"
                             size="lg"
                             register={register}
                             errors={errors}
                             setValue={setValue}
-                            logo={require('../../assets/images/icons/linkedin.svg')}
+                            logo={Linkedin}
                         />
-                        <SocialInput 
+                        <SocialInput
                             name="facebook"
                             size="lg"
                             register={register}
                             errors={errors}
                             setValue={setValue}
+                            logo={Facebook}
                         />
-                        <SocialInput 
+                        <SocialInput
                             name="instagram"
                             size="lg"
                             register={register}
                             errors={errors}
                             setValue={setValue}
+                            logo={Instagram}
                         />
-                        <SocialInput 
+                        <SocialInput
                             name="twitter"
                             size="lg"
                             register={register}
                             errors={errors}
                             setValue={setValue}
+                            logo={Twitter}
                         />
                     </FormControl>
 

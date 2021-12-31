@@ -76,14 +76,14 @@ export default function PhoneNumberInput({
                 </Select>
                 <Flex p={3} width="100%" alignItems="center">
                     {selectedCountry ? (
-                        <> 
-                            <Box mr="4px" width='20%' flex={1}>
-                                <Flag height="full" width="100%" code={selectedCountry || ""} style={{
+                        <>
+                            <Box width='20%' flex={1}>
+                                <Flag height="full" width="60%" code={selectedCountry || ""} style={{
                                     marginRight: '8px',
                                     borderRadius: '50%'
                                 }} />
                             </Box>
-                            <Box mr="4px" width="50%" flex={1}>
+                            <Box mr="4px" width="60%" flex={1}>
                                 <span>{`${countryCode}`}</span>
                             </Box>
                         </>
