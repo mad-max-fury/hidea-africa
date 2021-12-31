@@ -79,7 +79,7 @@ export const ConfirmationPage = () => {
                         <Heading fontSize="1.5rem">Hidea investor account application</Heading>
                         <Text fontSize='md'>This application for accredited investors takes around 5 minutes to complete. All responses are kept confidential.</Text>
 
-                        <Link as={RouteLink} to='/accreditation' textDecoration="none" textAlign='center' w='full'>
+                        <Link as={RouteLink} to='/application' textDecoration="none" textAlign='center' w='full'>
                             <Button className="btn" type="button"
                                 variant="filled"
                                 width="full"

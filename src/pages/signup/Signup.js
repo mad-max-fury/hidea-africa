@@ -6,16 +6,17 @@ import Verify from '../../assets/images/Verify-email-img.png';
 import { Separator } from '../../components/UI/Separator';
 import SignupForm from '../../components/UI/signupForm/Form';
 import { MainHeader } from '../../components/UI/MainHeader';
+import { Google, LinkedinCircle } from '../../assets/images/icons/Icons';
 
 
 export const SignUp = () => {
     const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
-    
+
     return (
         <Container maxW="container.xl" p={0}>
             <MainHeader />
-            {isFormSubmitted ?
+            {!isFormSubmitted ?
                 <Flex h={{ base: 'fit-content', md: "calc(100vh - 80px)" }} py={5} justifyContent="center" alignItems="center" >
                     <VStack
                         display={{ base: 'none', md: 'flex' }}
@@ -44,22 +45,23 @@ export const SignUp = () => {
                             <Rlink to="/signup" className='w-full' >
                                 <Button className="btn" type="button"
                                     variant="outline" bg="transparent"
+                                    leftIcon={<Icon as={Google} size={6} />}
                                     width={{ base: '100%', lg: '45%' }}
                                     mx={{ base: 0, lg: '.5rem' }}
                                     my={{ base: '.5rem', lg: 0 }}
                                     size="xl" borderColor="primary" >
-                                    <Icon name="arrow-right" mr={2} />
+
                                     Continue with google
                                 </Button>
                             </Rlink>
                             <Rlink to="/signup" className='w-full' >
                                 <Button className="btn" type="button"
                                     variant="filled"
+                                    leftIcon={<Icon as={LinkedinCircle} size={6} />}
                                     width={{ base: '100%', lg: '45%' }}
                                     mx={{ base: 0, lg: '.5rem' }}
                                     my={{ base: '.5rem', lg: '0' }}
                                     bg="#007AB9" size="xl" mw="full">
-                                    <Icon name="arrow-right" mr={2} />
                                     Continue with linkedin
                                 </Button>
                             </Rlink>
@@ -68,7 +70,7 @@ export const SignUp = () => {
                             Or
                         </Separator>
                         <Box w="full">
-                            <SignupForm 
+                            <SignupForm
                                 setIsFormSubmitted={setIsFormSubmitted}
                             />
                         </Box>
