@@ -1,13 +1,52 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    font-family: 'Airbnb Cereal App Book', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    background: #fdfdfd;
+    color: #000;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.left-eclipse {
+    z-index: -1;
+    position: absolute;
+}
+
+.left-eclipse::before {
+    content: "";
+    width: 89px;
+    height: 82px;
+    border-radius: 50%;
+    background-color: #2dc86d;
+    position: absolute;
+    float: left;
+    left: -49.16px;
+    top: 522.01px;
+    z-index: -1;
+    transform: rotate(91.4deg);
+}
+
+.right-eclipse {
+    z-index: -1;
+    position: absolute;
+}
+
+.right-eclipse::before {
+    content: "";
+    width: 200.71px;
+    height: 109.11px;
+    border-radius: 50%;
+    background-color: #2dc86d;
+    position: absolute;
+    right: -59.16px;
+    top: 138.71px;
+    z-index: -1;
+    transform: rotate(91.4deg);
 }
