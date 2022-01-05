@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import "./assets/fonts/airbnb-cereal-app-cufonfonts-webfont/style.css";
 
@@ -10,23 +10,46 @@ import { Login } from './pages/login/Login';
 import { ForgotPassword } from './pages/forgotPassword/ForgotPassword';
 import { NotFound } from './pages/404page/NotFound';
 import { ConfirmationPage } from './pages/confirmation/ConfirmationPage';
-import { Dashboard ,Welcome } from "./pages"
+import { Application } from './pages/onboarding/Application';
+
+import { Dashboard, Welcome } from "./pages"
 
 function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/coming-soon" element={<ComingSoon />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/confirmation" element={<ConfirmationPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/welcome" element={<Welcome />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Switch>
+        <Route exact path="/" >
+          <Home />
+        </Route>
+        <Route path="/coming-soon">
+          <ComingSoon />
+        </Route>
+        <Route path="/signup">
+          <SignUp />
+        </Route>
+        <Route path="/application">
+          <Application />
+        </Route>
+        <Route path="/confirmation">
+          <ConfirmationPage />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/forgot-password">
+          <ForgotPassword />
+        </Route>
+        <Route path="/welcome">
+          <Welcome />
+        </Route>
+        <Route path="/dashboard">
+          <Dashboard />
+        </Route>
+        <Route path="*">
+          <NotFound />
+        </Route>
+      </Switch>
     </BrowserRouter>
   );
 }
