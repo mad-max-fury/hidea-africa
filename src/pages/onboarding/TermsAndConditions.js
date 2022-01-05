@@ -6,14 +6,14 @@ export const TermsAndCondition = () => {
     const [isChecked, setIsChecked] = useState(false);
     const [isFormSubmitted, setIsFormSubmitted] = useState(false);
     return (
-        <Container maxW="container.xl" p={0}>
+        <Container maxW="container.xl" p={0} alignItems="center"
+        justifyContent="center" >
             {!isFormSubmitted ?
                 <VStack
                     w="full"
                     h="full"
                     p={4}
-                    alignItems="center"
-                    justifyContent="center"
+                    
                     spacing={8}>
 
                     <ul style={{ listStyle: 'disc' }}>

@@ -103,7 +103,7 @@ export const Application = () => {
                             display='flex'
                             flexDirection='column'
                             alignItems="center"
-                            justifyContent="center"
+                            justifyContent="flex-start"
                             overflow-y='scroll'
                             spacing={4}>
 
