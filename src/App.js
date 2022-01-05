@@ -12,6 +12,7 @@ import { NotFound } from './pages/404page/NotFound';
 import { ConfirmationPage } from './pages/confirmation/ConfirmationPage';
 import { Application } from './pages/onboarding/Application';
 
+import { Dashboard, Welcome } from "./pages"
 
 function App() {
 
@@ -38,6 +39,12 @@ function App() {
         </Route>
         <Route path="/forgot-password">
           <ForgotPassword />
+        </Route>
+        <Route path="/welcome">
+          <Welcome />
+        </Route>
+        <Route path="/dashboard">
+          <Dashboard />
         </Route>
         <Route path="*">
           <NotFound />
