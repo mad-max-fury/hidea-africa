@@ -16,6 +16,7 @@ import { StateMachineProvider, createStore } from 'little-state-machine';
 import { DevTool } from 'little-state-machine-devtools';
 import { SideNav } from '../../components/UI/navigation/SideNav';
 import { TopNav } from '../../components/UI/navigation/TopNav';
+import styles from './Application.module.css';
 
 const store = createStore({
     application: {
@@ -84,22 +85,24 @@ const Pages = () => {
     )
 }
 
-export const Application = () => {
+const Application = () => {
 
     return (
         <StateMachineProvider >
             <DevTool />
-            <Container maxW="container.xl" p={0}>
+            <Container maxW="container.xl" p={0} h='100vh'>
                 <MainHeader />
                 <Flex h={{
                     base: 'fit-content', md: "calc(100vh - 80px)"
-                }} py={5} justifyContent="center" alignItems="center" >
+                }}  justifyContent="center">
                     <Router>
-                        <SideNav />
+                        <SideNav class={styles.aside_nav} />
                         <HStack
+                            className={styles.main_content}
                             width={{ base: '100%', md: '50%' }}
-                            height={{ base: 'fit-content', md: '100vh' }}
-                            p={4}
+                            height={{ base: 'fit-content', md: '100%' }}
+                            py={4}
+                            m={0}
                             display='flex'
                             flexDirection='column'
                             alignItems="center"
@@ -115,3 +118,5 @@ export const Application = () => {
         </StateMachineProvider>
     )
 }
+
+export default Application;

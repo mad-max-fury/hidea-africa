@@ -8,10 +8,16 @@ import {
 export const SideNav = (props) => {
     return (
         <VStack
+<<<<<<< Updated upstream
             display={{ base: 'none', md: 'block' }}
+=======
+            className={props.class}
+            display={{ base: 'none', md: 'flex' }}
+>>>>>>> Stashed changes
             w={{ md: '30%', lg: '30%' }}
+            h='100%'
             p={5}
-            pb={24}
+            justifyContent="center"
             borderRight="1px solid #eaeaea"
             spacing={8}
         >
