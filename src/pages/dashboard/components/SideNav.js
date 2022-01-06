@@ -21,22 +21,26 @@ import WalletIconBold from '../../../assets/images/icons/icons-set/bold/wallet.s
 import IdeaPooolIconBold from '../../../assets/images/icons/icons-set/bold/box.svg'
 import SupportIconBold from '../../../assets/images/icons/icons-set/bold/device-message.svg'
 import MyIdeasIconBold from '../../../assets/images/icons/icons-set/bold/lock.svg'
+import { useNavigate, useParams } from 'react-router-dom'
 
 
 const SideNav = ()=> {
 
+    const navigate = useNavigate();
+    const params = useParams();
+
     const [tabItems, setTabItems] = useState([
-        {text: "Dashboard", TabIcon: DashboardIcon, TabIconActive: DashboardIconBold, active: true},
-        {text: "My ideas", TabIcon: MyIdeasIcon, TabIconActive: MyIdeasIconBold, active: false},
-        {text: "Ideas pool", TabIcon: IdeaPooolIcon, TabIconActive: IdeaPooolIconBold, active: false},
-        {text: "Wallet", TabIcon: WalletIcon, TabIconActive: WalletIconBold, active: false},
-        {text: "Settings", TabIcon: SettingsIcon, TabIconActive: SettingsIconBold, active: false},
-        {text: "Support", TabIcon: SupportIcon, TabIconActive: SupportIconBold, active: false}
+        {text: "Dashboard", TabIcon: DashboardIcon, TabIconActive: DashboardIconBold, active: params.route === "index"},
+        {text: "My ideas", TabIcon: MyIdeasIcon, TabIconActive: MyIdeasIconBold, active: params.route === "my-ideas"},
+        {text: "Ideas pool", TabIcon: IdeaPooolIcon, TabIconActive: IdeaPooolIconBold, active: params.route === "ideas-pool"},
+        {text: "Wallet", TabIcon: WalletIcon, TabIconActive: WalletIconBold, active: params.route === "wallet"},
+        {text: "Settings", TabIcon: SettingsIcon, TabIconActive: SettingsIconBold, active: params.route === "settings"},
+        {text: "Support", TabIcon: SupportIcon, TabIconActive: SupportIconBold, active: params.route === "support"}
     ]);
 
 
 
-    const changeActiveTab = (idx) => {
+    const changeActiveTab = (idx, text) => {
         console.log(idx);
         //Make all tabs inactive
         tabItems.forEach(tab => tab.active = false);
@@ -47,6 +51,9 @@ const SideNav = ()=> {
         //Make current tab active
         tabsCopy[idx].active = true;
         setTabItems(tabsCopy);
+
+        //Route
+        navigate(text === "Dashboard" ? "/dashboard/index" : `/dashboard/${text.toLowerCase().replace(" ", "-")}`);
     }
 
 
@@ -63,7 +70,7 @@ const SideNav = ()=> {
 
                 {
                     tabItems.map(({ TabIcon, TabIconActive, text, active }, idx) => (
-                        <ListItem key={idx} onClick={()=> changeActiveTab(idx)} padding="4" pl="8" cursor="pointer" display="flex" borderRadius="8px" borderTopLeftRadius="0" borderBottomLeftRadius="0" alignItems="center" bg={active ? "#73DA9E" : null} color={active ? "#fff" : "#57575b"}>
+                        <ListItem key={idx} onClick={()=> changeActiveTab(idx, text)} padding="4" pl="8" cursor="pointer" display="flex" borderRadius="8px" borderTopLeftRadius="0" borderBottomLeftRadius="0" alignItems="center" bg={active ? "#73DA9E" : null} color={active ? "#fff" : "#57575b"}>
                             { <Image color="#fff" src={ active ? TabIconActive : TabIcon } alt={ text } mr="18px"/> }
                             { text }
                         </ListItem>

@@ -3,7 +3,7 @@ body {
 }
 
 button {
-    outline: none;
+    outline: none !important;
 }
 
 /* width */
@@ -24,7 +24,7 @@ button {
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: #72e4a1;
   }
 
 .aside_nav {

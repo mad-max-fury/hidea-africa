@@ -6,8 +6,12 @@ import "./Dashboard.css"
 import React from 'react'
 import SideNav from './components/SideNav'
 import Home from './screens/Home'
+import MyIdeas from './screens/MyIdeas'
+import { useParams } from 'react-router-dom'
 
 const Dashboard = ()=> {
+    const params = useParams();
+
     return (
 
             <Flex width="full" height="100vh" direction="row">
@@ -17,7 +21,9 @@ const Dashboard = ()=> {
                     {/* Dashboard screens */}
                     <main className="w-full h-full p-8 main-container">
 
-                        <Home />
+                        {
+                            params.route === "index" ? <Home /> : params.route === "my-ideas" ? <MyIdeas /> : null
+                        }
 
                         
 

@@ -11,6 +11,7 @@ import ImportIcon from '../../../assets/images/icons/icons-set/linear/import.svg
 import ExportIcon from '../../../assets/images/icons/icons-set/linear/export.svg'
 
 import EmptyUser from '../../../assets/images/empty-user.png'
+import IdeaCard from '../components/IdeaCard'
 
 const Home = ()=> {
 
@@ -26,7 +27,7 @@ const Home = ()=> {
 
     return (
         <Box width="full">
-            <Text fontWeight="700" fontSize="24px">Welcome Magaret,</Text>
+            <Text fontWeight="700" fontSize="24px">Welcome Margaret,</Text>
             <Flex width="full" justifyContent="space-between" alignItems="flex-start" mt="8">
 
                 <Box display="flex" flexDirection="column" alignItems="flex-start" w="65%">
@@ -89,12 +90,12 @@ const Home = ()=> {
 
                             <Grid w="full" templateColumns="repeat(2, 1fr)" gap="4">
 
-                                <IdeaCard image={SirTAvatar} title="JEJI" caption="Fintech, Agriculture" invState="Equity" percentage="5%" />
-                                <IdeaCard image={MiraAvatar} title="Mira Ahmadeen" caption="Gaming Industry" invState="Equity" percentage="5%" />
-                                <IdeaCard image={MeadAvatar} title="Anita Edward" caption="Education" invState="Equity" percentage="5%" />
-                                <IdeaCard image={GregAvatar} title="Gregory Anthony" caption="Politics" invState="Equity" percentage="5%" />
-                                <IdeaCard image={AfenaAvatar} title="Afena Athai" caption="Fintech, Agriculture" invState="Equity" percentage="5%" />
-                                <IdeaCard image={SirTAvatar} title="JEJI" caption="Fintech, Agriculture" invState="Equity" percentage="5%" />
+                                <IdeaCard image={SirTAvatar} seller={{name: "JEJI"}} tag="Fintech, Agriculture" invState="Equity" percentage="5%" />
+                                <IdeaCard image={MiraAvatar} seller={{name: "Mira Ahmadeen"}} tag="Gaming Industry" invState="Equity" percentage="5%" />
+                                <IdeaCard image={MeadAvatar} seller={{name: "Anita Edward"}} tag="Education" invState="Equity" percentage="5%" />
+                                <IdeaCard image={GregAvatar} seller={{name: "Gregory Anthony"}} tag="Politics" invState="Equity" percentage="5%" />
+                                <IdeaCard image={AfenaAvatar} seller={{name: "Afena Athai"}} tag="Fintech, Agriculture" invState="Equity" percentage="5%" />
+                                <IdeaCard image={SirTAvatar} seller={{name: "JEJI"}} tag="Fintech, Agriculture" invState="Equity" percentage="5%" />
 
 
                             </Grid>
@@ -168,7 +169,7 @@ const Home = ()=> {
 //Transaction component
 const Transaction = ({ incoming, source, transactionState, amount })=> {
     return (
-        <Box w="full" display="flex" alignItems="flex-start" justifyContent="space-between" mt="8px">
+        <Box w="full" display="flex" alignItems="flex-start" justifyContent="space-between" mt="16px">
             <HStack alignItems="flex-start">
 
                 <Box bg={incoming ? "#FCDCDC" : "#F2F7F0"} borderRadius="8px" w="32px" h="32px" display="flex" alignItems="center" justifyContent="center">
@@ -189,25 +190,7 @@ const Transaction = ({ incoming, source, transactionState, amount })=> {
     )
 }
 
-const IdeaCard = ({ image, title, caption, invState, percentage })=> {
-    return (
-        <Box display="flex" alignItems="center" justifyContent="space-between" padding="4" w="100%" h="82px" bg="white" borderRadius="16px">
-            <HStack>
-                <Avatar src={ image } borderRadius="8px" w="50px" h="50px" mr="4" />
-                <VStack mr="50px" alignItems="flex-start">
-                    <Text color="#57575b" fontWeight="700">{ title }</Text>
-                    <Text color="#5F5E73" fontSize="14px">{ caption }</Text>
-                </VStack>
-            </HStack>
 
-            <VStack alignItems="flex-start">
-                <Text color="#5F5E73" fontSize="14px">{ invState }</Text>
-                <Text color="secondary.100">{ percentage }</Text>
-            </VStack>
-
-        </Box>
-    )
-}
 
 
 const InvestmentReportModal = ({ hideModal })=> {
@@ -223,7 +206,7 @@ const InvestmentReportModal = ({ hideModal })=> {
 
                         <VStack alignItems="flex-start">
                             <small color="#878696">Investment amount</small>
-                            <Heading color="secondary.100">SC 42, 000,000.00</Heading>
+                            <Heading color="secondary.100">SC 42,000,000.00</Heading>
                             <Spacer />
                             <small color="#878696">NGN 42,000,000.00</small>
                         </VStack>
