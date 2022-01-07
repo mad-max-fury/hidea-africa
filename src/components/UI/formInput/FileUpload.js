@@ -15,7 +15,7 @@ export const FileUpload = ({ label, inputRef, file }) => {
             <InputGroup>
                 <InputLeftElement
                     pointerEvents="none"
-                    paddingLeft='4em'
+                    left={{base: '14px', md: '10px', lg: '30px', xl: '40px'}}
                     children={<Icon as={UploadIcon} />}
                 />
                 <input

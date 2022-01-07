@@ -47,8 +47,8 @@ export const Accreditation = () => {
                 w="full"
                 h="full"
                 p={4}
-                alignItems="center"
-                justifyContent="center"
+                alignItems="flex-start"
+                justifyContent="flex-start"
                 spacing={8}>
 
                 <form onSubmit={handleSubmit(onSubmit)} style={{

@@ -89,24 +89,34 @@ export const Application = () => {
     return (
         <StateMachineProvider >
             <DevTool />
-            <Container maxW="container.xl" p={0}>
+            <Container maxW={'full'} p={0}>
                 <MainHeader />
+                <Box maxW="full" px={16} display={{ base: 'none', md: 'flex' }} justifyContent="flex-end">
+                    <Link as={RouteLink} to='/dashboard'
+                        color="#2DC86D"
+                        fontWeight="bold"
+                        textAlign='end'
+                        textDecoration={'none'}>Skip</Link>
+                </Box>
                 <Flex h={{
                     base: 'fit-content', md: "calc(100vh - 80px)"
-                }} py={5} justifyContent="center" alignItems="center" >
+                }} w="100%" position={{ base: 'relative', md: 'fixed', }} py={{ base: '0', md: '5' }} justifyContent="center" alignItems="center" >
+
                     <Router>
                         <SideNav />
                         <HStack
                             width={{ base: '100%', md: '50%' }}
-                            height={{ base: 'fit-content', md: '100vh' }}
-                            p={4}
+                            height={{ base: 'fit-content', md: '100%' }}
+                            style={{
+                                overflowX: 'hidden',
+                                overflowY: 'auto',
+                            }}
                             display='flex'
                             flexDirection='column'
                             alignItems="center"
                             justifyContent="flex-start"
-                            overflow-y='scroll'
+                            padding={{ base: '0', md: '8' }}
                             spacing={4}>
-
                             <Pages />
                         </HStack>
                     </Router>
