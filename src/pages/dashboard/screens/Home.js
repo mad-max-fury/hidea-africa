@@ -90,12 +90,12 @@ const Home = ()=> {
 
                             <Grid w="full" templateColumns="repeat(2, 1fr)" gap="4">
 
-                                <IdeaCard image={SirTAvatar} seller={{name: "JEJI"}} tag="Fintech, Agriculture" invState="Equity" percentage="5%" />
-                                <IdeaCard image={MiraAvatar} seller={{name: "Mira Ahmadeen"}} tag="Gaming Industry" invState="Equity" percentage="5%" />
-                                <IdeaCard image={MeadAvatar} seller={{name: "Anita Edward"}} tag="Education" invState="Equity" percentage="5%" />
-                                <IdeaCard image={GregAvatar} seller={{name: "Gregory Anthony"}} tag="Politics" invState="Equity" percentage="5%" />
-                                <IdeaCard image={AfenaAvatar} seller={{name: "Afena Athai"}} tag="Fintech, Agriculture" invState="Equity" percentage="5%" />
-                                <IdeaCard image={SirTAvatar} seller={{name: "JEJI"}} tag="Fintech, Agriculture" invState="Equity" percentage="5%" />
+                                <IdeaCard image={SirTAvatar} seller={{seller_name: "JEJI"}} tag="Fintech, Agriculture" invState="Equity" percentage="5%" />
+                                <IdeaCard image={MiraAvatar} seller={{seller_name: "Mira Ahmadeen"}} tag="Gaming Industry" invState="Equity" percentage="5%" />
+                                <IdeaCard image={MeadAvatar} seller={{seller_name: "Anita Edward"}} tag="Education" invState="Equity" percentage="5%" />
+                                <IdeaCard image={GregAvatar} seller={{seller_name: "Gregory Anthony"}} tag="Politics" invState="Equity" percentage="5%" />
+                                <IdeaCard image={AfenaAvatar} seller={{seller_name: "Afena Athai"}} tag="Fintech, Agriculture" invState="Equity" percentage="5%" />
+                                <IdeaCard image={SirTAvatar} seller={{seller_name: "JEJI"}} tag="Fintech, Agriculture" invState="Equity" percentage="5%" />
 
 
                             </Grid>
