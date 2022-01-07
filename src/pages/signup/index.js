@@ -9,7 +9,7 @@ import { MainHeader } from '../../components/UI/MainHeader';
 import { Google, LinkedinCircle } from '../../assets/images/icons/Icons';
 
 
-export const SignUp = () => {
+const SignUp = () => {
     const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
 
@@ -111,3 +111,5 @@ export const SignUp = () => {
         </Container>
     )
 }
+
+export default SignUp

@@ -1,9 +1,11 @@
 import React from 'react'
 
-export const ForgotPassword = () => {
+const NotFound = () => {
     return (
         <div>
-            <h1>Forgot Password</h1>
+            <h1>404</h1>
         </div>
     )
 }
+
+export default NotFound;

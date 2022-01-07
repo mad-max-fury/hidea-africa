@@ -29,7 +29,7 @@ export const SideNav = (props) => {
     return (
         <VStack
             display={{ base: 'none', md: 'flex' }}
-            w={{ md: '30%', lg: '30%' }}
+            w={{ md: '20%', lg: '20%' }}
             h='100%'
             p={5}
             pb={32}

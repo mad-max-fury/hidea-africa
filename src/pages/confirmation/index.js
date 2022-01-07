@@ -3,7 +3,7 @@ import { MainHeader } from '../../components/UI/MainHeader';
 import { Heading, Box, Container, Flex, FormControl, VStack, Button, Text, Link, Checkbox, Spacer } from '@chakra-ui/react'
 import { Link as RouteLink } from 'react-router-dom';
 
-export const ConfirmationPage = () => {
+const ConfirmationPage = () => {
     const [isChecked, setIsChecked] = useState(false);
     const [isFormSubmitted, setIsFormSubmitted] = useState(false);
     return (
@@ -93,3 +93,5 @@ export const ConfirmationPage = () => {
         </Container>
     )
 }
+
+export default ConfirmationPage

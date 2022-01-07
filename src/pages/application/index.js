@@ -84,7 +84,7 @@ const Pages = () => {
     )
 }
 
-export const Application = () => {
+const Application = () => {
 
     return (
         <StateMachineProvider >
@@ -105,7 +105,7 @@ export const Application = () => {
                     <Router>
                         <SideNav />
                         <HStack
-                            width={{ base: '100%', md: '50%' }}
+                            width={{ base: '100%', md: '40%' }}
                             height={{ base: 'fit-content', md: '100%' }}
                             style={{
                                 overflowX: 'hidden',
@@ -125,3 +125,5 @@ export const Application = () => {
         </StateMachineProvider>
     )
 }
+
+export default Application;
