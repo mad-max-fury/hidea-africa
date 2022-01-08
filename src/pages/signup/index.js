@@ -10,7 +10,7 @@ import { Google, LinkedinCircle } from '../../assets/images/icons/Icons';
 
 const SocialLogin = ({ to, variant, bg, icon, bdColor, child }) => {
     return (
-        <Link as={Rlink} to={to} w={{ base: '100%', md: '48%' }} mb={4} style={{ textDecoration: 'none' }}>
+        <Link href={to} w={{ base: '100%', md: '48%' }} mb={4} style={{ textDecoration: 'none' }} isExternal>
             <Button className="btn" type="button"
                 variant={variant} bg={bg}
                 leftIcon={<Icon as={icon} size={6} />}
@@ -28,9 +28,13 @@ const SignUp = () => {
 
     return (
         <Container maxW="container.xl" p={0}>
-            <MainHeader />
+            <MainHeader>
+                <Box display={{ base: 'flex', md: 'none' }} >
+                    <p>Existing user? <Link color='#2DC86D' fontWeight='bold' href="/login">Sign in</Link></p>
+                </Box>
+            </MainHeader>
             {!isFormSubmitted ?
-                <Flex h={{ base: 'fit-content', md: "calc(100vh - 80px)" }} py={5} justifyContent="center" alignItems="center" >
+                <Flex h={{ base: 'fit-content', md: "calc(100vh - 80px)" }} py={2} justifyContent="center" alignItems="center" >
                     <VStack
                         display={{ base: 'none', md: 'flex' }}
                         h="full"
@@ -45,13 +49,10 @@ const SignUp = () => {
                     <VStack
                         width={{ base: '100%', md: '50%' }}
                         h="full"
-                        p={10}
+                        p={4}
                         alignItems="flex-start"
                         justifyContent="center"
                         spacing={4}>
-                        <Box>
-                            <p>Existing user? <Link class='color-default' to="/login">Sign in</Link></p>
-                        </Box>
                         <Heading>Sign up to Hidea.</Heading>
                         <p>The first step to the world of posibilities</p>
                         <Box display='flex' flexDirection={{ base: 'column', md: 'row' }} justifyContent={{ base: 'center', md: 'space-between' }} alignItems="center" w="full">
@@ -66,8 +67,11 @@ const SignUp = () => {
                                 setIsFormSubmitted={setIsFormSubmitted}
                             />
                         </Box>
-                        <Box textAlign='center' w='full'>
-                            <Text>By signing up, you agree to our <br /> <Link href="#" class='color-default' >Terms & Conditions</Link></Text>
+                        <Box textAlign={{ base: 'center', md: 'left' }} w='full'>
+                            <Text>By signing up, you agree to our <br /> <Link href="#" color='#2DC86D' fontWeight='bold' >Terms & Conditions</Link></Text>
+                        </Box>
+                        <Box display={{ base: 'none', md: 'flex' }} >
+                            <p>Existing user? <Link color='#2DC86D' fontWeight='bold' href="/login">Sign in</Link></p>
                         </Box>
                     </VStack>
                 </Flex> :

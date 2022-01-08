@@ -11,7 +11,7 @@ const CssTextField = styled(TextField)({
         paddingLeft: '0rem',
     },
     '& input': {
-        paddingLeft: '2.3rem',
+        paddingLeft: '2.5rem',
     },
 
     '& .MuiInputLabel-outlined.MuiInputLabel-shrink': {
@@ -24,7 +24,7 @@ const CssTextField = styled(TextField)({
     '& .MuiOutlinedInput-root': {
         '& fieldset': {
             borderColor: 'transparent',
-            backgroundColor: 'rgba(255, 255, 255, 0.3)',
+            backgroundColor: 'rgba(250, 250, 250, 0.5)',
         },
         '&:hover fieldset': {
             borderColor: '#2DC86D',
@@ -53,7 +53,7 @@ export const FormInput = (props) => {
             <Box position="relative" display="flex" alignItems='center' minWidth="100%" {...props}>
                 <Icon as={props.icon} size="20px" />
                 <CssTextField id="outlined-basic" label={props.name}
-                    variant="outlined" type={props.name} style={{ position: "relative" }} fullWidth />
+                    variant="outlined" type={props.type} style={{ position: "relative" }} fullWidth />
             </Box>
         </ThemeProvider>
     )
