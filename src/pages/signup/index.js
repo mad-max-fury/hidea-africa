@@ -8,6 +8,19 @@ import SignupForm from '../../components/UI/signupForm/Form';
 import { MainHeader } from '../../components/UI/MainHeader';
 import { Google, LinkedinCircle } from '../../assets/images/icons/Icons';
 
+const SocialLogin = ({ to, variant, bg, icon, bdColor, child }) => {
+    return (
+        <Link as={Rlink} to={to} w={{ base: '100%', md: '48%' }} mb={4} style={{ textDecoration: 'none' }}>
+            <Button className="btn" type="button"
+                variant={variant} bg={bg}
+                leftIcon={<Icon as={icon} size={6} />}
+                width="100%"
+                size='xl' borderColor={bdColor} >
+                {child}
+            </Button>
+        </Link>
+    )
+}
 
 const SignUp = () => {
     const [isFormSubmitted, setIsFormSubmitted] = useState(false);
@@ -41,30 +54,9 @@ const SignUp = () => {
                         </Box>
                         <Heading>Sign up to Hidea.</Heading>
                         <p>The first step to the world of posibilities</p>
-                        <Box justifyContent="space-between" alignItems="center" w="full" flexWrap="wrap">
-                            <Rlink to="/signup" className='w-full' >
-                                <Button className="btn" type="button"
-                                    variant="outline" bg="transparent"
-                                    leftIcon={<Icon as={Google} size={6} />}
-                                    width={{ base: '100%', lg: '45%' }}
-                                    mx={{ base: 0, lg: '.5rem' }}
-                                    my={{ base: '.5rem', lg: 0 }}
-                                    size="xl" borderColor="primary" >
-
-                                    Continue with google
-                                </Button>
-                            </Rlink>
-                            <Rlink to="/signup" className='w-full' >
-                                <Button className="btn" type="button"
-                                    variant="filled"
-                                    leftIcon={<Icon as={LinkedinCircle} size={6} />}
-                                    width={{ base: '100%', lg: '45%' }}
-                                    mx={{ base: 0, lg: '.5rem' }}
-                                    my={{ base: '.5rem', lg: '0' }}
-                                    bg="#007AB9" size="xl" mw="full">
-                                    Continue with linkedin
-                                </Button>
-                            </Rlink>
+                        <Box display='flex' flexDirection={{ base: 'column', md: 'row' }} justifyContent={{ base: 'center', md: 'space-between' }} alignItems="center" w="full">
+                            <SocialLogin to='/' variant="outline" bg="white" icon={Google} bdColor="primary" child='Continue with Google' />
+                            <SocialLogin to='/' variant="filled" bg="#007AB9" icon={LinkedinCircle} child='Continue with Linkedin' />
                         </Box>
                         <Separator >
                             Or
