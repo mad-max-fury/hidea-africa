@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { Heading, Box, Container, Checkbox, Stack, Input, CheckboxGroup, Flex, Icon, Image, VStack, Button, Text, Link, Center } from '@chakra-ui/react'
-import { Link as Rlink } from 'react-router-dom';
+import { Heading, Box, Container, Checkbox, Stack, Input, Flex, Icon, VStack, Button, Text, Link } from '@chakra-ui/react'
 import { useForm } from "react-hook-form";
 import { FormInput } from "../../components/UI/formInput/FormInput";
 import { PasswordIcon, MailIcon } from "../../assets/images/icons/Icons";
@@ -11,7 +10,7 @@ import { Google, LinkedinCircle } from '../../assets/images/icons/Icons';
 
 const SocialLogin = ({to, variant, bg, icon, bdColor, child}) => {
     return (
-        <Link as={Rlink} to={to} w={{base: '100%', md: '48%'}} mb={4} style={{ textDecoration: 'none' }}>
+        <Link to={to} w={{base: '100%', md: '48%'}} mb={4} style={{ textDecoration: 'none' }} isExternal>
             <Button className="btn" type="button"
                 variant={variant} bg={bg}
                 leftIcon={<Icon as={icon} size={6} />}
@@ -61,22 +60,22 @@ const Login = () => {
                         Or
                     </Separator>
                     <Box w="full">
-                        <form>
+                        <form onSubmit={handleSubmit(onSubmit)}>
                             <Stack spacing={4}>
-                                <FormInput name="email" type='email' icon={MailIcon} />
-                                <FormInput name="password" type='password' icon={PasswordIcon} />
+                                <FormInput name="Email" type='email' icon={MailIcon} />
+                                <FormInput name="Password" type='password' icon={PasswordIcon} />
                                 <Box textAlign='center' display='flex' justifyContent='space-between' w='full'>
                                     <Checkbox name="rememberMe"
                                         onChange={(e) => { console.log(e.target.checked) }}
                                         defaultChecked={false} >Remember me</Checkbox>
-                                    <Link href="#" color='#2DC86D' fontSize="sm" fontWeight="bold">Forgot password?</Link>
+                                    <Link href="/forgot-password" color='#2DC86D' fontSize="sm" fontWeight="bold">Forgot password?</Link>
                                 </Box>
                                 <Input size='lg' type="submit" variant="filled" fontWeight="bold" bg='#2DC86D' color='white' value="Login" />
                             </Stack>
                         </form>
                     </Box>
                     <Box textAlign='center' w='full'>
-                        <Text>New user? <Link href="#" color='#2DC86D' fontSize="sm" fontWeight="bold">Sign up</Link></Text>
+                        <Text>New user? <Link href="/signup" color='#2DC86D' fontSize="sm" fontWeight="bold">Sign up</Link></Text>
                     </Box>
                 </VStack>
             </Flex>
