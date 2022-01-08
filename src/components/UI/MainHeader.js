@@ -12,11 +12,12 @@ export const MainHeader = (props) => {
             zIndex: 1,
             display: 'flex',
             alignItems: 'center',
-            justifyContent: props.isCentered ? 'center' : 'flex-start',
+            justifyContent: props.isCentered ? 'center' : 'space-between',
         }} >
             <RouteLink to="/" className='width:fit-content justify-center align-middle' >
                 <Image width="100px" src={HideaLogo} alt="logo" />
             </RouteLink>
+            {props.children}
         </header>
     )
 }
