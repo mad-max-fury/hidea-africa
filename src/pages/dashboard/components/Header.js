@@ -12,8 +12,8 @@ const Header = ()=> {
         <header className="flex flex-row place-content-end align-middle shadow-md w-full h-20 px-16 bg-white">
 
             { /* Search section */ }
-            <Box width="container.sm" display="flex" alignItems="center" justifyContent="flex-start">
-                <InputGroup width="437px" variant="filled">
+            <Box width="container.sm" display="flex" alignItems="center" justifyContent="flex-end">
+                <InputGroup width="40%" variant="filled">
                     <InputLeftElement
                     pointerEvents='none'
                     children={<Image src={ SearchIcon } alt="Search Icon" color='gray.300' />}
@@ -22,16 +22,16 @@ const Header = ()=> {
                 </InputGroup>
             </Box>
 
-            <HStack>
-                <Text fontWeight="700">SC</Text>
-                <Switch id='email-alerts' />
+            {/* <HStack>
                 <Text fontWeight="700">NGN</Text>
+                <Switch id='email-alerts' />
+                <Text fontWeight="700">SC</Text>
                 <Spacer /><Spacer />
                 <Image src={NotificationBold} alt="Notification Bold Icon" />
                 <Spacer />
 
                 <UserAvatar avatar={ user } name="Magaret Mead" />
-            </HStack>
+            </HStack> */}
         </header>
     )
 }

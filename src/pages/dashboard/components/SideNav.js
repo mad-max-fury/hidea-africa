@@ -1,7 +1,8 @@
-import { Box, Image, List, ListItem, ListIcon } from '@chakra-ui/react'
+import { Box, Image, List, ListItem, ListIcon, Switch, Text, Spacer, HStack, Divider, VStack, Avatar, AvatarBadge,} from '@chakra-ui/react'
 import React, { useState } from 'react'
 
 import hideaLogo from "../../../assets/images/logo/Hidea-logo.svg"
+import user from '../../../assets/images/users/mead.jpg'
 
 
 //Linear icons
@@ -21,6 +22,7 @@ import WalletIconBold from '../../../assets/images/icons/icons-set/bold/wallet.s
 import IdeaPooolIconBold from '../../../assets/images/icons/icons-set/bold/box.svg'
 import SupportIconBold from '../../../assets/images/icons/icons-set/bold/device-message.svg'
 import MyIdeasIconBold from '../../../assets/images/icons/icons-set/bold/lock.svg'
+import NotificationBold from '../../../assets/images/icons/icons-set/bold/notification.svg'
 import { useNavigate, useParams } from 'react-router-dom'
 
 
@@ -78,15 +80,41 @@ const SideNav = ()=> {
                 }
 
                 {/* Logout Button */}
-                <ListItem color="error.100" padding="4" pl="8" cursor="pointer" display="flex" borderRadius="8px" borderTopLeftRadius="0" borderBottomLeftRadius="0" alignItems="center" mt="204px">
+                {/* <ListItem color="error.100" padding="4" pl="8" cursor="pointer" display="flex" borderRadius="8px" borderTopLeftRadius="0" borderBottomLeftRadius="0" alignItems="center" mt="204px">
                     <Image color="danger.100" src={ LogoutIcon } alt="Logout" mr="18px"/>
                     Logout
-                </ListItem>
+                </ListItem> */}
 
             </List>
+            <VStack mt="10rem">
+                <Spacer/>
+                <UserAvatar avatar={ user } name="Magaret Mead" />
+                <Divider w="80%" />
+                <HStack>
 
+                    <Text fontWeight="700">NGN</Text>
+                    <Switch id='email-alerts' />
+                    <Text fontWeight="700">SC</Text>
+                    <Spacer /><Spacer />
+                    <Spacer />
+
+                </HStack>
+                
+            </VStack>
         </aside>
     )
 }
+
+const UserAvatar = ({ avatar, name }) => {
+    return (
+        <HStack>
+            <Avatar src={ avatar } border="ActiveBorder" borderRadius="8px" width="32px" height="32px">
+                <AvatarBadge boxSize='11px' borderWidth="2px" bg='green.500' position="absolute" top="-10px" />
+            </Avatar>
+            <Text fontWeight="400" fontSize="14px">{ name }</Text>
+        </HStack>
+    )
+}
+
 
 export default SideNav
