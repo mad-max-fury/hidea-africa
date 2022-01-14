@@ -56,10 +56,10 @@ const SignUp = () => {
                         <Heading>Sign up to Hidea.</Heading>
                         <p>The first step to the world of posibilities</p>
                         <Box display='flex' flexDirection={{ base: 'column', md: 'row' }} justifyContent={{ base: 'center', md: 'space-between' }} alignItems="center" w="full">
-                            <SocialLogin to='/' variant="outline" bg="white" icon={Google} bdColor="primary" child='Continue with Google' />
-                            <SocialLogin to='/' variant="filled" bg="#007AB9" icon={LinkedinCircle} child='Continue with Linkedin' />
+                            <SocialLogin to='https://hidea-backend-dev.herokuapp.com/api/auth/google/getGoogleUrl' variant="outline" bg="white" icon={Google} bdColor="primary" child='Continue with Google' />
+                            <SocialLogin to='https://hidea-backend-dev.herokuapp.com/api/auth/linkedin/getLinkedinUrl' variant="filled" bg="#007AB9" icon={LinkedinCircle} child='Continue with Linkedin' />
                         </Box>
-                        <Separator >
+                        <Separator>
                             Or
                         </Separator>
                         <Box w="full">
