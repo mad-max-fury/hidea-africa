@@ -10,7 +10,7 @@ import { Google, LinkedinCircle } from '../../assets/images/icons/Icons';
 
 const SocialLogin = ({ to, variant, bg, icon, bdColor, child }) => {
     return (
-        <Link to={to} w={{ base: '100%', md: '48%' }} mb={4} style={{ textDecoration: 'none' }} isExternal>
+        <Link href={to} w={{ base: '100%', md: '48%' }} mb={4} style={{ textDecoration: 'none' }} isExternal>
             <Button className="btn" type="button"
                 variant={variant} bg={bg}
                 leftIcon={<Icon as={icon} size={6} />}
@@ -52,11 +52,11 @@ const Login = () => {
                     spacing={4}>
                     <Heading>Welcome back.</Heading>
                     <p>You have been missed.</p>
-                    <Box display='flex' flexDirection={{ base: 'column', md: 'row' }} justifyContent={{ base: 'center', md: 'space-between' }} alignItems="center" w="full"></Box>
+                    <Box display='flex' flexDirection={{ base: 'column', md: 'row' }} justifyContent={{ base: 'center', md: 'space-between' }} alignItems="center" w="full">
                         <SocialLogin to='https://hidea-backend-dev.herokuapp.com/api/auth/google/getGoogleUrl' variant="outline" bg="white" icon={Google} bdColor="primary" child='Continue with Google' />
                         <SocialLogin to='https://hidea-backend-dev.herokuapp.com/api/auth/linkedin/getLinkedinUrl' variant="filled" bg="#007AB9" icon={LinkedinCircle} child='Continue with Linkedin' />
                     </Box>
-                    <Separator >
+                    <Separator>
                         Or
                     </Separator>
                     <Box w="full">
