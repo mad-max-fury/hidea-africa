@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Heading, Box, Container, Flex, Icon, Image, VStack, Button, Text, Link } from '@chakra-ui/react'
-import { Link as Rlink } from 'react-router-dom';
 import Hero from '../../assets/images/signup-hero.png';
 import Verify from '../../assets/images/Verify-email-img.png';
 import { Separator } from '../../components/UI/Separator';
@@ -25,7 +24,7 @@ const SocialLogin = ({ to, variant, bg, icon, bdColor, child }) => {
 const SignUp = () => {
     const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
-
+    
     return (
         <Container maxW="container.xl" p={0}>
             <MainHeader>
@@ -70,7 +69,7 @@ const SignUp = () => {
                         <Box textAlign={{ base: 'center', md: 'left' }} w='full'>
                             <Text>By signing up, you agree to our <br /> <Link href="#" color='#2DC86D' fontWeight='bold' >Terms & Conditions</Link></Text>
                         </Box>
-                        <Box display={{ base: 'none', md: 'flex' }} >
+                        <Box display={{ base: 'none', md: 'flex' }} paddingBottom="16" >
                             <p>Existing user? <Link color='#2DC86D' fontWeight='bold' href="/login">Sign in</Link></p>
                         </Box>
                     </VStack>
