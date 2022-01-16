@@ -48,7 +48,8 @@ const SignUp = () => {
                     <VStack
                         width={{ base: '100%', md: '50%' }}
                         h="full"
-                        p={4}
+                        p={{ base: '4', md: '8' }}
+                        marginBottom="8"
                         alignItems="flex-start"
                         justifyContent="center"
                         spacing={4}>
@@ -69,7 +70,7 @@ const SignUp = () => {
                         <Box textAlign={{ base: 'center', md: 'left' }} w='full'>
                             <Text>By signing up, you agree to our <br /> <Link href="#" color='#2DC86D' fontWeight='bold' >Terms & Conditions</Link></Text>
                         </Box>
-                        <Box display={{ base: 'none', md: 'flex' }} paddingBottom="16" >
+                        <Box display={{ base: 'none', md: 'flex' }}>
                             <p>Existing user? <Link color='#2DC86D' fontWeight='bold' href="/login">Sign in</Link></p>
                         </Box>
                     </VStack>
