@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Heading, Box, Container, Flex, Icon, Image, VStack, Button, Text, Link } from '@chakra-ui/react'
-import { Link as Rlink } from 'react-router-dom';
 import Hero from '../../assets/images/signup-hero.png';
 import Verify from '../../assets/images/Verify-email-img.png';
 import { Separator } from '../../components/UI/Separator';
@@ -25,7 +24,7 @@ const SocialLogin = ({ to, variant, bg, icon, bdColor, child }) => {
 const SignUp = () => {
     const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
-
+    
     return (
         <Container maxW="container.xl" p={0}>
             <MainHeader>
@@ -49,17 +48,18 @@ const SignUp = () => {
                     <VStack
                         width={{ base: '100%', md: '50%' }}
                         h="full"
-                        p={4}
+                        p={{ base: '4', md: '8' }}
+                        marginBottom="8"
                         alignItems="flex-start"
                         justifyContent="center"
                         spacing={4}>
                         <Heading>Sign up to Hidea.</Heading>
                         <p>The first step to the world of posibilities</p>
                         <Box display='flex' flexDirection={{ base: 'column', md: 'row' }} justifyContent={{ base: 'center', md: 'space-between' }} alignItems="center" w="full">
-                            <SocialLogin to='/' variant="outline" bg="white" icon={Google} bdColor="primary" child='Continue with Google' />
-                            <SocialLogin to='/' variant="filled" bg="#007AB9" icon={LinkedinCircle} child='Continue with Linkedin' />
+                            <SocialLogin to='https://hidea-backend-dev.herokuapp.com/api/auth/google/getGoogleUrl' variant="outline" bg="white" icon={Google} bdColor="primary" child='Continue with Google' />
+                            <SocialLogin to='https://hidea-backend-dev.herokuapp.com/api/auth/linkedin/getLinkedinUrl' variant="filled" bg="#007AB9" icon={LinkedinCircle} child='Continue with Linkedin' />
                         </Box>
-                        <Separator >
+                        <Separator>
                             Or
                         </Separator>
                         <Box w="full">
@@ -70,7 +70,7 @@ const SignUp = () => {
                         <Box textAlign={{ base: 'center', md: 'left' }} w='full'>
                             <Text>By signing up, you agree to our <br /> <Link href="#" color='#2DC86D' fontWeight='bold' >Terms & Conditions</Link></Text>
                         </Box>
-                        <Box display={{ base: 'none', md: 'flex' }} >
+                        <Box display={{ base: 'none', md: 'flex' }}>
                             <p>Existing user? <Link color='#2DC86D' fontWeight='bold' href="/login">Sign in</Link></p>
                         </Box>
                     </VStack>

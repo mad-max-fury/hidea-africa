@@ -2,7 +2,7 @@ import { TextField, ThemeProvider, styled } from '@material-ui/core';
 import * as React from 'react';
 import { Box, Icon } from '@chakra-ui/react';
 
-const CssTextField = styled(TextField)({
+const FormField = styled(TextField)({
     '& label': {
         paddingLeft: '2rem',
     },
@@ -44,7 +44,6 @@ const CssTextField = styled(TextField)({
             borderColor: "#2DC86D",
         },
     },
-
 });
 
 export const FormInput = (props) => {
@@ -52,7 +51,7 @@ export const FormInput = (props) => {
         <ThemeProvider >
             <Box position="relative" display="flex" alignItems='center' minWidth="100%" {...props}>
                 <Icon as={props.icon} size="20px" />
-                <CssTextField id="outlined-basic" label={props.name}
+                <FormField id={props.id} label={props.name} error={props.error}
                     variant="outlined" type={props.type} style={{ position: "relative" }} fullWidth />
             </Box>
         </ThemeProvider>

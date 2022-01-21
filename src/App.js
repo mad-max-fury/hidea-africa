@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import "./assets/fonts/airbnb-cereal-app-cufonfonts-webfont/style.css";
-
+import { PrivateRoute } from './helpers/PrivateRoute';
 import { Welcome, SignUp, Login, Home, ComingSoon, ForgotPassword, ConfirmationPage, Application, NotFound, Dashboard } from "./pages"
 
 function App() {
@@ -34,9 +34,9 @@ function App() {
         <Route path="/welcome">
           <Welcome />
         </Route>
-        <Route path="/dashboard">
+        <PrivateRoute path="/dashboard">
           <Dashboard />
-        </Route>
+        </PrivateRoute>
         <Route path="*">
           <NotFound />
         </Route>
