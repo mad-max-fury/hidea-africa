@@ -96,6 +96,7 @@ const SignupForm = (props) => {
                     )}
                 />
                 <Button size='lg' type="submit" variant="solid" fontWeight="bold" backgroundColor="#2DC86D" color="#fff"
+                    _hover={{ backgroundColor: "#A2E6BE" }} _active={{ backgroundColor: "#2DC86D" }} _focus={{ backgroundColor: "#1E8549" }}
                     isDisabled={errors.firstName || errors.lastName || errors.email || errors.password} isLoading={isLoading}> {
                         isLoading ? "Signing Up..." : "Sign Up"} </Button>
             </Stack>
