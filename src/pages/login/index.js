@@ -7,7 +7,6 @@ import { Separator } from '../../components/UI/Separator';
 import { MainHeader } from '../../components/UI/MainHeader';
 import { Google, LinkedinCircle } from '../../assets/images/icons/Icons';
 
-
 const SocialLogin = ({ to, variant, bg, icon, bdColor, child }) => {
     return (
         <Link href={to} w={{ base: '100%', md: '48%' }} mb={4} style={{ textDecoration: 'none' }} isExternal>
