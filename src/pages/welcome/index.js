@@ -65,7 +65,7 @@ const Welcome = () => {
 
 
 
-        </Box>
+        </Box >
     )
 }
 

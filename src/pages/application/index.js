@@ -90,26 +90,34 @@ const Application = () => {
     return (
         <StateMachineProvider >
             <DevTool />
-            <Container maxW="container.xl" p={0} h='100vh'>
+            <Container maxW={'full'} p={0}>
                 <MainHeader />
+                <Box maxW="full" px={16} display={{ base: 'none', md: 'flex' }} justifyContent="flex-end">
+                    <Link as={RouteLink} to='/dashboard'
+                        color="#2DC86D"
+                        fontWeight="bold"
+                        textAlign='end'
+                        textDecoration={'none'}>Skip</Link>
+                </Box>
                 <Flex h={{
                     base: 'fit-content', md: "calc(100vh - 80px)"
-                }}  justifyContent="center">
+                }} w="100%" position={{ base: 'relative', md: 'fixed', }} py={{ base: '0', md: '5' }} justifyContent="center" alignItems="center" >
+
                     <Router>
                         <SideNav class={styles.aside_nav} />
                         <HStack
-                            className={styles.main_content}
-                            width={{ base: '100%', md: '50%' }}
+                            width={{ base: '100%', md: '40%' }}
                             height={{ base: 'fit-content', md: '100%' }}
-                            py={4}
-                            m={0}
+                            style={{
+                                overflowX: 'hidden',
+                                overflowY: 'auto',
+                            }}
                             display='flex'
                             flexDirection='column'
                             alignItems="center"
-                            justifyContent="center"
-                            overflow-y='scroll'
+                            justifyContent="flex-start"
+                            padding={{ base: '0', md: '8' }}
                             spacing={4}>
-
                             <Pages />
                         </HStack>
                     </Router>

@@ -9,7 +9,7 @@ html {
     font-weight: 400;
     line-height: 1.5;
     letter-spacing: 0.5px;
-    background: #fdfdfd;
+    background: #fdfdfd !important;
     color: #000;
 }
 
@@ -49,4 +49,33 @@ html {
     top: 138.71px;
     z-index: -1;
     transform: rotate(91.4deg);
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    ::-webkit-scrollbar {
+        width: 0;
+        display: none;
+    }
+}
+
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #2DC86D;
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
