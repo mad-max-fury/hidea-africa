@@ -1,8 +1,8 @@
 import React from 'react'
 import "./Footer.css"
-import twitter from "../images/icons/twitter.svg"
-import instagram from "../images/icons/instagram.svg"
-import linkedin from "../images/icons/linkedin.svg"
+import twitter from "../assets/images/icons/twitter.svg"
+import instagram from "../assets/images/icons/instagram.svg"
+import linkedin from "../assets/images/icons/linkedin.svg"
 import { Icon } from './UI/Icon'
 
 

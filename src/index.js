@@ -2,9 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import "./fonts/airbnb-cereal-app-cufonfonts-webfont/style.css"
+import { ChakraProvider, CSSReset } from '@chakra-ui/react';
+import "./assets/fonts/airbnb-cereal-app-cufonfonts-webfont/style.css"
+import theme from './theme/theme';
+import { Provider } from 'react-redux';
+import store from './store';
 
 ReactDOM.render(
-    <App />,
+  <ChakraProvider theme={theme}>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </ChakraProvider>,
   document.getElementById('root')
 );

@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Header.css";
-import logo from "../images/logo/Hidea-logo.svg";
+import logo from "../assets/images/logo/Hidea-logo.svg";
 import { Button } from './UI/Button';
 import { Mailto } from './UI/Mailto';
 

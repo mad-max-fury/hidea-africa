@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Main.css";
 import { MailForm } from './UI/MailForm';
-import hero from "../images/hero-img.png";
+import hero from "../assets/images/hero-img.png";
 
 export const Main = () => {
     return (
