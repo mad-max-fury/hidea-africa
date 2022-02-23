@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import "./assets/fonts/airbnb-cereal-app-cufonfonts-webfont/style.css";
-
 import { Home } from './pages/home/Home';
 import { ComingSoon } from './pages/comingsoon/ComingSoon';
 import { SignUp } from './pages/signup/Signup';
@@ -13,8 +12,10 @@ import { ConfirmationPage } from './pages/confirmation/ConfirmationPage';
 import { Dashboard , Welcome} from "./pages"
 // import  ActiveIdeas  from './pages/dashboard/screens/ActiveIdeas'
 
-function App() {
 
+
+function App() {
+  
   return (
     <BrowserRouter>
       <Routes>
@@ -26,7 +27,6 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/dashboard/:route" element={<Dashboard />} />
-        {/* <Route path="/active-ideas" element={<ActiveIdeas />} /> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
