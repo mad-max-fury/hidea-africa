@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Avatar, Box, Text, VStack, HStack, } from '@chakra-ui/react'
 
 
-const IdeaCard = ({ idx, image, seller, tag, invState, percentage, isSelected=false, ideas, setIdeas, setActive })=> {
+const IdeaCard = ({ idx, image, seller, tag, invState, equity, isSelected=false, ideas, setIdeas, setActive })=> {
     const [selected, setSelected] = useState(isSelected);
 
     const clickHandler = ()=> {
@@ -23,7 +23,7 @@ const IdeaCard = ({ idx, image, seller, tag, invState, percentage, isSelected=fa
     }, [isSelected])
 
     return (
-        <Box display="flex" alignItems="center" justifyContent="space-between" padding="4" w="100%" h="82px" bg={ selected ? "#878696" : "#fff"} borderRadius="16px" onClick={ clickHandler }>
+        <Box cursor="pointer" display="flex" alignItems="center" justifyContent="space-between" mt="5px"  padding="4" w="100%" h="82px" bg={ selected ? "#878696" : "null"} borderRadius="16px" onClick={ clickHandler }>
             <HStack>
                 <Avatar src={ image } borderRadius="8px" w="50px" h="50px" mr="4" />
                 <VStack mr="50px" alignItems="flex-start">
@@ -34,7 +34,7 @@ const IdeaCard = ({ idx, image, seller, tag, invState, percentage, isSelected=fa
 
             <VStack alignItems="flex-start">
                 <Text color={ selected ? "#fff" : "#5F5E73" } fontSize="14px">{ invState }</Text>
-                <Text color={ selected ? "#fff" : "secondary.100" }>{ percentage }</Text>
+                <Text color={ selected ? "#fff" : "secondary.100" }>{ equity }</Text>
             </VStack>
 
         </Box>

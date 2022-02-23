@@ -1,5 +1,8 @@
-import { Avatar, AvatarBadge, FormControl, Box, HStack, Icon, Image, Input, InputGroup, InputLeftElement, Spacer, Switch, Text, VStack } from '@chakra-ui/react'
+import { Avatar, AvatarBadge, Heading, Box, HStack, Icon, Image, Input, InputGroup, InputLeftElement, Spacer, Switch, Text, VStack } from '@chakra-ui/react'
 import React from 'react'
+import { 
+    useParams
+ } from 'react-router-dom'
 
 import NotificationBold from '../../../assets/images/icons/icons-set/bold/notification.svg'
 import SearchIcon from '../../../assets/images/icons/icons-set/linear/search-normal.svg'
@@ -8,12 +11,24 @@ import SearchIcon from '../../../assets/images/icons/icons-set/linear/search-nor
 import user from '../../../assets/images/users/mead.jpg'
 
 const Header = ()=> {
+    let { route } = useParams();
+
+    String.prototype.toTitleCase = function(){
+        
+        const firstChar = this[0].toUpperCase();
+        const str = this.replace(this[0], firstChar).replaceAll("-", " ");
+
+        return str;
+
+    }
+
     return (
-        <header className="flex flex-row place-content-end align-middle shadow-md w-full h-20 px-16 bg-white">
+        <header className="flex flex-row place-content-end align-middle shadow-md w-full h-20 px-8 bg-white">
 
             { /* Search section */ }
-            <Box width="container.sm" display="flex" alignItems="center" justifyContent="flex-end">
-                <InputGroup width="40%" variant="filled">
+            <Box width="full" display="flex" alignItems="center" justifyContent="space-between">
+                <Heading>{ route === "index" ? "Dashboard" : route.toTitleCase() }</Heading>
+                <InputGroup width="20%" variant="filled">
                     <InputLeftElement
                     pointerEvents='none'
                     children={<Image src={ SearchIcon } alt="Search Icon" color='gray.300' />}
