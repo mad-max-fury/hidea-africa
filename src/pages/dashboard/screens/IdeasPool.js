@@ -5,7 +5,6 @@ import Drop from '../../../assets/images/icons/icons-set/bold/drop.svg'
 const IdeasPool = ()=> {
     return (
         <Box width="full" height="100vh" direction="row">
-            <Heading fontSize='25px'> Idea Pool</Heading>
             <Flex width='full'>
                 <VStack bg='#fff' width='20%' mt='20px'>
                     <Box>
