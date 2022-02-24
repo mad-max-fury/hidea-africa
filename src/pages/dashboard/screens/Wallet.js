@@ -14,38 +14,103 @@ const Wallet = () => {
     const [transactions, setTransactions] = useState(1);
     return (
         <Box w="100%">
-            <HStack w="full" justifyContent="space-between">
+            <HStack w="full" justifyContent="space-between" alignItems="flex-start">
                 <VStack w="60%">
-                    <Box w="full" borderRadius="1rem" color="#fff" className='wallet_aside' bgColor="primary.100">
-                        <HStack>
-                            <VStack p="3rem" h="50%" alignContent="center" borderRight="1px" borderRightStyle="solid" borderRightColor="#E5E5E5">
+                        <HStack alignItems="flex-start" alignItems="center" w="full" h="max-content" borderRadius="1rem" color="#fff" className='wallet_aside' bgColor="primary.100">
+                            <VStack alignItems="flex-start" p="3rem" h="50%" borderRightStyle="solid" borderRightColor="#E5E5E5">
                                 <Text alignSelf="start" fontWeight="light">Wallet Balance</Text>
-                                <Heading>SC 200,000,000</Heading>
+                                <Spacer />
+                                <Heading fontSize="3xl">SC 200,000,000</Heading>
+                                <Spacer />
+                                <Spacer />
+                                <Spacer />
                         
                                 
-                                <VStack mb="4rem" w='full' justifyContent="space-between">
-                                    <Button p="1rem" w='70%' fontWeight="light" alignSelf="start" bgColor="secondary.100">
+                                <VStack spacing="6" mb="4rem" w='full' alignItems="flex-start" justifyContent="space-between">
+                                    {/* <Button p="1rem" w='100%' h="50px" fontWeight="light" alignSelf="start" bgColor="secondary.100">
                                         Fund Wallet
-                                    </Button>
-                                    <Button p="1rem" w='70%' fontWeight="light" alignSelf="start" color="secondary.100" bgColor="transparent" borderStyle="solid" border="1px" borderColor="secondary.100">
+                                    </Button> */}
+                          
+                                <Box
+                                as='button'
+                                w="80%"
+                                lineHeight='1.2'
+                                transition='all 0.2s cubic-bezier(.08,.52,.52,1)'
+                                border='1px'
+                                px='30px'
+                                py='15px'
+                                borderRadius='5px'
+                                fontSize='14px'
+                                fontWeight='semibold'
+                                bg='secondary.100'
+                                borderColor='secondary.100'
+                                color='#fff'
+                                _hover={{ bg: '' }}
+                                _active={{
+                                    bg: '#dddfe2',
+                                    transform: 'scale(0.98)',
+                                    borderColor: '#bec3c9',
+                                }}
+                                _focus={{
+                                    boxShadow:
+                                    '0 0 1px 2px rgba(88, 144, 255, .75), 0 1px 1px rgba(0, 0, 0, .15)',
+                                }}
+                                >
+                                Fund Wallet
+                                </Box>
+
+                                    {/* <Button p="1rem" w='100%' h="50px" fontWeight="light" alignSelf="start" color="secondary.100" bgColor="transparent" borderStyle="solid" border="1px" borderColor="secondary.100">
                                     Withdraw fund
-                                    </Button>
+                                    </Button> */}
+                                
+                                
+                                <Box
+                                as='button'
+                                w="80%"
+                                lineHeight='1.2'
+                                transition='all 0.2s cubic-bezier(.08,.52,.52,1)'
+                                border='1px'
+                                px='30px'
+                                py='15px'
+                                borderRadius='5px'
+                                fontSize='14px'
+                                fontWeight='semibold'
+                                bg='transparent'
+                                borderColor='secondary.100'
+                                color='secondary.100'
+                                _hover={{ bg: '' }}
+                                _active={{
+                                    bg: '#dddfe2',
+                                    transform: 'scale(0.98)',
+                                    borderColor: '#bec3c9',
+                                }}
+                                _focus={{
+                                    boxShadow:
+                                    '0 0 1px 2px rgba(88, 144, 255, .75), 0 1px 1px rgba(0, 0, 0, .15)',
+                                }}
+                                >
+                                Withdraw fund
+                                </Box>
                                 </VStack>
                                     
                             </VStack>
 
-                            <VStack p="3rem">
-                                <HStack>
+                            
+
+                            <VStack borderLeft="1px solid #555" p="3rem" spacing="10px" fontSize="15px" alignItems="flex-start" h="min-content" paddingTop="0" paddingBottom="0">
+                                <HStack  justifyContent="space-between">
                                     <Image src={Singa} alt="One Singa coin" />
-                                    <Text fontSize="12px" fontWeight="black"> 1 Singa coin = 1 Naira</Text>
+                                    <Text fontWeight="700"> 1 Singa coin = 1 Naira</Text>
                                 </HStack>
+                                <Spacer />
+                                <Spacer />
 
                                 <HStack>
                                     <Image src={InflowIcon} alt="Icon depicting inflow of investments" />
 
                                     <VStack alignItems="flex-start">
-                                        <Text fontSize="12px">Inflows</Text>
-                                        <Text fontSize="12px" fontWeight="black">SC 420,000,000</Text>
+                                        <Text>Inflow</Text>
+                                        <Text fontWeight="700">SC 420,000,000</Text>
                                     </VStack>
                                 </HStack>
 
@@ -54,20 +119,18 @@ const Wallet = () => {
                                     <Image src={InvestmentIcon} alt="Icon depicting inflow of investments" />
 
                                     <VStack alignItems="flex-start">
-                                        <Text fontSize="12px">Investments</Text>
-                                        <Text fontSize="12px" fontWeight="black">SC 420,000,000</Text>
+                                        <Text>Investments</Text>
+                                        <Text fontWeight="700">SC 420,000,000</Text>
                                     </VStack>
                                 </HStack>
                                 
                             </VStack>
                         </HStack>
-                    </Box>
-
 
                     <Spacer />
                     <Spacer />
                     <HStack w="full" justifyContent="space-between">
-                        <Text fontWeight="black">Investment (20)</Text>
+                        <Text fontWeight="black">Investments (20)</Text>
                         <InputGroup width="30%" variant="filled">
                             <InputLeftElement
                             pointerEvents='none'

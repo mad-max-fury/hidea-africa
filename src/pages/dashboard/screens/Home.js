@@ -1,17 +1,13 @@
 import { Avatar, Box, Button, Flex, Grid, Heading, Text, VStack, Spacer, Select, HStack, Image, CloseButton } from '@chakra-ui/react'
 import React, { useState } from 'react'
-import SirTAvatar from '../../../assets/images/users/Tochukwu.jpg'
-import MiraAvatar from '../../../assets/images/users/mira.jpg'
-import MeadAvatar from '../../../assets/images/users/mead.jpg'
-import GregAvatar from '../../../assets/images/users/gregoryanthony.jpg'
-import AfenaAvatar from '../../../assets/images/users/afena.jpg'
 import SingaCoin from '../../../assets/images/singa.png'
+
+import EmptyUser from '../../../assets/images/empty-user.png'
+import SirTAvatar from '../../../assets/images/users/Tochukwu.jpg'
 
 import ImportIcon from '../../../assets/images/icons/icons-set/linear/import.svg'
 import ExportIcon from '../../../assets/images/icons/icons-set/linear/export.svg'
-
-import EmptyUser from '../../../assets/images/empty-user.png'
-import IdeaCard from '../components/IdeaCard'
+import TheIdeas from '../data/ideas.data'
 
 const Home = ()=> {
 
@@ -88,17 +84,7 @@ const Home = ()=> {
                             </>
                             :
 
-                            <Grid w="full" templateColumns="repeat(2, 1fr)" gap="4">
-
-                                <IdeaCard image={SirTAvatar} seller={{seller_name: "JEJI"}} tag="Fintech, Agriculture" invState="Equity" percentage="5%" />
-                                <IdeaCard image={MiraAvatar} seller={{seller_name: "Mira Ahmadeen"}} tag="Gaming Industry" invState="Equity" percentage="5%" />
-                                <IdeaCard image={MeadAvatar} seller={{seller_name: "Anita Edward"}} tag="Education" invState="Equity" percentage="5%" />
-                                <IdeaCard image={GregAvatar} seller={{seller_name: "Gregory Anthony"}} tag="Politics" invState="Equity" percentage="5%" />
-                                <IdeaCard image={AfenaAvatar} seller={{seller_name: "Afena Athai"}} tag="Fintech, Agriculture" invState="Equity" percentage="5%" />
-                                <IdeaCard image={SirTAvatar} seller={{seller_name: "JEJI"}} tag="Fintech, Agriculture" invState="Equity" percentage="5%" />
-
-
-                            </Grid>
+                            <TheIdeas />
 
                         }
                     </VStack>

@@ -89,18 +89,20 @@ const SideNav = ()=> {
                 </ListItem> */}
 
             </List>
-            <VStack mt="10rem">
+            <VStack mt="7rem" pl="8" alignItems="flex-start">
                 <Spacer/>
-                <HStack>
+                <HStack spacing="4">
                     <UserAvatar avatar={ user } name="Magaret Mead" />
                     {/* Dots */}
                     <HStack spacing="1">
-                        <span className="w-1 h-1 rounded-full bg-black"></span>
-                        <span className="w-1 h-1 rounded-full bg-black"></span>
-                        <span className="w-1 h-1 rounded-full bg-black"></span>
+                        <span className="w-2 h-2 rounded-full bg-black"></span>
+                        <span className="w-2 h-2 rounded-full bg-black"></span>
+                        <span className="w-2 h-2 rounded-full bg-black"></span>
                     </HStack>
                 </HStack>
+                <Spacer />
                 <Divider w="80%" />
+                <Spacer />
                 <HStack>
 
                     <Text fontWeight="700">NGN</Text>
@@ -118,11 +120,14 @@ const SideNav = ()=> {
 
 const UserAvatar = ({ avatar, name }) => {
     return (
-        <HStack>
+        <HStack justifyContent="space-between">
             <Avatar src={ avatar } border="ActiveBorder" borderRadius="8px" width="32px" height="32px">
-                <AvatarBadge boxSize='11px' borderWidth="2px" bg='green.500' position="absolute" top="-10px" />
+                <AvatarBadge boxSize='15px' borderWidth="2px" bg='green.500' position="absolute" top="-10px" />
             </Avatar>
-            <Text fontWeight="400" fontSize="14px">{ name }</Text>
+            <VStack alignItems="flex-start" spacing="2px">
+                <Text fontSize="12px" color="secondary.100">Verified</Text>
+                <Text fontWeight="700" fontSize="14px">{ name }</Text>
+            </VStack>
         </HStack>
     )
 }
