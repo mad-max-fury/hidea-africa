@@ -7,6 +7,8 @@ import EmptyUser from '../../../assets/images/empty-user.png'
 import SearchIcon from '../../../assets/images/icons/icons-set/linear/search-normal.svg'
 import { ideasModel } from '../../../model/ideas.model'
 
+import Investments from '../data/investment.data'
+
 
 
 const Wallet = () => {
@@ -141,7 +143,7 @@ const Wallet = () => {
                     </HStack>
 
                     <Flex w="full">
-                        <Investments image={Singa} />
+                        <Investments />
                     </Flex>
 
                 </VStack>
@@ -180,6 +182,17 @@ const Wallet = () => {
                             <Box w="full">
                                 <Text mt="8px">Sep 13, 2021</Text>
                                 <Transaction source="Wallet" transactionState="Top up" amount="2,000,000" incoming={false} />
+
+                                <Transaction source="Jeji" transactionState="Idea Investment" amount="12,000,000" incoming={true} />
+
+                                    <Transaction source="Jeji" transactionState="Idea Investment" amount="12,000,000" incoming={true} />
+                                    
+                                     <Transaction source="Wallet" transactionState="Top up" amount="2,000,000" incoming={false} />
+
+                                <Transaction source="Jeji" transactionState="Idea Investment" amount="12,000,000" incoming={true} />
+
+                                    <Transaction source="Jeji" transactionState="Idea Investment" amount="12,000,000" incoming={true} />
+                                     <Transaction source="Wallet" transactionState="Top up" amount="2,000,000" incoming={false} />
 
                                 <Transaction source="Jeji" transactionState="Idea Investment" amount="12,000,000" incoming={true} />
 
@@ -225,14 +238,14 @@ const Transaction = ({ incoming, source, transactionState, amount })=> {
     )
 }
 
-const Investments = ({ image, title, category, amount, roi, progress})=>{
-    return(
-        <Box>
-            <HStack>
-                {image}
-            </HStack>
-        </Box>
-    )
-}
+// const Investments = ({ image, title, category, amount, roi, progress})=>{
+//     return(
+//         <Box>
+//             <HStack>
+//                 {image}
+//             </HStack>
+//         </Box>
+//     )
+// }
 
 export default Wallet

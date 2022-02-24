@@ -10,7 +10,7 @@ const TheIdeas = () => {
         <Grid w="full" templateColumns="repeat(2, 1fr)" gap="4">
             {
                 ideasModel.map(idea => (
-                    <IdeaCard image={idea.image} seller={{seller_name: idea.seller.seller_name}} tag={idea.tag} invState={idea.invState} percentage={idea.investment.equity} />
+                    <IdeaCard seller={{seller_name: idea.seller.seller_name, image: idea.seller.image}} sector={idea.sector} invState={idea.invState} percentage={idea.investment.equity} />
                 ))
                  }
         </Grid>

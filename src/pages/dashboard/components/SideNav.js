@@ -95,9 +95,9 @@ const SideNav = ()=> {
                     <UserAvatar avatar={ user } name="Magaret Mead" />
                     {/* Dots */}
                     <HStack spacing="1">
-                        <span className="w-2 h-2 rounded-full bg-black"></span>
-                        <span className="w-2 h-2 rounded-full bg-black"></span>
-                        <span className="w-2 h-2 rounded-full bg-black"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-black"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-black"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-black"></span>
                     </HStack>
                 </HStack>
                 <Spacer />

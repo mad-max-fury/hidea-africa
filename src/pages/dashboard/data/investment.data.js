@@ -1,50 +1,32 @@
 import React, { useState, useEffect } from 'react'
-import { Avatar, Box, Text, VStack, HStack, } from '@chakra-ui/react'
+import { Avatar, Box, Text, VStack, HStack, Grid} from '@chakra-ui/react'
 import { ideasModel } from '../../../model/ideas.model'
 
 
-const Investment = ({ idx, avatar, ideaMan, sector, investmentAmount, roi, progress })=> {
-    // const [selected, setSelected] = useState(isSelected);
-
-    // const clickHandler = ()=> {
-    //     const ideas_copy = [...ideas.map(idea => {
-    //         idea.isSelected = false
-    //         return idea
-    //     })];
-
-    //     ideas_copy[idx].isSelected = true;
-    //     setActive(idx);
-
-    //     setIdeas(ideas_copy);
-    // }
-
-
-    // useEffect(()=> {
-    //     setSelected(isSelected);
-    // }, [isSelected])
-
+const Investment = ({ seller, sector, investmentAmount, roi, progress })=> {
     return (
-        <VStack alignItems="flex-start" justifyContent="flex-start" w="100%" h="82px" bg="#fff" borderRadius="16px">
+        <VStack spacing="6" alignItems="flex-start" justifyContent="flex-start" w="100%" h="82px" bg="#fff" borderRadius="16px" mb="32">
             <HStack>
-                <Avatar src={ avatar } borderRadius="8px" w="50px" h="50px" mr="4" />
+                <Avatar src={ seller.image } borderRadius="8px" w="50px" h="50px" mr="4" />
                 <VStack mr="50px" alignItems="flex-start">
-                    <Text color={ selected ? "#fff" : "#57575b" } fontWeight="700">{ ideaMan.name }</Text>
-                    <Text color={ selected ? "#fff" : "#5F5E73" } fontSize="14px">{ sector }</Text>
+                    <Text fontWeight="700">{ seller.seller_name }</Text>
+                    <Text fontSize="14px">{ sector }</Text>
                 </VStack>
             </HStack>
 
             <Box>
                 <Text>Investment amount</Text>
-                <Text>{  investmentAmount }</Text>
+                <Text fontWeight="700">{  investmentAmount }</Text>
             </Box>
 
             <Box>
                 <Text>Return on investment</Text>
-                <Text>{  roi }</Text>
+                <Text fontWeight="700">{  roi } Equity</Text>
             </Box>
 
             <HStack w="full" justifyContent="space-between">
-                <Text>{ progress }%</Text>
+                <Text px="15px" py="8px" borderRadius="10px" bg={ progress < 100 ? "yellow.300" : "secondary.100" }>{ progress < 100 ? "In progress" : "Completed" }</Text>
+                <Text fontWeight="700">{ progress }%</Text>
             </HStack>
 
         </VStack>
@@ -52,18 +34,19 @@ const Investment = ({ idx, avatar, ideaMan, sector, investmentAmount, roi, progr
 }
 
 
-export default Investment;
-
 const Investments = () => {
     return (
-        <Grid>
+        <Grid pl="8" mt="40px" w="full" templateColumns="repeat(2, 1fr)" gap="32">
 
             {
                 ideasModel.map(idea => (
-                    <Investment />
+                    <Investment seller = { {seller_name: idea.seller.seller_name, image: idea.seller.image} } sector={ idea.sector } investmentAmount={ idea.investment.amount } roi = { idea.investment.interest_of_capital } progress={ idea.progress } />
                 ))
             }
 
         </Grid>
     )
 }
+
+
+export default Investments;
