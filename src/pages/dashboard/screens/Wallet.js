@@ -1,5 +1,8 @@
 import { Avatar, Box, Button, Flex, Grid, InputRightElement, Heading, Modal, ModalBody, ModalContent, ModalOverlay, ModalCloseButton, ModalHeader, Text, VStack, Input, InputGroup, InputLeftElement, Stack, Spacer, Select, HStack, Image, CloseButton, Switch, Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
+
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import Singa from '../../../assets/images/singa1.svg'
 import InflowIcon from '../../../assets/images/icons/inflow.svg'
 import InvestmentIcon from '../../../assets/images/icons/investments.svg'
@@ -14,6 +17,8 @@ import Investments from '../data/investment.data'
 const Wallet = () => {
 
     const [transactions, setTransactions] = useState(1);
+    const navigate = useNavigate();
+
     return (
         <Box w="100%">
             <HStack w="full" justifyContent="space-between" alignItems="flex-start">
@@ -56,7 +61,8 @@ const Wallet = () => {
                                 _focus={{
                                     boxShadow:
                                     '0 0 1px 2px rgba(88, 144, 255, .75), 0 1px 1px rgba(0, 0, 0, .15)',
-                                }}
+                                    }}
+                                    onClick={()=> navigate('./fund-wallet')}
                                 >
                                 Fund Wallet
                                 </Box>
@@ -89,7 +95,8 @@ const Wallet = () => {
                                 _focus={{
                                     boxShadow:
                                     '0 0 1px 2px rgba(88, 144, 255, .75), 0 1px 1px rgba(0, 0, 0, .15)',
-                                }}
+                                    }}
+                                 onClick={()=> navigate('./withdraw-fund')}
                                 >
                                 Withdraw fund
                                 </Box>
