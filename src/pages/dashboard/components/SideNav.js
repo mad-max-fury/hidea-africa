@@ -62,8 +62,11 @@ const SideNav = ()=> {
     return (
         <aside className="aside_nav h-full z-10 bg-white">
 
-                <Box ml="8" mb="16">
-                    <Image src={ hideaLogo } alt="hidea logo"/>
+                <Box ml="8" mb="12">
+                <Image
+                    src={hideaLogo}
+                    width="120px"
+                    alt="hidea logo" />
                 </Box>
 
 

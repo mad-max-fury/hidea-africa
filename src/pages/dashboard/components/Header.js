@@ -23,7 +23,7 @@ const Header = ()=> {
     }
 
     return (
-        <header className="flex flex-row place-content-end align-middle shadow-md w-full h-20 px-8 bg-white">
+        <header className="flex flex-row place-content-end align-middle w-full h-20 px-8 bg-white">
 
             { /* Search section */ }
             <Box width="full" display="flex" alignItems="center" justifyContent="space-between">

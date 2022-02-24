@@ -8,6 +8,7 @@ import SearchIcon from '../../../assets/images/icons/icons-set/linear/search-nor
 import { ideasModel } from '../../../model/ideas.model'
 
 
+
 const Wallet = () => {
 
     const [transactions, setTransactions] = useState(1);
@@ -84,28 +85,25 @@ const Wallet = () => {
 
 
                 <VStack w="35%">
-                    <Box bgColor="#fff" w="full" border="1px" borderStyle="solid" borderColor="#DFDFE3" borderRadius="16px">
-                        <HStack w="full" p="24px" justifyContent="space-between">
+                    <VStack alignItems="flex-end" padding="15px" bgColor="#fff" w="full" border="1px" borderStyle="solid" borderColor="#DFDFE3" borderRadius="16px">
+                        <HStack w="full" justifyContent="space-between">
                             <Text fontWeight="black" fontSize="14px">Transaction Overview</Text>
-                            <Select fontSize="14px" alignSelf="flex-end" w="fit-content" iconColor="secondary.100" variant="unstyled" textColor="secondary.100">
+                            <Select fontWeight="700" fontSize="14px" alignSelf="flex-end" w="fit-content" iconColor="secondary.100" variant="unstyled" textColor="secondary.100">
                                 <option>Weekly</option>
                                 <option>Daily</option>
                                 <option>Monthly</option>
                             </Select>
                         </HStack>
-                        <Box w="full">
 
-                        </Box>
-
-                        <HStack fontSize="10px" justifyContent="flex-end">
-                            <span w="1rem" h="1rem" border="1px" borderStyle="solid" color="#e5e5e5" borderRadius="50%" bgColor="#93A2FF"> d</span> <Text> Inflow</Text>
-                            <span w="1rem" height="1rem" borderRadius="50%" bgColor="#93A2FF"> </span> <Text> Investments</Text>
+                        <HStack fontSize="14" justifyContent="flex-end">
+                            <Box w=".8rem" h=".8rem" border="1px" borderStyle="solid" color="#e5e5e5" borderRadius="50%" bgColor="#93A2FF"> </Box> <Text> Inflow</Text>
+                            <Box className="block" w=".8rem" height=".8rem" borderRadius="50%" bgColor="yellow.100"> </Box> <Text> Expense</Text>
                         </HStack>
-                    </Box>
+                    </VStack>
 
-                    <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" w="full" border="1px" borderStyle="solid" borderColor="#DFDFE3" borderRadius="16px" borderRadius="16px" className="px-5 py-3" bg="white">
+                    <VStack display="flex" flexDirection="column" alignItems="center" justifyContent="center" w="full" border="1px" borderStyle="solid" borderColor="#DFDFE3" borderRadius="16px" borderRadius="16px" className="px-5 py-3" bg="white">
         
-                        <HStack width="full" justifyContent="space-between" mt="8">
+                        <HStack width="full" justifyContent="space-between" mt="1">
                             <Text fontWeight="700">Transaction history</Text>
                             { transactions > 0 ?  <Text fontWeight="700" color="secondary.100">View All</Text> : null }
                         </HStack>
@@ -132,7 +130,7 @@ const Wallet = () => {
                             </>
                         }
 
-                    </Box>
+                    </VStack>
                     
                 </VStack>
             </HStack>
