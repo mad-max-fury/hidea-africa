@@ -1,59 +1,81 @@
+/* button {
+  color: #fff !important;
+} */
+
 .btn {
-    background-color: #030309;
-    color: white;
-    font-weight: bold;
-    border: none;
-    padding: 1em 2em;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s;
+  background-color: #030309;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 1em 2em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .btn:hover,
 .btn:focus {
-    cursor: pointer;
-    transform: scale(1.1);
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.btn-secondary {
+  background-color: #2dc86d;
+  color: white !important;
+  font-weight: bold;
+  border: none;
+  padding: 8px 16px;
+  margin-top: 0.5em;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.outlined {
+  background-color: transparent;
+  outline: #2dc86d;
+  color: #2dc86d;
 }
 
 .btn-primary {
-    background-color: #030309;
-    color: white;
-    font-weight: bold;
-    border: none;
-    padding: 1em 4em;
-    margin-top: .5em;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s;
+  background-color: #030309;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 1em 4em;
+  margin-top: 0.5em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
 }
-
 
 .btn-primary:disabled {
-    background-color: #5c5c5c;
-    color: #666666;
-    pointer-events: none;
+  background-color: #5c5c5c;
+  color: #666666;
+  pointer-events: none;
 }
 
-.btn-primary:hover {
-    cursor: pointer;
-    transform: scale(1.03);
-    outline: none;
+.btn-primary:hover,
+.btn-secondary:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+  outline: none;
 }
 
 @media screen and (max-width: 600px) {
-    .btn {
-        font-size: .8em;
-    }
+  .btn {
+    font-size: 0.8em;
+  }
 }
 
 @media screen and (max-width: 320px) {
-    .btn-primary {
-        font-size: .8rem;
-    }
+  .btn-primary {
+    font-size: 0.8rem;
+  }
 }
 
 @media screen and (max-width: 280px) {
-    .btn {
-        padding: .7em 1.5em;
-    }
+  .btn {
+    padding: 0.7em 1.5em;
+  }
 }
