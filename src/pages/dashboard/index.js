@@ -1,4 +1,4 @@
-import { Box, Flex, Icon, VStack } from '@chakra-ui/react'
+import { Box, Flex, Icon, Spacer, VStack } from '@chakra-ui/react'
 import Header from './components/Header'
 
 import "./Dashboard.css"
@@ -26,7 +26,7 @@ const Dashboard = ()=> {
             <Flex width="full" height="100vh" direction="row">
                 <SideNav />
                 <VStack width="full" bg="background.100">
-                    <Header />
+                    { params.sub ? null : <Header /> }
                     {/* Dashboard screens */}
                     <main className="w-full h-full p-8 main-container">
 
@@ -37,11 +37,11 @@ const Dashboard = ()=> {
                             ? <MyIdeas /> 
                             : params.route === "ideas-pool"
                             ? <IdeasPool />
-                            : params.route === "transaction-history"
+                            : params.route === "wallet" && params.sub === "transaction-history"
                             ? <TransactionHistory />
-                            : params.route  == "wallet" && params.sub == "fund-wallet"
+                            : params.route  === "wallet" && params.sub === "fund-wallet"
                             ? <Wallet />
-                            : params.route == "wallet" && params.sub == "withdraw-fund"
+                            : params.route === "wallet" && params.sub === "withdraw-fund"
                             ? <WithDrawFund/>
                             : params.route === "wallet"
                             ? <Wallet />
@@ -50,11 +50,10 @@ const Dashboard = ()=> {
                             : params.route === "support"
                             ? <Support />
                             : null
-                        }
-
-                        
-
-                    </main>
+                    }
+                
+                </main>
+                
                 </VStack>
             </Flex>
     )

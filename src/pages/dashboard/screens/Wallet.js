@@ -177,7 +177,7 @@ const Wallet = () => {
         
                         <HStack width="full" justifyContent="space-between" mt="1">
                             <Text fontWeight="700">Transaction history</Text>
-                            { transactions > 0 ? <Link fontWeight="700" href="./transaction-history" color="secondary.100">View All</Link> : null }
+                            { transactions > 0 ? <Link fontWeight="700" href="./wallet/transaction-history" color="secondary.100">View All</Link> : null }
                         </HStack>
 
                         {/* Transactions List */}

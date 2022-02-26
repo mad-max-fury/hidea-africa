@@ -26,11 +26,15 @@ import WalletIcon from '../../../../assets/images/icons/icons-set/bold/wallet_da
 
 import { Button } from '../../../../components/UI/Button'
 
+import { useNavigate } from 'react-router-dom'
+
 
 const WithDrawFund = () => {
 
     const [modal, setModal] = useState(false);
     const [verify, setVerify] = useState(false);
+
+    const navigate = useNavigate();
     
 
 
@@ -42,11 +46,12 @@ const WithDrawFund = () => {
     }
     const onCloseVerify = () => setVerify(false);
     const onSubmit = (e) => e.preventDefault();
+    const goBack = () => navigate("/dashboard/wallet")
 
     return (
         <Box w="full">
 
-            <HStack>
+            <HStack cursor="pointer" w="fit-content" onClick={ goBack }>
                 <Text>&larr;</Text>
                 <Text>Back</Text>
             </HStack>
@@ -128,7 +133,7 @@ const WithDrawFund = () => {
                 <VStack alignItems="flex-start" spacing="24px" px="60px">
                     <Text fontWeight="700">Withdrawal details</Text>
                     <VStack alignItems="flex-start">
-                        <Text>Recipient detials</Text>
+                        <Text>Recipient details</Text>
                         <Text fontWeight="700">Kudirat Bakare, 0022000358, First Bank</Text>
                     </VStack>
 

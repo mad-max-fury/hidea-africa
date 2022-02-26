@@ -24,15 +24,39 @@ import {
   ModalHeader,
   ModalBody,
   ModalCloseButton,
+  Heading
 } from "@chakra-ui/react";
 
+import { useNavigate, useParams } from 'react-router-dom'
+
 const TransactionHistory = () => {
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
+  const navigate = useNavigate();
+  const page = (useParams()).sub;
 
   const onClose = () => setModal(false);
+  const goBack = () => navigate("/dashboard/wallet");
+
+  String.prototype.toTitleCase = function(){
+        
+        const firstChar = this[0].toUpperCase();
+        const str = this.replace(this[0], firstChar).replaceAll("-", " ");
+
+        return str;
+
+  }
+  
 
   return (
     <Box w="full">
+      <HStack cursor="pointer" w="fit-content" onClick={ goBack }>
+            <Text>&larr;</Text>
+            <Text>Back</Text>
+      </HStack>
+      <HStack mb="24px">
+            <Text>Wallet &gt;&gt; </Text>
+            <Text fontSize="30px" fontWeight="700">Transaction history</Text>
+        </HStack>
       <HStack w="full" justifyContent="space-between">
         <Tabs w="full">
           <HStack w="full" justifyContent="space-between">
@@ -51,9 +75,6 @@ const TransactionHistory = () => {
             <TabPanel>
               <Box px="32px" py="16px">
                 <Table variant="simple">
-                  <TableCaption>
-                    Imperial to metric conversion factors
-                  </TableCaption>
                   <Thead>
                     <Tr>
                       <Th>Date and time</Th>
