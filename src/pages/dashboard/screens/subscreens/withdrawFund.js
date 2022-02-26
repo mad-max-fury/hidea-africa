@@ -28,7 +28,7 @@ import WalletIcon from '../../../../assets/images/icons/icons-set/bold/wallet_da
 
 const WithDrawFund = () => {
 
-    const [modal, setModal] = useState(true);
+    const [modal, setModal] = useState(false);
     const [verify, setVerify] = useState(false);
     
 
@@ -190,8 +190,6 @@ const WithDrawFund = () => {
                             <Text fontSize="14px" textAlign="center" fontWeight="400"> Your withdrawal request has been sent. Funds would be remitted within 24 hours.</Text>
                         </VStack>
                     </ModalBody>
-
-                    
                     </ModalContent>
                 </Modal>
             }
