@@ -24,8 +24,8 @@ const Settings = () => {
     const [changePassword, setChangePassword] = useState(false);
     const onClose = ()=> setChangePassword(false);
 
-    const [changePin, setChangePin] = useState(false);
-    const onPinModalClose = () => setChangePin(false);
+    const [showTransactionPinModal, setShowTransactionPinModal] = useState(false);
+    const onPinModalClose = () => setShowTransactionPinModal(false);
 
     return (
         <Box width="full" height="100vh" direction="row">
@@ -137,7 +137,7 @@ const Settings = () => {
                                                 <Text alignSelf="flex-start"> Pin used to authenticate/validate your withdrawal transaction on hidea </Text>
                                             </VStack>
 
-                                            <Button colorScheme='teal' text="Set Transaction Pin" onClick={()=> setChangePin(true)} />
+                                            <Button colorScheme='teal' text="Set Transaction Pin" onClick={()=> setShowTransactionPinModal(true)} />
                                             
                                         </HStack>
 
@@ -319,7 +319,68 @@ const Settings = () => {
 
 
             {/* Change Pin Modal */}
-            
+            <Modal  motionPreset="slideInBottom" onClose={onPinModalClose} isOpen={showTransactionPinModal} size='3xl'>
+                <ModalOverlay />
+                <ModalContent>
+                        <br /><br />
+                        <ModalCloseButton />
+                        <ModalBody display="flex" justifyContent="center" mb="2rem">
+                            <VStack w="80%" justifyContent="center" mb="2rem">
+                                
+                                <Text fontWeight="800" mb="2rem" fontSize="1.3rem">Change Transaction Pin</Text>
+                                <HStack justifyContent="space-between" mb="2rem" bg="#EFF6FA"  p="1.5rem" borderRadius="16px">
+                                    <Image src= { ErrorIcon } alt="Error Icon" mr="1rem" />
+                                    <Text color="#0E6898" fontSize="14px">Please note you can't change 
+                                        to a password used previously due to security reasons</Text>
+                                </HStack>
+
+                                <VStack alignSelf="start" w="100%" mb="7rem">
+                                    <Box w="100%">
+
+                                        <Text alignSelf="start" fontWeight="800" mt="1rem" mb="0.5rem">Enter new password</Text>
+
+                                        <InputGroup size='lg' w="100%">
+                                            <Input
+                                                pr='4.5rem'
+                                                type={show ? 'text' : 'password'}
+                                                placeholder='Enter password'
+                                                w="100%"
+                                            />
+                                            <InputRightElement width='4.5rem'>
+                                                <ChakraButton h='1.75rem' size='sm' onClick={handleClick}>
+                                                    {show ? <Image src={HiddenEye} alt="Password Hidden Eye"/> : <Image src={Eye} alt= "Password Show Eye" /> }
+
+                                                </ChakraButton>
+                                            </InputRightElement>
+                                        </InputGroup>
+                                    </Box>
+
+                                    <Box w="100%">
+
+                                        <Text alignSelf="start" fontWeight="800" mt="1rem" mb="0.5rem">Confirm new password</Text>
+
+                                        <InputGroup size='lg' w="100%" mb="1rem">
+                                            <Input
+                                                pr='4.5rem'
+                                                type={show ? 'text' : 'password'}
+                                                placeholder='Confirm new password'
+                                                w="100%"
+                                            />
+                                            <InputRightElement width='4.5rem'>
+                                                <ChakraButton h='1.75rem' size='sm' onClick={handleClick}>
+                                                    {show ? <Image src={Eye} alt= "Password Show Eye" /> : <Image src={HiddenEye} alt="Password Hidden Eye"/> }
+                                                    
+                                                </ChakraButton>
+                                            </InputRightElement>
+                                        </InputGroup>
+                                    </Box>
+                                </VStack>
+                                <Button w="full" text="Change Password"/>
+                            </VStack>
+                        </ModalBody>
+
+                </ModalContent>
+            </Modal>
         </Box>
     )
 }
