@@ -178,7 +178,7 @@ const TransactionHistory = () => {
       </HStack>
 
       {modal && (
-        <Modal isOpen={modal} onClose={onClose} size="xl">
+        <Modal isOpen={modal} onClose={onClose} size="2xl">
           <ModalOverlay />
           <ModalContent>
             <ModalHeader></ModalHeader>
@@ -188,7 +188,7 @@ const TransactionHistory = () => {
                 <Text fontWeight="700" fontSize="25px">
                   Transaction information
                 </Text>
-                <VStack alignItems="flex-start" spacing="24px">
+                <VStack alignItems="flex-start" spacing="24px" px="32px" w="full">
                   <HStack
                     w="full"
                     justifyContent="space-between"
@@ -251,7 +251,7 @@ const TransactionHistory = () => {
                   >
                     <Text>Narration</Text>
                     <Text w="50%" fontWeight="700">
-                      Jesus is lord now and forever more. Amen
+                      This is a dummy narration for the Hidea platform
                     </Text>
                   </HStack>
 

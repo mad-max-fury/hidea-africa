@@ -12,7 +12,6 @@ Input,
 Select,
 CheckboxGroup,
 Checkbox,
-Button,
 Heading,
 Modal,
 ModalOverlay,
@@ -24,6 +23,8 @@ ModalCloseButton,
 
 } from '@chakra-ui/react'
 import WalletIcon from '../../../../assets/images/icons/icons-set/bold/wallet_dark.svg'
+
+import { Button } from '../../../../components/UI/Button'
 
 
 const WithDrawFund = () => {
@@ -40,6 +41,7 @@ const WithDrawFund = () => {
         setVerify(true);
     }
     const onCloseVerify = () => setVerify(false);
+    const onSubmit = (e) => e.preventDefault();
 
     return (
         <Box w="full">
@@ -77,7 +79,7 @@ const WithDrawFund = () => {
                     <Spacer />
                     <Text fontWeight="700" mb="16px">Recipient details</Text>
 
-                    <form style={{width: "100%"}}>
+                    <form style={{width: "100%"}} onSubmit={ onSubmit }>
                         <Box mb="24px">
                             <Text mb="8px" fontWeight="500">Bank Name</Text>
                             <Select placeholder="Select bank" w="full" size="lg">
@@ -112,7 +114,7 @@ const WithDrawFund = () => {
                             </VStack>
                         </CheckboxGroup>
 
-                        <Button w="full" bg="secondary.100" mt="40px" color="#fff" onClick={showModal}>Withdraw funds</Button>
+                        <Button mt="24px" filled w="full" text="Withdraw funds" onClick={showModal} />
                     </form>
 
                 </VStack>
@@ -151,7 +153,7 @@ const WithDrawFund = () => {
             {
                 modal
                 &&
-                <Modal isOpen={modal} onClose={onClose} size="xl">
+                <Modal isOpen={modal} onClose={onClose} size="2xl">
                     <ModalOverlay />
                     <ModalContent>
                     <ModalHeader></ModalHeader>
@@ -166,7 +168,7 @@ const WithDrawFund = () => {
                             </Alert>
                             <Spacer />
 
-                        <Button bg="secondary.100" w="full" color="#fff" onClick={onVerify}>Verify</Button>
+                        <Button onClick={onVerify} filled text="Verify" />
                         </VStack>
                     </ModalBody>
 
@@ -178,7 +180,7 @@ const WithDrawFund = () => {
             {
                 verify
                 &&
-                <Modal isOpen={verify} onClose={onCloseVerify} size="xl">
+                <Modal isOpen={verify} onClose={onCloseVerify} size="2xl">
                     <ModalOverlay />
                     <ModalContent>
                     <ModalHeader></ModalHeader>
