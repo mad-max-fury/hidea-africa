@@ -26,7 +26,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/welcome" element={<Welcome />} />
-        {/* <Route path="/dashboard/:route" element={<Dashboard />} /> */}
+        <Route exact path="/dashboard/:route" element={<Dashboard />} />
         <Route path="/dashboard/:route/:sub" element={<Dashboard />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
