@@ -8,8 +8,16 @@ const IdeasPool = ()=> {
             <Flex width='full'>
                 <VStack bg='#fff' width='20%' mt='20px'>
                     <Box>
+
+                        {/* Investment selection options */}
+
                         <Select bg='#fff' icon= {<Image src = {Drop}/>} variant='filled'>
                             <option value="A-Z">Investment Amount</option>
+                            <option value="A-Z">N 50,000</option>
+                            <option value="A-Z">N 100,000</option>
+                            <option value="A-Z">N 150,000</option>
+                            <option value="A-Z">N 250,000</option>
+                            <option value="A-Z">N 500,000</option>
                             
                             
                         </Select>   
