@@ -89,12 +89,12 @@ const SideNav = ()=> {
                 </ListItem> */}
 
             </List>
-            <VStack mt="7rem" pl="8" alignItems="flex-start">
+            <VStack mt="5rem" pl="8" alignItems="flex-start">
                 <Spacer/>
                 <HStack spacing="4">
                     <UserAvatar avatar={ user } name="Magaret Mead" />
                     {/* Dots */}
-                    <HStack spacing="1">
+                    <HStack spacing="0.5" cursor="pointer">
                         <span className="w-1.5 h-1.5 rounded-full bg-black"></span>
                         <span className="w-1.5 h-1.5 rounded-full bg-black"></span>
                         <span className="w-1.5 h-1.5 rounded-full bg-black"></span>
