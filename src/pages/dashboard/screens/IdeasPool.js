@@ -1,11 +1,12 @@
 import { Avatar, Box, Button, Flex, Grid, Heading, Text, VStack, Input, InputGroup, InputLeftElement, Stack, Spacer, Select, HStack, Image, CloseButton, Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Drop from '../../../assets/images/icons/icons-set/bold/drop.svg'
 import Techy from '../../../assets/images/techy.jpg'
 import Eye from '../../../assets/images/icons/eye.svg'
 
 
 import { ideasModel } from '../../../model/ideas.model.js'
+
 
 
 const IdeasPool = ()=> {
@@ -19,7 +20,7 @@ const IdeasPool = ()=> {
 
                         {/* Investment selection options */}
 
-                        <Select bg='#fff' mb="20px" icon= {<Image src = {Drop}/>} variant='filled'>
+                        <Select bg='#fff' mb="20px" icon={<Image src={Drop} />} variant='filled'>
                             <option value="A-Z">Investment amount</option>
 
                             <Input type="text" />
@@ -27,20 +28,20 @@ const IdeasPool = ()=> {
                             <option value="A-Z">N 100,000</option>
                             <option value="A-Z">N 150,000</option>
                             <option value="A-Z">N 250,000</option>
-                        
-                            <option value="A-Z">N 500,000</option>                
-                        </Select>   
-                        <Select bg='#fff' mb="20px" icon= {<Image src = {Drop}/>} variant='filled'>
+
+                            <option value="A-Z">N 500,000</option>
+                        </Select>
+                        <Select bg='#fff' mb="20px" icon={<Image src={Drop} />} variant='filled'>
                             <option value="A-Z">Category</option>
-                            
-                        </Select>   
-                        <Select bg='#fff' icon= {<Image src = {Drop}/>} variant='filled'>
+
+                        </Select>
+                        <Select bg='#fff' icon={<Image src={Drop} />} variant='filled'>
                             <option value="A-Z">ROI</option>
-                            
-                        </Select>    
+
+                        </Select>
                     </Box>
                 </VStack>
-                
+
                 <Stack w="70%" >
                     <HStack w="full" justifyContent="space-between">
                         <Text fontWeight="black">Recommended for you</Text>
@@ -48,6 +49,11 @@ const IdeasPool = ()=> {
                     </HStack>
 
                     {/* IdeaPool ideacards */}
+
+                    <HStack>
+          
+
+
 
                     <Grid templateColumns='repeat(5, 1fr)' width="150%" gap={6}>
                         <IdeaCardType/>
@@ -57,12 +63,7 @@ const IdeasPool = ()=> {
                         <IdeaCardType/>
                         
                     </Grid>
-                    {/* <HStack alignSelf="flex-start" width="150%" overflowX="scroll">
-                        <IdeaCardType bgColor="#fff" />
-                        <IdeaCardType bgColor="#fff" />
-                        <IdeaCardType bgColor="#fff" />
-                        <IdeaCardType bgColor="#fff" />
-                    </HStack> */}
+                    
                     <Spacer />
                     <Spacer />
                     <Spacer />
@@ -76,16 +77,16 @@ const IdeasPool = ()=> {
                     </HStack>
 
                 </Stack>
-                
+
             </Flex>
 
-           
 
-        </Box>               
+
+        </Box>
     )
 }
 
-const IdeaCardType = ()=> {
+const IdeaCardType = () => {
     const [ideas, setIdeas] = useState(ideasModel);
     const TextDescription = ["Bridging the gap betwen consumers and farmers while providing a platfor"]
     const ShowMore = (ev) => {
@@ -110,6 +111,8 @@ const IdeaCardType = ()=> {
       }
     };
     return (
+
+
         <Box display="flex" h="40vh" w="full">
             <VStack width="100%" bgColor="#fff" borderRadius="16px" padding="1rem" height="full" alignItems="flex-start">
                 <Image borderRadius="10px" width="100%" height="40%" src= {Techy} />
@@ -125,8 +128,8 @@ const IdeaCardType = ()=> {
                 </HStack>
                 
             </VStack>
-           
-            
+
+
         </Box>
     )
 
