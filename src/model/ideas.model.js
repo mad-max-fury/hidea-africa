@@ -50,7 +50,7 @@ export const ideasModel = [
     sector: "Fintech, Agriculture",
     investmentType: "Equity",
     progress: 100,
-    isSelected: true,
+    isSelected: false,
     investment: {
         amount: "200,000,000",
         project_start_date: "Jan 6, 2022",

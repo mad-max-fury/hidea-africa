@@ -12,7 +12,6 @@ Input,
 Select,
 CheckboxGroup,
 Checkbox,
-Button,
 Heading,
 Modal,
 ModalOverlay,
@@ -25,11 +24,17 @@ ModalCloseButton,
 } from '@chakra-ui/react'
 import WalletIcon from '../../../../assets/images/icons/icons-set/bold/wallet_dark.svg'
 
+import { Button } from '../../../../components/UI/Button'
+
+import { useNavigate } from 'react-router-dom'
+
 
 const WithDrawFund = () => {
 
-    const [modal, setModal] = useState(true);
+    const [modal, setModal] = useState(false);
     const [verify, setVerify] = useState(false);
+
+    const navigate = useNavigate();
     
 
 
@@ -40,11 +45,13 @@ const WithDrawFund = () => {
         setVerify(true);
     }
     const onCloseVerify = () => setVerify(false);
+    const onSubmit = (e) => e.preventDefault();
+    const goBack = () => navigate("/dashboard/wallet")
 
     return (
         <Box w="full">
 
-            <HStack>
+            <HStack cursor="pointer" w="fit-content" onClick={ goBack }>
                 <Text>&larr;</Text>
                 <Text>Back</Text>
             </HStack>
@@ -77,7 +84,7 @@ const WithDrawFund = () => {
                     <Spacer />
                     <Text fontWeight="700" mb="16px">Recipient details</Text>
 
-                    <form style={{width: "100%"}}>
+                    <form style={{width: "100%"}} onSubmit={ onSubmit }>
                         <Box mb="24px">
                             <Text mb="8px" fontWeight="500">Bank Name</Text>
                             <Select placeholder="Select bank" w="full" size="lg">
@@ -112,7 +119,7 @@ const WithDrawFund = () => {
                             </VStack>
                         </CheckboxGroup>
 
-                        <Button w="full" bg="secondary.100" mt="40px" color="#fff" onClick={showModal}>Withdraw funds</Button>
+                        <Button mt="24px" filled w="full" text="Withdraw funds" onClick={showModal} />
                     </form>
 
                 </VStack>
@@ -126,7 +133,7 @@ const WithDrawFund = () => {
                 <VStack alignItems="flex-start" spacing="24px" px="60px">
                     <Text fontWeight="700">Withdrawal details</Text>
                     <VStack alignItems="flex-start">
-                        <Text>Recipient detials</Text>
+                        <Text>Recipient details</Text>
                         <Text fontWeight="700">Kudirat Bakare, 0022000358, First Bank</Text>
                     </VStack>
 
@@ -151,7 +158,7 @@ const WithDrawFund = () => {
             {
                 modal
                 &&
-                <Modal isOpen={modal} onClose={onClose} size="xl">
+                <Modal isOpen={modal} onClose={onClose} size="2xl">
                     <ModalOverlay />
                     <ModalContent>
                     <ModalHeader></ModalHeader>
@@ -166,7 +173,7 @@ const WithDrawFund = () => {
                             </Alert>
                             <Spacer />
 
-                        <Button bg="secondary.100" w="full" color="#fff" onClick={onVerify}>Verify</Button>
+                        <Button onClick={onVerify} filled text="Verify" />
                         </VStack>
                     </ModalBody>
 
@@ -178,7 +185,7 @@ const WithDrawFund = () => {
             {
                 verify
                 &&
-                <Modal isOpen={verify} onClose={onCloseVerify} size="xl">
+                <Modal isOpen={verify} onClose={onCloseVerify} size="2xl">
                     <ModalOverlay />
                     <ModalContent>
                     <ModalHeader></ModalHeader>
@@ -190,8 +197,6 @@ const WithDrawFund = () => {
                             <Text fontSize="14px" textAlign="center" fontWeight="400"> Your withdrawal request has been sent. Funds would be remitted within 24 hours.</Text>
                         </VStack>
                     </ModalBody>
-
-                    
                     </ModalContent>
                 </Modal>
             }

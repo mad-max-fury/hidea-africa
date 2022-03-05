@@ -1,4 +1,6 @@
-import { Avatar, Box, Button, Flex, Grid, InputRightElement, Heading, Modal, ModalBody, ModalContent, ModalOverlay, ModalCloseButton, ModalHeader, Text, VStack, Input, InputGroup, InputLeftElement, Stack, Spacer, Select, HStack, Image, CloseButton, Switch, Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
+import { Avatar, Box, Flex, Grid, InputRightElement, Heading, Modal, ModalBody, ModalContent, ModalOverlay, ModalCloseButton, ModalHeader, Text, VStack, Input, InputGroup, InputLeftElement, Stack, Spacer, Select, HStack, Image, CloseButton, Switch, Tabs, TabList, TabPanels, Tab, TabPanel, Button as ChakraButton } from '@chakra-ui/react'
+
+import { Button } from '../../../components/UI/Button'
 import React, { useState } from 'react'
 import UserIcon from '../../../assets/images/icons/icons-set/linear/profile.svg'
 import NotificationBell from '../../../assets/images/icons/icons-set/linear/notification.svg'
@@ -21,6 +23,9 @@ const Settings = () => {
 
     const [changePassword, setChangePassword] = useState(false);
     const onClose = ()=> setChangePassword(false);
+
+    const [showTransactionPinModal, setShowTransactionPinModal] = useState(false);
+    const onPinModalClose = () => setShowTransactionPinModal(false);
 
     return (
         <Box width="full" height="100vh" direction="row">
@@ -62,7 +67,7 @@ const Settings = () => {
                                 
                             </Flex>
                         </TabPanel>
-                        <TabPanel>
+                        <TabPanel pl="112px">
                             <Box w="60%" color="#57575B" bg="#fff" alignItems="left" justifyContent="left" borderRadius="16px">
                                 <HStack display="flex" justifyContent="space-between" alignItems="center">
                                     <Text > Mute all notications</Text>
@@ -73,8 +78,8 @@ const Settings = () => {
                                 <Spacer/>
 
                                 <VStack alignItems="left">
-                                    <Text fontWeight="700" mt="50px" color="#030309"> Remainders </Text>
-                                    <Text> Set remainders for the following </Text>
+                                    <Text fontWeight="700" mt="50px" color="#030309"> Reminders </Text>
+                                    <Text> Set reminders for the following </Text>
                                     <Spacer />
                                     <Spacer />
                                     <Spacer />
@@ -94,7 +99,7 @@ const Settings = () => {
                         <TabPanel>
 
                         </TabPanel>
-                        <TabPanel>
+                        <TabPanel w="full" ml="80px">
                             <Flex w="full">
 
                                 <Box w="90%" color="#57575B" display="flex" flexDirection="column" bg="#fff" alignItems="left" justifyContent="space-between" borderRadius="16px">
@@ -117,7 +122,8 @@ const Settings = () => {
                                                 <Text fontWeight="700" alignSelf="flex-start"> Change password </Text>
                                                 <Text alignSelf="flex-start"> Change password to your account on Hidea </Text>
                                             </VStack>
-                                            <Button colorScheme='teal' variant='outline' padding="1.5" color="secondary.100" onClick={()=> setChangePassword(true)}>Change Password</Button>
+                                            <Button type="submit" text="Change Password" onClick={()=> setChangePassword(true)} />
+                                            {/* <Button colorScheme='teal' variant='outline' padding="1.5" color="secondary.100" >Change Password</Button> */}
                                         </HStack>
                                         <Spacer />
                                         <Spacer />
@@ -130,7 +136,9 @@ const Settings = () => {
                                                 <Text fontWeight="700" alignSelf="flex-start"> Set transaction pin </Text>
                                                 <Text alignSelf="flex-start"> Pin used to authenticate/validate your withdrawal transaction on hidea </Text>
                                             </VStack>
-                                            <Button colorScheme='teal' variant='outline' padding="1.5" color="secondary.100">Set Transaction Pin</Button>
+
+                                            <Button colorScheme='teal' text="Set Transaction Pin" onClick={()=> setShowTransactionPinModal(true)} />
+                                            
                                         </HStack>
 
                                         <Spacer/>
@@ -273,10 +281,10 @@ const Settings = () => {
                                                 w="100%"
                                             />
                                             <InputRightElement width='4.5rem'>
-                                                <Button h='1.75rem' size='sm' onClick={handleClick}>
+                                                <ChakraButton h='1.75rem' size='sm' onClick={handleClick}>
                                                     {show ? <Image src={HiddenEye} alt="Password Hidden Eye"/> : <Image src={Eye} alt= "Password Show Eye" /> }
 
-                                                </Button>
+                                                </ChakraButton>
                                             </InputRightElement>
                                         </InputGroup>
                                     </Box>
@@ -293,15 +301,81 @@ const Settings = () => {
                                                 w="100%"
                                             />
                                             <InputRightElement width='4.5rem'>
-                                                <Button h='1.75rem' size='sm' onClick={handleClick}>
+                                                <ChakraButton h='1.75rem' size='sm' onClick={handleClick}>
                                                     {show ? <Image src={Eye} alt= "Password Show Eye" /> : <Image src={HiddenEye} alt="Password Hidden Eye"/> }
                                                     
-                                                </Button>
+                                                </ChakraButton>
                                             </InputRightElement>
                                         </InputGroup>
                                     </Box>
                                 </VStack>
-                                <Button w="full" bg="secondary.100"  fontWeight="light" color="#fff">Change Password</Button>
+                                <Button w="full" text="Change Password"/>
+                            </VStack>
+                        </ModalBody>
+
+                </ModalContent>
+            </Modal>
+
+
+
+            {/* Change Pin Modal */}
+            <Modal  motionPreset="slideInBottom" onClose={onPinModalClose} isOpen={showTransactionPinModal} size='3xl'>
+                <ModalOverlay />
+                <ModalContent>
+                        <br /><br />
+                        <ModalCloseButton />
+                        <ModalBody display="flex" justifyContent="center" mb="2rem">
+                            <VStack w="80%" justifyContent="center" mb="2rem">
+                                
+                                <Text fontWeight="800" mb="2rem" fontSize="1.3rem">Change Transaction Pin</Text>
+                                <HStack justifyContent="space-between" mb="2rem" bg="#EFF6FA"  p="1.5rem" borderRadius="16px">
+                                    <Image src= { ErrorIcon } alt="Error Icon" mr="1rem" />
+                                    <Text color="#0E6898" fontSize="14px">Please note you can't change 
+                                        to a password used previously due to security reasons</Text>
+                                </HStack>
+
+                                <VStack alignSelf="start" w="100%" mb="7rem">
+                                    <Box w="100%">
+
+                                        <Text alignSelf="start" fontWeight="800" mt="1rem" mb="0.5rem">Enter new password</Text>
+
+                                        <InputGroup size='lg' w="100%">
+                                            <Input
+                                                pr='4.5rem'
+                                                type={show ? 'text' : 'password'}
+                                                placeholder='Enter password'
+                                                w="100%"
+                                            />
+                                            <InputRightElement width='4.5rem'>
+                                                <ChakraButton h='1.75rem' size='sm' onClick={handleClick}>
+                                                    {show ? <Image src={HiddenEye} alt="Password Hidden Eye"/> : <Image src={Eye} alt= "Password Show Eye" /> }
+
+                                                </ChakraButton>
+                                            </InputRightElement>
+                                        </InputGroup>
+                                    </Box>
+
+                                    <Box w="100%">
+
+                                        <Text alignSelf="start" fontWeight="800" mt="1rem" mb="0.5rem">Confirm new password</Text>
+
+                                        <InputGroup size='lg' w="100%" mb="1rem">
+                                            <Input
+                                                pr='4.5rem'
+                                                type={show ? 'text' : 'password'}
+                                                placeholder='Confirm new password'
+                                                w="100%"
+                                            />
+                                            <InputRightElement width='4.5rem'>
+                                                <ChakraButton h='1.75rem' size='sm' onClick={handleClick}>
+                                                    {show ? <Image src={Eye} alt= "Password Show Eye" /> : <Image src={HiddenEye} alt="Password Hidden Eye"/> }
+                                                    
+                                                </ChakraButton>
+                                            </InputRightElement>
+                                        </InputGroup>
+                                    </Box>
+                                </VStack>
+                                <Button w="full" text="Change Password"/>
                             </VStack>
                         </ModalBody>
 
@@ -316,7 +390,7 @@ const UpdateProfile = ()=>{
         <Box w="full" justifyContent="left">
             <HStack w="full" display="flex" justifyContent="space-between">
                 <Text fontWeight="700">Profile</Text>
-                <Button bgColor="secondary.100" width="14rem" alignItem="right" color="#fff">Save Changes</Button>
+                <Button type="submit" text="Save Changes" />
             </HStack>
 
 
