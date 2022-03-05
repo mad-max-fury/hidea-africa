@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Flex, Grid, InputRightElement, Heading, Modal, ModalBody, ModalContent, ModalOverlay, ModalCloseButton, ModalHeader, Text, VStack, Input, InputGroup, InputLeftElement, Stack, Spacer, Select, HStack, Image, CloseButton, Switch, Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
+import { Avatar, Box, Button, Flex, Grid, InputRightElement, Heading, Modal, ModalBody, ModalContent, ModalOverlay, ModalCloseButton, ModalHeader, Text, VStack, Input, InputGroup, InputLeftElement, Stack, Spacer, Select, HStack, Image, CloseButton, Switch, Tabs, TabList, TabPanels, Tab, TabPanel, Link } from '@chakra-ui/react'
 
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -177,7 +177,7 @@ const Wallet = () => {
         
                         <HStack width="full" justifyContent="space-between" mt="1">
                             <Text fontWeight="700">Transaction history</Text>
-                            { transactions > 0 ?  <Text fontWeight="700" color="secondary.100">View All</Text> : null }
+                            { transactions > 0 ? <Link fontWeight="700" href="./wallet/transaction-history" color="secondary.100">View All</Link> : null }
                         </HStack>
 
                         {/* Transactions List */}

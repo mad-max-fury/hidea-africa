@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Flex, Grid, GridItem, Heading, Text, VStack, Input, InputGroup, InputLeftElement, Stack, Spacer, Select, HStack, Image, ModalBody, ModalContent, ModalOverlay, ModalCloseButton, ModalHeader, Tabs, TabList, TabPanels, Tab, TabPanel, Modal } from '@chakra-ui/react'
+import { Avatar, Box, Button, Flex, Grid, GridItem, Heading, Text, VStack, Input, InputGroup, InputLeftElement, Stack, Spacer, Select, HStack, Image, ModalBody, ModalContent, ModalOverlay, ModalCloseButton, ModalHeader, Tabs, TabList, TabPanels, Tab, TabPanel, Modal, Link } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import Header from '../components/Header'
 import SideNav from '../components/SideNav'
@@ -69,7 +69,7 @@ const MyIdeas = ()=> {
                                                        <Cards>
                                                         {
                                                             ideas?.map((idea, idx) => (
-                                                                <IdeaCard idx={idx} key={idx} image = {idea?.image} seller = {idea?.seller} tag = {idea?.tag} invState = {idea?.invState} equity = {idea?.investment?.equity} isSelected={idea?.isSelected} ideas={ideas} setIdeas={setIdeas} setActive={setActive} />
+                                                                <IdeaCard idx={idx} key={idx} image = {idea?.image} seller = {idea?.seller} tag = {idea?.tag} invState = {idea?.invState} equity = {idea?.investment?.equity} isSelected={idea?.isSelected} investmentType={idea?.investmentType} ideas={ideas} setIdeas={setIdeas} setActive={setActive} />
                                                             ))
                                                         }
                                                        </Cards>
@@ -201,9 +201,7 @@ const MyIdeas = ()=> {
                                                         Investment Details
                                                     </Box>
 
-                                                    <Text fontWeight="bold" color= "secondary.100" cursor="pointer" onClick={()=> setModalIsOpen(true)}>
-                                                        View Idea Information
-                                                    </Text>
+                                                    <Link fontWeight="700" href="./wallet/transaction-history" color="secondary.100">View idea information</Link>
                                                 </HStack>
 
                                                 <Box w = "full" justifyContent = "space-between" bg = "#fff" pt = "8" pr = "8" pb = "4"
