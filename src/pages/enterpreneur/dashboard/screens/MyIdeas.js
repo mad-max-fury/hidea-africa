@@ -4,7 +4,7 @@ import Header from '../components/Header'
 import SideNav from '../components/SideNav'
 import SearchIcon from '../../../../assets/images/icons/icons-set/linear/search-normal.svg'
 import Drop from '../../../../assets/images/icons/icons-set/bold/drop.svg'
-import IdeaCard, { Cards } from '../components/IdeaCard'
+import IdeaCard, { Cards } from '../components/projectIdeaCard'
 import ClockIcon from '../../../../assets/images/clock.svg'
 import CoinIcon from '../../../../assets/images/coin.svg'
 import AfenaAvatar from '../../../../assets/images/users/afena.jpg'
@@ -15,6 +15,7 @@ import InactiveIdeaEmpty from '../../../../assets/images/Inactive-idea.png'
 
 //Import model
 import { ideasModel } from '../../../../model/ideas.model'
+import ProjectIdeaCard from '../components/projectIdeaCard'
 
 const MyIdeas = () => {
     const [active, setActive] = useState(0);
@@ -35,248 +36,62 @@ const MyIdeas = () => {
         <Flex width="full" height="100vh" direction="row">
 
             <VStack width="full" bg="background.100">
+                <Box width="full" display="flex" flexDirection="row" alignItems="center" justifyContent={'space-between'}
+                    padding='1rem 0'>
+                    <Box> <Heading as='h1' fontSize={'25px'}>My Ideas</Heading></Box>
+                    <Box display={'flex'} gap='1rem' >
+                        <InputGroup width="160px" height={'38px'} boxShadow='0px 0px 2px grey' borderRadius={'10px'} variant="filled">
+                            <InputLeftElement
+                                pointerEvents='none'
+                                borderRadius={'inherit'}
+                                height={'100%'}
+                                children={<Image src={SearchIcon} alt="Search Icon" color='#f5f5f5' />}
+                            />
+                            <Input height={'100%'} type='text' placeholder='Search' />
+                        </InputGroup>
+                        <Button
+                            size='md'
+                            height='38px'
+                            width='160px'
+                            bgColor='green.500'
+                            outline={'0'}
+                            textColor='#fff'
+                            letterSpacing={'1.6px'}
+                            _hover={{ background: '#00FF7F' }}
+                        >
+                            Create idea
+                        </Button>
+                    </Box>
+                </Box>
 
-                <Box width="full" display="flex" flexDirection="column" alignItems="flex-start">
-                    <Tabs w="full">
-                        <TabList width="fit-content" >
-                            <Tab>Active Ideas ({ideas.length > 0 ? ideas.length : 0})</Tab>
-                            <Tab>Inactive Ideas ({ideas.length > 0 ? ideas.length : 0})</Tab>
+                <Box width="full" display="flex" flexDirection="column" alignItems="flex-start" >
+                    <Tabs w="full" >
+                        <TabList width="fit-content" border={'none'}>
+                            <Tab _selected={{ color: 'green.400', borderBottom: '3px solid #2DC86D' }}>Active ideas ({ideas.length > 0 ? ideas.length : 0})</Tab>
+                            <Tab _selected={{ color: 'green.400', borderBottom: '3px solid #2DC86D' }}>Inactive ideas ({ideas.length > 0 ? ideas.length : 0})</Tab>
+                            <Tab _selected={{ color: 'green.400', borderBottom: '3px solid #2DC86D' }}>Drafts ({ideas.length > 0 ? ideas.length : 0})</Tab>
+
                         </TabList>
 
-                        <TabPanels width="full" >
-
-                            <TabPanel width="full" d="flex" flexDirection="column" alignItems="center" justifyContent="center">
-
-                                {
-                                    !hasInactive ?
-                                        <Box d="flex" flexDirection="column" paddingTop="74px" w="max-content" alignItems="center" justifyContent="center">
-                                            <Image src={InactiveIdeaEmpty} w="200px" />
-                                            <Text>You have no active idea investment, Click button below to get started.</Text>
-                                            <Button mt="56px" bg="secondary.100" color="#fff" w="full" padding="8px">Go to idea pool</Button>
-                                        </Box>
-                                        :
-
-
-
-                                        <HStack width="full" justifyContent="space-between" alignItems="flex-start" spacing="4">
-
-                                            {/* Left for Active Ideas */}
-                                            <VStack width="30%" alignItems="center" justifyContent="flex-start">
-                                                <Spacer />
-
-                                                {/* Active Ideas */}
-                                                <VStack w="full">
-                                                    <Cards>
-                                                        {
-                                                            ideas?.map((idea, idx) => (
-                                                                <IdeaCard idx={idx} key={idx} image={idea?.image} seller={idea?.seller} tag={idea?.tag} invState={idea?.invState} equity={idea?.investment?.equity} isSelected={idea?.isSelected} ideas={ideas} setIdeas={setIdeas} setActive={setActive} />
-                                                            ))
-                                                        }
-                                                    </Cards>
-                                                </VStack>
-
-                                            </VStack>
-
-
-                                            {/* Right for Active Ideas */}
-                                            <VStack w="65%" spacing="0">
-                                                <HStack w="full" justifyContent="space-between">
-                                                    <Box bg="#fff" px="5" py="2" borderTopLeftRadius="16px" borderTopRightRadius="16px" color="#030309">
-                                                        Investment Details
-                                                    </Box>
-
-                                                    <Text fontWeight="bold" color="secondary.100" cursor="pointer" onClick={() => setModalIsOpen(true)}>
-                                                        View Idea Information
-                                                    </Text>
-                                                </HStack>
-
-                                                <Box w="full" justifyContent="space-between" bg="#fff" pt="8" pr="8" pb="4"
-                                                    pl="8" borderTopRightRadius="16px" borderBottomLeftRadius="16px">
-
-                                                    <HStack w="full" justifyContent="space-between" bg="#fff">
-                                                        <VStack alignItems="flex-start" justifyContent="flex-start">
-                                                            <Text fontSize="14px" color="#878696">
-                                                                Investment amount
-                                                            </Text>
-                                                            <Heading color="secondary.100">
-                                                                SC {ideas[active]?.investment?.amount}
-                                                            </Heading>
-                                                            <Text color="#57575B">
-                                                                N{ideas[active]?.investment?.amount}
-                                                            </Text>
-                                                        </VStack>
-
-                                                        <Box bg="#FEF8E6" color="#7A6003" className="px-4 py-2" borderRadius="16px">In progress</Box>
-                                                    </HStack>
-
-                                                    {/* Graph */}
-                                                    <VStack mt="32px" mb="68px" alignItems="flex-start">
-                                                        <Text fontWeight="700">Projected earning</Text>
-                                                        <Spacer />
-                                                        <Box bg="red.300" width="full" height="170px"></Box>
-                                                    </VStack>
-
-                                                    <VStack w="full">
-                                                        <HStack w="full" justifyContent="space-between" alignItems="flex-start" spacing="50px">
-                                                            <VStack alignItems="flex-start" w="50%">
-                                                                <Text fontWeight="700">Projected timelines</Text>
-                                                                <VStack w="full" spacing="20px">
-                                                                    <HStack w="full" justifyContent="space-between">
-                                                                        <Text>Project start date</Text>
-                                                                        <Text fontWeight="700">{ideas[active]?.investment?.project_start_date}</Text>
-                                                                    </HStack>
-                                                                    <HStack w="full" justifyContent="space-between">
-                                                                        <Text>Project end date</Text>
-                                                                        <Text fontWeight="700">{ideas[active]?.investment?.project_end_date}</Text>
-                                                                    </HStack>
-                                                                    <HStack w="full" justifyContent="space-between">
-                                                                        <Text>Earnings start date</Text>
-                                                                        <Text fontWeight="700">{ideas[active]?.investment?.earnings_start_date}</Text>
-                                                                    </HStack>
-                                                                </VStack>
-                                                            </VStack>
-
-                                                            <VStack alignItems="flex-start" w="50%">
-                                                                <Text fontWeight="700">Return on investment</Text>
-                                                                <VStack w="full" spacing="20px">
-                                                                    <HStack w="full" justifyContent="space-between">
-                                                                        <Text>Equity</Text>
-                                                                        <Text fontWeight="700">{ideas[active]?.investment?.equity}</Text>
-                                                                    </HStack>
-                                                                    <HStack w="full" justifyContent="space-between">
-                                                                        <Text>Interest on capital</Text>
-                                                                        <Text fontWeight="700">{ideas[active]?.investment?.interest_of_capital}</Text>
-                                                                    </HStack>
-                                                                </VStack>
-                                                            </VStack>
-                                                        </HStack>
-                                                    </VStack>
-
-                                                </Box>
-
-                                            </VStack>
-                                        </HStack>
-
-                                }
+                        <TabPanels width="full" height='full'>
+                            <TabPanel width={'100%'} display='flex'>
+                                <Grid rowGap='12' columnGap={'12'} templateColumns={{ base: 'auto', md: 'repeat(3, auto)' }} width='full'>
+                                    {
+                                        [1, 2, 3, 4, 5, 6].map((a) => {
+                                            return <GridItem margin={'auto'} ><ProjectIdeaCard /></GridItem>
+                                        })
+                                    }
+                                </Grid>
 
 
                             </TabPanel>
-
-                            {/* Inactive ideas */}
-                            <TabPanel width="full" d="flex" flexDirection="column" alignItems="center" justifyContent="center">
-                                {
-                                    !hasInactive ?
-                                        <Box d="flex" flexDirection="column" paddingTop="74px" w="max-content" alignItems="center" justifyContent="center">
-                                            <Image src={InactiveIdeaEmpty} w="200px" />
-                                            <Text>You have no inactive idea investment, Click button below to get started.</Text>
-                                            <Button mt="56px" bg="secondary.100" color="#fff" w="full" padding="8px">Go to idea pool</Button>
-                                        </Box>
-                                        :
-
-
-                                        <HStack width="full" justifyContent="space-between" alignItems="flex-start" spacing="4">
-
-                                            {/* Left for Inactive Ideas */}
-                                            <VStack width="30%" alignItems="center" justifyContent="flex-start">
-                                                <Spacer />
-
-                                                {/* Active Ideas */}
-                                                <VStack w="full">
-                                                    <Cards>
-                                                        {
-                                                            ideas.map((idea, idx) => (
-                                                                <IdeaCard idx={idx} key={idx} image={idea.image} seller={idea.seller} tag={idea.tag} invState={idea.invState} equity={idea?.investment?.equity} isSelected={idea.isSelected} ideas={ideas} setIdeas={setIdeas} setActive={setActive} />
-                                                            ))
-                                                        }
-                                                    </Cards>
-                                                </VStack>
-
-                                            </VStack>
-
-
-                                            {/* Right for Active Ideas */}
-                                            <VStack w="65%" spacing="0">
-                                                <HStack w="full" justifyContent="space-between">
-                                                    <Box bg="#fff" px="5" py="2" borderTopLeftRadius="16px" borderTopRightRadius="16px" color="#030309">
-                                                        Investment Details
-                                                    </Box>
-
-                                                    <Text fontWeight="bold" color="secondary.100" cursor="pointer" onClick={() => setModalIsOpen(true)}>
-                                                        View Idea Information
-                                                    </Text>
-                                                </HStack>
-
-                                                <Box w="full" justifyContent="space-between" bg="#fff" pt="8" pr="8" pb="4"
-                                                    pl="8" borderTopRightRadius="16px" borderBottomLeftRadius="16px">
-
-                                                    <HStack w="full" justifyContent="space-between" bg="#fff">
-                                                        <VStack alignItems="flex-start" justifyContent="flex-start">
-                                                            <Text fontSize="14px" color="#878696">
-                                                                Investment amount
-                                                            </Text>
-                                                            <Heading color="secondary.100">
-                                                                SC {ideas[active]?.investment?.amount}
-                                                            </Heading>
-                                                            <Text color="#57575B">
-                                                                N{ideas[active]?.investment?.amount}
-                                                            </Text>
-                                                        </VStack>
-
-                                                        <Box bg="#FEF8E6" color="#7A6003" className="px-4 py-2" borderRadius="16px">In progress</Box>
-                                                    </HStack>
-
-
-                                                    <VStack w="full">
-                                                        <Spacer />
-                                                        <Spacer />
-                                                        <Spacer />
-                                                        <Spacer />
-                                                        <Spacer />
-                                                        <Spacer />
-                                                        <Spacer />
-                                                        <HStack w="full" justifyContent="space-between" alignItems="flex-start" spacing="50px">
-                                                            <VStack alignItems="flex-start" w="50%">
-                                                                <Text fontWeight="700">Projected timelines</Text>
-                                                                <VStack w="full" spacing="20px">
-                                                                    <HStack w="full" justifyContent="space-between">
-                                                                        <Text>Project start date</Text>
-                                                                        <Text fontWeight="700">{ideas[active]?.investment?.project_start_date}</Text>
-                                                                    </HStack>
-                                                                    <HStack w="full" justifyContent="space-between">
-                                                                        <Text>Project end date</Text>
-                                                                        <Text fontWeight="700">{ideas[active]?.investment?.project_end_date}</Text>
-                                                                    </HStack>
-                                                                    <HStack w="full" justifyContent="space-between">
-                                                                        <Text>Earnings end date</Text>
-                                                                        <Text fontWeight="700">{ideas[active]?.investment?.earnings_start_date}</Text>
-                                                                    </HStack>
-                                                                </VStack>
-                                                            </VStack>
-
-                                                            <VStack alignItems="flex-start" w="50%">
-                                                                <Text fontWeight="700">Return on investment</Text>
-                                                                <VStack w="full" spacing="20px">
-                                                                    <HStack w="full" justifyContent="space-between">
-                                                                        <Text>Equity</Text>
-                                                                        <Text fontWeight="700">{ideas[active]?.investment?.equity}</Text>
-                                                                    </HStack>
-                                                                    <HStack w="full" justifyContent="space-between">
-                                                                        <Text>Interest on capital</Text>
-                                                                        <Text fontWeight="700">{ideas[active]?.investment?.interest_of_capital}</Text>
-                                                                    </HStack>
-                                                                </VStack>
-                                                            </VStack>
-                                                        </HStack>
-                                                    </VStack>
-
-                                                </Box>
-
-                                            </VStack>
-                                        </HStack>
-
-                                }
-
+                            <TabPanel>
+                                jk,huk
                             </TabPanel>
+                            <TabPanel>
+                                yuiyiu
+                            </TabPanel>
+
 
                         </TabPanels>
                     </Tabs>
@@ -287,7 +102,7 @@ const MyIdeas = () => {
             </VStack>
 
 
-            <Modal motionPreset="slideInBottom" onClose={onClose} isOpen={modalIsOpen} size="4xl">
+            {/* <Modal motionPreset="slideInBottom" onClose={onClose} isOpen={modalIsOpen} size="4xl">
                 <ModalOverlay />
                 <ModalContent>
                     <br /><br />
@@ -428,8 +243,8 @@ const MyIdeas = () => {
 
                     </ModalBody>
                 </ModalContent>
-            </Modal>
-        </Flex>
+            </Modal> */}
+        </Flex >
     )
 }
 

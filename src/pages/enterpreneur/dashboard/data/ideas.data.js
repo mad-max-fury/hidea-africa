@@ -1,5 +1,5 @@
 import React from 'react'
-import IdeaCard from '../components/IdeaCard'
+import IdeaCard from '../components/projectIdeaCard'
 import { ideasModel } from '../../../../model/ideas.model'
 
 import { Grid } from '@chakra-ui/react'
