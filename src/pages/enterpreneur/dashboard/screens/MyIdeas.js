@@ -31,6 +31,7 @@ const MyIdeas = () => {
 
     const onClose = () => setModalIsOpen(false);
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const statusFlip = ['Completed', 'Cancelled']
 
     return (
         <Flex width="full" height="100vh" direction="row">
@@ -74,22 +75,37 @@ const MyIdeas = () => {
                         </TabList>
 
                         <TabPanels width="full" height='full'>
+                            {/* //Active */}
                             <TabPanel width={'100%'} display='flex'>
                                 <Grid rowGap='12' columnGap={'12'} templateColumns={{ base: 'auto', md: 'repeat(3, auto)' }} width='full'>
                                     {
                                         [1, 2, 3, 4, 5, 6].map((a) => {
-                                            return <GridItem margin={'auto'} ><ProjectIdeaCard /></GridItem>
+                                            return <GridItem margin={'auto'} ><ProjectIdeaCard Active={true} status='In-Progress' /></GridItem>
                                         })
                                     }
                                 </Grid>
 
 
                             </TabPanel>
+                            {/* //Inactive */}
                             <TabPanel>
-                                jk,huk
+                                <Grid rowGap='12' columnGap={'12'} templateColumns={{ base: 'auto', md: 'repeat(3, auto)' }} width='full'>
+                                    {
+                                        [1, 2, 3, 4, 5, 6].map((a, i) => {
+                                            return <GridItem margin={'auto'} ><ProjectIdeaCard status={statusFlip[i - 1]} /></GridItem>
+                                        })
+                                    }
+                                </Grid>
                             </TabPanel>
+                            {/* //Drafts */}
                             <TabPanel>
-                                yuiyiu
+                                <Grid rowGap='12' columnGap={'12'} templateColumns={{ base: 'auto', md: 'repeat(3, auto)' }} width='full'>
+                                    {
+                                        [1, 2, 3, 4, 5, 6].map((a) => {
+                                            return <GridItem margin={'auto'} ><ProjectIdeaCard draft={true} /></GridItem>
+                                        })
+                                    }
+                                </Grid>
                             </TabPanel>
 
 

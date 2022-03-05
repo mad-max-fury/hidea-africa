@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Avatar, Box, Text, VStack, HStack, Heading, } from '@chakra-ui/react'
 
-const TopCardlayer = () => {
+const TopCardlayer = ({ draft }) => {
   const TextDescription = ["Avatar republic started  year 2004, we are inclined to solve the need of fs things that culture can offer — in art, fashion, food, literature, and ideas. On this tour, your Paris-savvy Rick Steves guide will immerse you in the very best of the City of Light: the masterpiece-packed Louvre and Orsay museums, resilient Notre-Dame Cathedral, exquisite Sainte-Chapelle, and extravagant Palace of Versailles. You'll also enjoy guided neighborhood walks through the city's historic heart as well as quieter moments to slow down and savor the city's intimate cafés, colorful markets, and joie de vivre. Join us for the Best of Paris in 7 Days!"]
   const ShowMore = (ev) => {
     let { target } = ev
@@ -26,12 +26,35 @@ const TopCardlayer = () => {
   };
   return (
     <>
-      <Box display={'flex'} gap='1rem'>
-        <Avatar size='md' borderRadius={'md'} name='Dan Abrahmov' src='https://bit.ly/dan-abramov' />
-        <Box>
-          <Heading as={'h3'} fontSize='16px' lineHeight={'24px'}>Dan Abrahmov</Heading>
-          <Text textColor={'grey'}>Game</Text>
-        </Box>
+      <Box width="full" display="flex" flexDirection="row" alignItems="center" justifyContent={'space-between'}
+        padding='1rem 0'>
+        {
+          !draft ?
+            <Box display={'flex'} gap='1rem'>
+              <Avatar size='md' borderRadius={'md'} name='Dan Abrahmov' src='https://bit.ly/dan-abramov' />
+              <Box>
+                <Heading as={'h3'} fontSize='16px' lineHeight={'24px'}>Dan Abrahmov</Heading>
+                <Text textColor={'grey'}>Game</Text>
+              </Box>
+            </Box>
+            :
+            <>
+              <Box display={'flex'} gap='1rem'>
+                <Avatar size='md' borderRadius={'md'} name='Dan Abrahmov' src='https://bit.ly/dan-abramov' />
+                <Box>
+                  <Heading as={'h3'} fontSize='16px' lineHeight={'24px'}>Dan Abrahmov</Heading>
+                  <Text textColor={'grey'}>Game</Text>
+                </Box>
+              </Box>
+              <Box display={'flex'} gap='.2rem' _hover={{ transition: 'all .1s ease-in', gap: '.3rem' }}>
+                <span style={{ width: '.4rem', height: '.4rem', borderRadius: '.2rem', border: ' .4px solid black ' }}></span>
+                <span style={{ width: '.4rem', height: '.4rem', borderRadius: '.2rem', border: ' .4px solid black ' }}></span>
+                <span style={{ width: '.4rem', height: '.4rem', borderRadius: '.2rem', border: ' .4px solid black ' }}></span>
+
+              </Box>
+
+            </>
+        }
       </Box>
       <Box>
         <Text textColor={'grey'}>Description</Text>
