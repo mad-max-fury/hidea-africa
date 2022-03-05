@@ -9,25 +9,28 @@ import { Login } from './pages/login/Login';
 import { ForgotPassword } from './pages/forgotPassword/ForgotPassword';
 import { NotFound } from './pages/404page/NotFound';
 import { ConfirmationPage } from './pages/confirmation/ConfirmationPage';
-import { Dashboard , Welcome} from "./pages"
+import { Dashboard, EnterpreneurDashboard, Welcome } from "./pages"
 // import  ActiveIdeas  from './pages/dashboard/screens/ActiveIdeas'
 
 
 
 function App() {
-  
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/coming-soon" element={<ComingSoon />} />
+        <Route path="/" exact element={<Home />} />
+        <Route path="/coming-soon" exact element={<ComingSoon />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/confirmation" element={<ConfirmationPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/welcome" element={<Welcome />} />
-        <Route exact path="/dashboard/:route" element={<Dashboard />} />
+        <Route path="/dashboard/:route" element={<Dashboard />} />
         <Route path="/dashboard/:route/:sub" element={<Dashboard />} />
+        <Route path="/enterpreneur/dashboard/:route" element={<EnterpreneurDashboard />} />
+        <Route path="/enterpreneur/dashboard/:route/:sub" element={<EnterpreneurDashboard />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

@@ -6,6 +6,8 @@ import { ideasModel } from '../../../model/ideas.model.js'
 
 const IdeasPool = ()=> {
     return (
+
+=======
         <Box width="full" direction="row">
             <Flex width='full' justifyContent="space-between">
                 <VStack bg='#fff' width='25%'>
@@ -19,6 +21,7 @@ const IdeasPool = ()=> {
                             <option value="A-Z">N 100,000</option>
                             <option value="A-Z">N 150,000</option>
                             <option value="A-Z">N 250,000</option>
+                        
                             <option value="A-Z">N 500,000</option>                
                         </Select>   
                         <Select bg='#fff' mb="20px" icon= {<Image src = {Drop}/>} variant='filled'>
@@ -47,7 +50,7 @@ const IdeasPool = ()=> {
                 
             </Flex>
 
-            
+           
 
         </Box>               
     )
