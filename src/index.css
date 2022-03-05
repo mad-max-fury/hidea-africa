@@ -13,10 +13,6 @@ html {
   color: #000;
 }
 
-/* div {
-  overflow-x: hidden;
-} */
-
 .left-eclipse {
   z-index: -1;
   position: absolute;

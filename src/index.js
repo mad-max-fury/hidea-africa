@@ -25,5 +25,6 @@ ReactDOM.render(
     <Global styles={GlobalStyles} />
     <App />
   </ChakraProvider>,
+
   document.getElementById('root')
 );
