@@ -12,7 +12,6 @@ const IdeasPool = ()=> {
 
     return (
 
-=======
         <Box width="full" direction="row">
             <Flex width='full' justifyContent="space-between">
                 <VStack bg='#fff' width='25%' height="fit-content">
