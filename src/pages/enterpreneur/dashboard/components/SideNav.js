@@ -1,28 +1,28 @@
 import { Box, Image, List, ListItem, ListIcon, Switch, Text, Spacer, HStack, Divider, VStack, Avatar, AvatarBadge, } from '@chakra-ui/react'
 import React, { useState } from 'react'
 
-import hideaLogo from "../../../assets/images/logo/Hidea-logo.svg"
-import user from '../../../assets/images/users/mead.jpg'
+import hideaLogo from "../../../../assets/images/logo/Hidea-logo.svg"
+import user from '../../../../assets/images/users/mead.jpg'
 
 
 //Linear icons
-import DashboardIcon from '../../../assets/images/icons/icons-set/linear/category.svg'
-import SettingsIcon from '../../../assets/images/icons/icons-set/linear/setting-2.svg'
-import WalletIcon from '../../../assets/images/icons/icons-set/linear/wallet.svg'
-import IdeaPooolIcon from '../../../assets/images/icons/icons-set/linear/box.svg'
-import SupportIcon from '../../../assets/images/icons/icons-set/linear/device-message.svg'
-import MyIdeasIcon from '../../../assets/images/icons/icons-set/linear/lock.svg'
-import LogoutIcon from '../../../assets/images/icons/icons-set/linear/logout.svg'
+import DashboardIcon from '../../../../assets/images/icons/icons-set/linear/category.svg'
+import SettingsIcon from '../../../../assets/images/icons/icons-set/linear/setting-2.svg'
+import WalletIcon from '../../../../assets/images/icons/icons-set/linear/wallet.svg'
+import IdeaPooolIcon from '../../../../assets/images/icons/icons-set/linear/box.svg'
+import SupportIcon from '../../../../assets/images/icons/icons-set/linear/device-message.svg'
+import MyIdeasIcon from '../../../../assets/images/icons/icons-set/linear/lock.svg'
+import LogoutIcon from '../../../../assets/images/icons/icons-set/linear/logout.svg'
 
 
 //BoldIcons
-import DashboardIconBold from '../../../assets/images/icons/icons-set/bold/category.svg'
-import SettingsIconBold from '../../../assets/images/icons/icons-set/bold/setting-2.svg'
-import WalletIconBold from '../../../assets/images/icons/icons-set/bold/wallet.svg'
-import IdeaPooolIconBold from '../../../assets/images/icons/icons-set/bold/box.svg'
-import SupportIconBold from '../../../assets/images/icons/icons-set/bold/device-message.svg'
-import MyIdeasIconBold from '../../../assets/images/icons/icons-set/bold/lock.svg'
-import NotificationBold from '../../../assets/images/icons/icons-set/bold/notification.svg'
+import DashboardIconBold from '../../../../assets/images/icons/icons-set/bold/category.svg'
+import SettingsIconBold from '../../../../assets/images/icons/icons-set/bold/setting-2.svg'
+import WalletIconBold from '../../../../assets/images/icons/icons-set/bold/wallet.svg'
+import IdeaPooolIconBold from '../../../../assets/images/icons/icons-set/bold/box.svg'
+import SupportIconBold from '../../../../assets/images/icons/icons-set/bold/device-message.svg'
+import MyIdeasIconBold from '../../../../assets/images/icons/icons-set/bold/lock.svg'
+import NotificationBold from '../../../../assets/images/icons/icons-set/bold/notification.svg'
 import { useNavigate, useParams } from 'react-router-dom'
 
 
@@ -32,9 +32,9 @@ const SideNav = () => {
     const params = useParams();
 
     const [tabItems, setTabItems] = useState([
-        { text: "Dashboard", TabIcon: DashboardIcon, TabIconActive: DashboardIconBold, active: params.route === "index" },
-        { text: "My ideas", TabIcon: MyIdeasIcon, TabIconActive: MyIdeasIconBold, active: params.route === "my-ideas" },
-        { text: "Ideas pool", TabIcon: IdeaPooolIcon, TabIconActive: IdeaPooolIconBold, active: params.route === "ideas-pool" },
+        { text: "My ideas", TabIcon: MyIdeasIcon, TabIconActive: MyIdeasIconBold, active: params.route === "index" },
+        { text: "Ad center", TabIcon: IdeaPooolIcon, TabIconActive: IdeaPooolIconBold, active: params.route === "ad-center" },
+        { text: "Legal Services", TabIcon: DashboardIcon, TabIconActive: DashboardIconBold, active: params.route === "legal-services" },
         { text: "Wallet", TabIcon: WalletIcon, TabIconActive: WalletIconBold, active: params.route === "wallet" },
         { text: "Settings", TabIcon: SettingsIcon, TabIconActive: SettingsIconBold, active: params.route === "settings" },
         { text: "Support", TabIcon: SupportIcon, TabIconActive: SupportIconBold, active: params.route === "support" }
@@ -55,7 +55,8 @@ const SideNav = () => {
         setTabItems(tabsCopy);
 
         //Route
-        navigate(text === "Dashboard" ? "/dashboard/index" : `/dashboard/${text.toLowerCase().replace(" ", "-")}`);
+        navigate(text === "My ideas" ? "/enterpreneur/dashboard/index" : `/enterpreneur/dashboard/${text.toLowerCase().replace(" ", "-")}`);
+
     }
 
 

@@ -4,49 +4,48 @@
 @tailwind utilities;
 
 html {
-    font-family: 'Airbnb Cereal App Book', sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.5;
-    letter-spacing: 0.5px;
-    background: #fdfdfd;
-    color: #000;
+  font-family: "Airbnb Cereal App Book", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  background: #fdfdfd;
+  color: #000;
 }
 
-
 .left-eclipse {
-    z-index: -1;
-    position: absolute;
+  z-index: -1;
+  position: absolute;
 }
 
 .left-eclipse::before {
-    content: "";
-    width: 89px;
-    height: 82px;
-    border-radius: 50%;
-    background-color: #2dc86d;
-    position: absolute;
-    float: left;
-    left: -49.16px;
-    top: 522.01px;
-    z-index: -1;
-    transform: rotate(91.4deg);
+  content: "";
+  width: 89px;
+  height: 82px;
+  border-radius: 50%;
+  background-color: #2dc86d;
+  position: absolute;
+  float: left;
+  left: -49.16px;
+  top: 522.01px;
+  z-index: -1;
+  transform: rotate(91.4deg);
 }
 
 .right-eclipse {
-    z-index: -1;
-    position: absolute;
+  z-index: -1;
+  position: absolute;
 }
 
 .right-eclipse::before {
-    content: "";
-    width: 200.71px;
-    height: 109.11px;
-    border-radius: 50%;
-    background-color: #2dc86d;
-    position: absolute;
-    right: -59.16px;
-    top: 138.71px;
-    z-index: -1;
-    transform: rotate(91.4deg);
+  content: "";
+  width: 200.71px;
+  height: 109.11px;
+  border-radius: 50%;
+  background-color: #2dc86d;
+  position: absolute;
+  right: -59.16px;
+  top: 138.71px;
+  z-index: -1;
+  transform: rotate(91.4deg);
 }
