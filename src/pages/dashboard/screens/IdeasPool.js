@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Drop from '../../../assets/images/icons/icons-set/bold/drop.svg'
 import Techy from '../../../assets/images/techy.jpg'
 import Eye from '../../../assets/images/icons/eye.svg'
+import Bookmark from '../../../assets/images/bookmark.svg'
 
 
 import { ideasModel } from '../../../model/ideas.model.js'
@@ -42,7 +43,7 @@ const IdeasPool = ()=> {
                     </Box>
                 </VStack>
 
-                <Stack w="70%" >
+                <Stack w="70%" height="fit-content">
                     <HStack w="full" justifyContent="space-between">
                         <Text fontWeight="black">Recommended for you</Text>
                         <Text color="secondary.100" cursor="pointer">View All</Text>
@@ -50,11 +51,7 @@ const IdeasPool = ()=> {
 
                     {/* IdeaPool ideacards */}
 
-                    <HStack>
-          
-
-
-
+        
                     <Grid templateColumns='repeat(5, 1fr)' width="150%" gap={6}>
                         <IdeaCardType/>
                         <IdeaCardType/>
@@ -71,10 +68,15 @@ const IdeasPool = ()=> {
                     <Spacer />
                     <Text fontWeight="black">All category</Text>
 
-                    <HStack w='full'>
-                        <IdeaCardType/>
-                        <IdeaCardType/>
-                    </HStack>
+                    {/* Grid for 'all category' section of the ideapool */}
+                    <Grid templateColumns='repeat(2, 1fr)'gap={6}>
+                        <IdeaCardType height="60%"/>
+                        <IdeaCardType height="60%"/>
+                        <IdeaCardType height="60%"/>
+                        <IdeaCardType height="60%"/>
+                        <IdeaCardType height="60%"/>
+                        <IdeaCardType height="60%"/>
+                    </Grid>
 
                 </Stack>
 
@@ -86,9 +88,10 @@ const IdeasPool = ()=> {
     )
 }
 
-const IdeaCardType = () => {
+const IdeaCardType = (height) => {
     const [ideas, setIdeas] = useState(ideasModel);
-    const TextDescription = ["Bridging the gap betwen consumers and farmers while providing a platfor"]
+
+    const TextDescription = ["Bridging the gap betwen consumers and farmers while providing a platform"]
     const ShowMore = (ev) => {
       let { target } = ev
       let { id } = target
@@ -113,12 +116,14 @@ const IdeaCardType = () => {
     return (
 
 
-        <Box display="flex" h="40vh" w="full">
-            <VStack width="100%" bgColor="#fff" borderRadius="16px" padding="1rem" height="full" alignItems="flex-start">
-                <Image borderRadius="10px" width="100%" height="40%" src= {Techy} />
+        <Box display="flex" h="fit-content" w="full">
+            <VStack width="100%" bgColor="#fff" borderRadius="16px" padding="1rem" height="fit-content" alignItems="flex-start">
+                <Image borderRadius="10px" width="100%" position="relative" height={height ? height : "40%"} src= {Techy}/>
+
+                <Image src={Bookmark} alt="option to save  idea"  position="absolute" />
                 <Text fontSize="12px" color="blackAlpha.700"> Fintech, agriculture</Text>
                 <Text fontWeight="bold">JEJI</Text>
-                <Text mt="2rem" fontSize="14px" width="100%" height="fit-content" color="blackAlpha.700">
+                <Text mt="2rem" fontSize="0.8rem" width="100%" height="fit-content" color="blackAlpha.700">
                 {getText(TextDescription) + '...'}
                 </Text><Text id={(0).toString()} cursor="pointer" style={{fontWeight:'bolder', fontSize:'14px'}} color="secondary.100" onClick={ShowMore}>Read More</Text>
                 
