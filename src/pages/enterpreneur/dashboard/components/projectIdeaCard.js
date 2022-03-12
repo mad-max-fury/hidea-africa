@@ -12,6 +12,10 @@ import {
     ModalCloseButton,
 } from '@chakra-ui/react'
 import AfenaAvatar from '../../../../assets/images/users/afena.jpg'
+import FolderIcon from '../../../../assets/images/folder.svg'
+import Eye from '../../../../assets/images/icons/eye.svg'
+
+
 
 
 
@@ -47,7 +51,9 @@ const ProjectIdeaCard = ({ draft, Active, status }) => {
 
                             </Box>
                         </Box>
-                        <Box border={'1px'} height='8rem' borderRadius={'10px'}> </Box>
+                        {
+                            status === 'Cancelled' ? console.log(status) : <Box border={'1px'} height='8rem' borderRadius={'10px'} > </Box>
+                        }
                         <Box width={'full'}>
                             <Text textColor={'#000'} fontWeight='bolder'>Description</Text>
                             <span style={{ fontSize: '14px' }} textColor={'grey'}>Bridging gap between farmers and  consumers by providing a platform for produce exchange while acting as the middle man between both parties</span>
@@ -55,7 +61,7 @@ const ProjectIdeaCard = ({ draft, Active, status }) => {
                         <Box display={'flex'} flexDirection='row' justifyContent={'space-between'}>
                             <Box display={'flex'} w='50%' flexDirection={'column'} gap='4' >
                                 <Box>
-                                    <Heading as='h3' fontSize='16px'>Amount</Heading>
+                                    <Heading as='h3' fontSize='13px'>Amount</Heading>
                                     <Text textColor={'GrayText'}>SC 35,000,000 </Text>
                                 </Box>
                                 <Box>
@@ -84,48 +90,77 @@ const ProjectIdeaCard = ({ draft, Active, status }) => {
 
                         </Box>
                         <VStack w="full" alignItems="left">
-
                             <Text color="#000">Team Members</Text>
-
-
-                            <Flex alignItems="left" w="full">
+                            <Flex alignItems="center" w="full">
 
                                 <VStack w="100%" alignItems="center">
                                     <Avatar size='md' borderRadius={'md'} name='Dan Abrahmov' src={AfenaAvatar} />
 
-                                    <Text color="secondary.100">Olumide Francis</Text>
-                                    <Text color="#57575B" fontSize="14px">CEO</Text>
+                                    <Text color="secondary.100" fontSize={'13px'}>Olumide Francis</Text>
+                                    <Text color="#57575B" fontSize="13px">CEO</Text>
                                 </VStack>
 
                                 <VStack w="100%" alignItems="center">
                                     <Avatar size='md' borderRadius={'md'} name='Dan Abrahmov' src={AfenaAvatar} />
 
-                                    <Text color="secondary.100">Asabi Francis</Text>
-                                    <Text color="#57575B" fontSize="14px">Co-founder</Text>
+                                    <Text color="secondary.100" fontSize={'13px'}>Asabi Francis</Text>
+                                    <Text color="#57575B" fontSize="13px">Co-founder</Text>
                                 </VStack>
 
                                 <VStack w="100%" alignItems="center">
                                     <Avatar size='md' borderRadius={'md'} name='Dan Abrahmov' src={AfenaAvatar} />
 
-                                    <Text color="secondary.100">Kudirat Bakare</Text>
-                                    <Text color="#57575B" fontSize="14px">Customer Service</Text>
+                                    <Text color="secondary.100" fontSize={'13px'}>Kudirat Bakare</Text>
+                                    <Text color="#57575B" fontSize="13px">Customer Service</Text>
                                 </VStack>
 
                                 <VStack w="100%" alignItems="center">
                                     <Avatar size='md' borderRadius={'md'} name='Dan Abrahmov' src={AfenaAvatar} />
 
-                                    <Text color="secondary.100">Alex nwofor</Text>
-                                    <Text color="#57575B" fontSize="14px">Marketing</Text>
+                                    <Text color="secondary.100" fontSize={'13px'}>Alex nwofor</Text>
+                                    <Text color="#57575B" fontSize="13px">Marketing</Text>
                                 </VStack>
                             </Flex>
+                        </VStack>
+                        <VStack height='20rem' alignItems={'start'} >
+                            <Text fontSize={'16px'} fontWeight='bold'>Product demo</Text>
+                            <Box border={'1px'} height='15rem' borderRadius={'10px'} w='full'></Box>
+                            <HStack>
+                                <Box display={'flex'} gap='.4rem'>
+                                    <Image src={Eye} />
+                                    <Text>1 Minute</Text>
+                                </Box>
+                                <Box display={'flex'} gap='.4rem'>
+                                    <Image src={Eye} />
+                                    <Text>20 Bids</Text>
+                                </Box>
+                                <Box display={'flex'} gap='.4rem'>
+                                    <Image src={Eye} />
+                                    <Text>2000 views</Text>
+                                </Box>
+                            </HStack>
+                        </VStack>
+                        <VStack alignItems="left" w="full">
+
+                            <Text color="#000">Pitch deck</Text>
+
+                            <HStack w="60%" p="20px" borderRadius="6px" border="1px #D5D5D6 solid">
+                                <HStack flex="1">
+                                    <Image src={FolderIcon} mr="10px" alt="folder icon" />
+                                    <Text color="#000">Jeji pitch.pdf</Text>
+                                </HStack>
+
+                                <Text alignContent="right">2MB</Text>
+                            </HStack>
+
+
+                            <Text color="#000">Supporting documents</Text>
+                            <Text>Nil</Text>
                         </VStack>
                     </ModalBody>
 
                     <ModalFooter>
-                        <Button colorScheme='blue' mr={3} onClick={onClose}>
-                            Close
-                        </Button>
-                        <Button variant='ghost'>Secondary Action</Button>
+
                     </ModalFooter>
                 </ModalContent>
             </Modal>
