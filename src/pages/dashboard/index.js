@@ -17,15 +17,31 @@ import WithDrawFund from './screens/subscreens/withdrawFund'
 import TransactionHistory from './screens/subscreens/transactionHistory'
 
 import { useParams } from 'react-router-dom'
+import { extendTheme } from '@chakra-ui/react'
+import { createBreakpoints } from '@chakra-ui/theme-tools'
+
+// 2. Update the breakpoints as key-value pairs
+const breakpoints = createBreakpoints({
+  sm: '320px',
+  md: '768px',
+  lg: '960px',
+  xl: '1200px',
+  '2xl': '1536px',
+})
+
+// 3. Extend the theme
+const theme = extendTheme({ breakpoints })
 
 const Dashboard = ()=> {
     const params = useParams();
 
     return (
 
-            <Flex width="full" height="100vh" direction="row">
+            <Flex width={{ base: '100%', }}  direction="row">
                 <SideNav />
-                <VStack width="full" bg="background.100">
+
+                {/* removed display entire dashboard screens here */}
+                <VStack width="full" bg="background.100" display="">
                     { params.sub ? null : <Header /> }
                     {/* Dashboard screens */}
                     <main className="w-full h-full p-8 main-container">
