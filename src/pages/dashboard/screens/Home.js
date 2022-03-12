@@ -1,5 +1,7 @@
 import { Avatar, Box, Button, Flex, Grid, Heading, Text, VStack, Spacer, Select, HStack, Image, CloseButton } from '@chakra-ui/react'
+
 import React, { useState } from 'react'
+
 import SingaCoin from '../../../assets/images/singa.png'
 
 import EmptyUser from '../../../assets/images/empty-user.png'
@@ -8,6 +10,23 @@ import SirTAvatar from '../../../assets/images/users/Tochukwu.jpg'
 import ImportIcon from '../../../assets/images/icons/icons-set/linear/import.svg'
 import ExportIcon from '../../../assets/images/icons/icons-set/linear/export.svg'
 import TheIdeas from '../data/ideas.data'
+import SideNav from '../components/SideNav'
+
+import { extendTheme } from '@chakra-ui/react'
+import { createBreakpoints } from '@chakra-ui/theme-tools'
+
+// 2. Update the breakpoints as key-value pairs
+const breakpoints = createBreakpoints({
+  sm: '320px',
+  md: '768px',
+  lg: '960px',
+  xl: '1200px',
+  '2xl': '1536px',
+})
+
+// 3. Extend the theme
+const theme = extendTheme({ breakpoints })
+
 
 const Home = ()=> {
 
@@ -22,9 +41,41 @@ const Home = ()=> {
     const hideModal = ()=> setShowModal(null);
 
     return (
-        <Box width="full">
+        <Box w="full" display=
+            {{ base: "flex",
+            sm: "flex",
+            md: "flex",
+             }}
+             
+             flexDirection={{
+                 base: "column",
+                 sm: "column",
+                 md: "column",
+             }}>
+            
+                 
             <Text fontWeight="700" fontSize="24px">Welcome Margaret,</Text>
-            <Flex width="full" justifyContent="space-between" alignItems="flex-start" mt="8">
+            <Flex width="full" alignItems="flex-start" mt="8"
+            
+            justifyContent={{
+                base: "center",
+                sm: "center",
+                md: "center",
+                lg: "space-between",
+                xl: "space-between",
+                '2x1': "space-between",
+            }}
+            alignItems={{
+                base: "center",
+                sm: "center",
+                md: "center",
+                lg: "flex-start",
+                xl: "flex-start",
+                '2x1': "flex-start",
+            }}
+
+            
+            >
 
                 <Box display="flex" flexDirection="column" alignItems="flex-start" w="65%">
                     <Box display="flex" flexDirection="row" mb="8" padding="25px" pb="6" h="fit-content" width="fit-content" bg="white" borderRadius="16px" w="100%">
@@ -146,8 +197,11 @@ const Home = ()=> {
 
 
                 { showModal }
+                
 
         </Box>
+
+        
     )
 }
 

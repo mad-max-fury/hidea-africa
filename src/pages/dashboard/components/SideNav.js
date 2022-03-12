@@ -13,6 +13,8 @@ import IdeaPooolIcon from '../../../assets/images/icons/icons-set/linear/box.svg
 import SupportIcon from '../../../assets/images/icons/icons-set/linear/device-message.svg'
 import MyIdeasIcon from '../../../assets/images/icons/icons-set/linear/lock.svg'
 import LogoutIcon from '../../../assets/images/icons/icons-set/linear/logout.svg'
+import Cancel from '../../../assets/images/icons/cancel.png'
+import Hamburger from '../../../assets/images/icons/hamburger.svg'
 
 
 //BoldIcons
@@ -24,6 +26,20 @@ import SupportIconBold from '../../../assets/images/icons/icons-set/bold/device-
 import MyIdeasIconBold from '../../../assets/images/icons/icons-set/bold/lock.svg'
 import NotificationBold from '../../../assets/images/icons/icons-set/bold/notification.svg'
 import { useNavigate, useParams } from 'react-router-dom'
+import { extendTheme } from '@chakra-ui/react'
+import { createBreakpoints } from '@chakra-ui/theme-tools'
+
+// 2. Update the breakpoints as key-value pairs
+const breakpoints = createBreakpoints({
+  sm: '320px',
+  md: '768px',
+  lg: '960px',
+  xl: '1200px',
+  '2xl': '1536px',
+})
+
+// 3. Extend the theme
+const theme = extendTheme({ breakpoints })
 
 
 const SideNav = () => {
@@ -58,15 +74,30 @@ const SideNav = () => {
         navigate(text === "Dashboard" ? "/dashboard/index" : `/dashboard/${text.toLowerCase().replace(" ", "-")}`);
     }
 
+    const [close, setClose] = useState('large');
 
     return (
-        <aside className="aside_nav h-full z-10 bg-white">
+        <aside className="aside_nav h-full z-10 bg-white" 
+            style={close === 'small'? {width:'0%'}: {width:'20%'}} position="fixed">
 
-            <Box ml="8" mb="12">
+            
+
+            <Box display="flex" justifyContent="space-between" ml="8" mb="12">
+            
                 <Image
                     src={hideaLogo}
                     width="120px"
                     alt="hidea logo" />
+
+                    {/* Hamburger menu */}
+
+                    {/* <Image src={ Hamburger } width="2rem" cursor="pointer" alt='close menu'
+                    onClick={()=> {
+                        if (close == 'small')
+                            setClose('large')
+                        else
+                            setClose('small')
+                    }}/> */}
             </Box>
 
 
@@ -94,7 +125,7 @@ const SideNav = () => {
                 <Spacer/>
 
                 <HStack spacing="4">
-                    <UserAvatar avatar={user} name="Magaret Mead" />
+                    <UserAvatar avatar={user} name="Margaret Mead" />
                     {/* Dots */}
                     <HStack spacing="0.5" cursor="pointer">
                         <span className="w-1.5 h-1.5 rounded-full bg-black"></span>
