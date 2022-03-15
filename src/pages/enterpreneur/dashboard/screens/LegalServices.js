@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Flex, Grid, GridItem, Heading, Text, VStack, Input, InputGroup, InputLeftElement, Stack, Spacer, Select, HStack, Image, ModalBody, ModalContent, ModalOverlay, ModalCloseButton, ModalHeader, Tabs, TabList, TabPanels, Tab, TabPanel, Modal, useDisclosure, ModalFooter, Textarea, AvatarGroup } from '@chakra-ui/react'
+import { Avatar, Box, Button, Flex, Grid, GridItem, Heading, Checkbox, Text, VStack, Input, InputGroup, InputLeftElement, Stack, Spacer, Select, HStack, Image, ModalBody, ModalContent, ModalOverlay, ModalCloseButton, ModalHeader, Tabs, TabList, TabPanels, Tab, TabPanel, Modal, useDisclosure, ModalFooter, Textarea, AvatarGroup } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import Header from '../components/Header'
 import SideNav from '../components/SideNav'
@@ -13,6 +13,7 @@ import TriangleRightIcon from '../../../../assets/images/icons/trianglerighticon
 import HowToAccordion from '../components/HowToAccordion'
 import Foldercard from '../components/Foldercard'
 import LegalServicesCard from '../components/Legalservicescard'
+import Warning from '../../../../assets/images/icons/icons-set/bold/warning1.svg'
 
 
 
@@ -20,14 +21,16 @@ import LegalServicesCard from '../components/Legalservicescard'
 const LegalServices = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     let [value, setValue] = React.useState('')
-
+    const [continueReq, setContinueReq] = useState(false)
     let handleInputChange = (e) => {
         let inputValue = e.target.value
         setValue(inputValue)
     }
-
-
-
+    const handleClick = () => setContinueReq(!continueReq)
+    const handleClose = () => {
+        setContinueReq(!continueReq)
+        onClose()
+    }
 
 
     return (
@@ -198,7 +201,36 @@ const LegalServices = () => {
             </VStack>
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
-                <ModalContent maxW={'40vw'} maxH='fit-content'>
+                {continueReq ? <ModalContent maxWidth="40vw" maxHeight="fit-content">
+                    <br /><br />
+                    <ModalCloseButton />
+                    <ModalBody margin="auto" w="95%">
+                        <ModalHeader>
+                            Please read information carefully.
+                        </ModalHeader>
+
+                        <HStack margin="auto" padding="20px" borderStyle="solid" border="1px" borderColor="#F3BF05" borderRadius="16px" bgColor="#FEF8E6">
+                            <Image src={Warning} alt="warning sign" />
+                            <Text fontSize="14px" bgColor="#FEF8E6">
+                                This is not a buying and selling transaction, this is for viewing purposes only.
+                                Any idea stolen from here is tantamount to intellectual property fraud, stealing by conversion.
+                            </Text>
+                        </HStack>
+                        <Text mt="40px">
+                            Please note that 100 Singa coins will be decucted from your wallet to
+                            grant you access to view product description of this idea.
+                        </Text>
+                        <Checkbox mt="24px" size='lg' colorScheme='green'>Don’t show this message again</Checkbox>
+
+                        <Box mt="48px">
+                            <Button mb="48px" padding="1.5rem" margin="auto" width="full" colorScheme='whatsapp' variant='outline' onClick={handleClick}>Cancel, I dont want to pay</Button>
+                        </Box>
+                        <Box mt="1rem" mb="54px">
+                            <Button mt="48px" padding="1.5rem" margin="auto" width="full" colorScheme='whatsapp' variant='solid' onClick={handleClick}>Agreed, please proceed</Button>
+                        </Box>
+
+                    </ModalBody>
+                </ModalContent> : <ModalContent maxW={'40vw'} maxH='fit-content'>
                     <ModalHeader></ModalHeader>
                     <ModalCloseButton />
                     <ModalBody display={'flex'} paddingTop='2rem' width={'80%'} margin='auto' gap='2rem' flexFlow='column'>
@@ -249,10 +281,10 @@ const LegalServices = () => {
                     </ModalBody>
 
                     <ModalFooter width={'80%'} margin='auto'>
-                        <Button padding={'1.8rem 0'} width='100%' bgColor={'green.400'} textColor='white' _hover={{ backgroundColor: 'green.500' }}>Request service</Button>
+                        <Button padding={'1.8rem 0'} width='100%' bgColor={'green.400'} textColor='white' _hover={{ backgroundColor: 'green.500' }} onClick={handleClick}>Request service</Button>
 
                     </ModalFooter>
-                </ModalContent>
+                </ModalContent>}
             </Modal>
         </Flex >
     )

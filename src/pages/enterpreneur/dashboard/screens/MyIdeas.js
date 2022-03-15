@@ -19,14 +19,8 @@ import ProjectIdeaCard from '../components/projectIdeaCard'
 
 const MyIdeas = () => {
     const [active, setActive] = useState(0);
-    const [ideas, setIdeas] = useState(ideasModel);
-    const [hasInactive, setHasInactive] = useState(ideas.length > 0);
+    const [ideas, setIdeas] = useState(ideasModel)
 
-    // const clickFnExec = _ => {
-    //     const ideas_copy = ideas.map(idea => idea.isSelected = false);
-    //     setIdeas(ideas_copy);
-
-    // }
 
 
     const onClose = () => setModalIsOpen(false);
