@@ -36,12 +36,8 @@ const EnterpreneurDashboard = () => {
                                 ? <LegalServices />
                                 : params.route === "ad-center"
                                     ? <AdCenter />
-                                    // : params.route  == "wallet" && params.sub == "fund-wallet"
-                                    // ? <Wallet />
-                                    : params.route == "wallet" && params.sub == "withdraw-fund"
-                                        ? <WithDrawFund />
-                                        // : params.route === "wallet"
-                                        // ? <Wallet />
+                                    : params.route === "wallet"
+                                        ? <Wallet />
                                         : params.route === "settings"
                                             ? <Settings />
                                             : params.route === "support"
